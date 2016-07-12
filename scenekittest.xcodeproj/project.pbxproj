@@ -13,6 +13,7 @@
 		BC8FD82C1D34214000759D12 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC8FD82A1D34214000759D12 /* Main.storyboard */; };
 		BC8FD82E1D34214000759D12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC8FD82D1D34214000759D12 /* Assets.xcassets */; };
 		BC8FD8311D34214000759D12 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC8FD82F1D34214000759D12 /* LaunchScreen.storyboard */; };
+		BC8FD83A1D3424EA00759D12 /* NYT360.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8FD8391D3424EA00759D12 /* NYT360.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		BC8FD82D1D34214000759D12 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BC8FD8301D34214000759D12 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BC8FD8321D34214000759D12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BC8FD8381D3424EA00759D12 /* NYT360.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYT360.h; sourceTree = "<group>"; };
+		BC8FD8391D3424EA00759D12 /* NYT360.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYT360.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +70,8 @@
 				BC8FD82F1D34214000759D12 /* LaunchScreen.storyboard */,
 				BC8FD8321D34214000759D12 /* Info.plist */,
 				BC8FD8211D34214000759D12 /* Supporting Files */,
+				BC8FD8381D3424EA00759D12 /* NYT360.h */,
+				BC8FD8391D3424EA00759D12 /* NYT360.m */,
 			);
 			path = scenekittest;
 			sourceTree = "<group>";
@@ -152,6 +157,7 @@
 				BC8FD8291D34214000759D12 /* ViewController.m in Sources */,
 				BC8FD8261D34214000759D12 /* AppDelegate.m in Sources */,
 				BC8FD8231D34214000759D12 /* main.m in Sources */,
+				BC8FD83A1D3424EA00759D12 /* NYT360.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
