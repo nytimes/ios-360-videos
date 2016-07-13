@@ -30,11 +30,6 @@
 
 }
 
-- (void)slide: (UISlider *) sender {
-    _nyt360.cameraNode.position = SCNVector3Make(0, 0, (1 - sender.value) * 20);
-
-}
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
