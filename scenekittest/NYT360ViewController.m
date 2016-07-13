@@ -7,6 +7,7 @@
 //
 
 #import "NYT360ViewController.h"
+#import "NYT360Controls.h"
 
 @interface NYT360ViewController ()
 
@@ -17,6 +18,7 @@
 - (id) initWithAVPlayer: (AVPlayer *)player {
     self = [super init];
     _player = player;
+
     return self;
 }
 
@@ -28,6 +30,7 @@
 
 - (void) viewDidLoad {
     [super viewDidLoad];
+
     _videoNode = [[SCNNode alloc] init];
     _videoNode.position = SCNVector3Make(0, 0, 0);
 
@@ -65,7 +68,7 @@
     _skVideoNode.yScale = -1;
     [_skScene addChild: _skVideoNode];
 
-    SCNSphere *sphere = [SCNSphere sphereWithRadius:20.0];
+    SCNSphere *sphere = [SCNSphere sphereWithRadius:10.0];
 
     _videoNode.geometry = sphere;
     _videoNode.geometry.firstMaterial.diffuse.contents =
@@ -73,11 +76,11 @@ _skScene;
     _videoNode.geometry.firstMaterial.diffuse.minificationFilter = SCNFilterModeLinear;
     _videoNode.geometry.firstMaterial.diffuse.magnificationFilter = SCNFilterModeLinear;
     _videoNode.geometry.firstMaterial.doubleSided = YES;
-    _videoNode.scale = SCNVector3Make(_videoNode.scale.x, _videoNode.scale.y, -(_videoNode.scale.z));
 
     [_scene.rootNode addChildNode: _videoNode];
 
-    [_videoNode runAction: [SCNAction repeatActionForever: [SCNAction rotateByAngle: M_PI * 2.0 aroundAxis: SCNVector3Make(0, 1, 0) duration:20.0]]];
+    view.userInteractionEnabled = YES;
+    _controls = [[NYT360Controls alloc] initWithView: view];
 
 }
 

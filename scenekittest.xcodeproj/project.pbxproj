@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC885F881D36E280006DAFA2 /* NYT360Controls.m in Sources */ = {isa = PBXBuildFile; fileRef = BC885F871D36E280006DAFA2 /* NYT360Controls.m */; };
 		BC8FD8231D34214000759D12 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8FD8221D34214000759D12 /* main.m */; };
 		BC8FD8261D34214000759D12 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8FD8251D34214000759D12 /* AppDelegate.m */; };
 		BC8FD8291D34214000759D12 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8FD8281D34214000759D12 /* ViewController.m */; };
@@ -17,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BC885F861D36E280006DAFA2 /* NYT360Controls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYT360Controls.h; sourceTree = "<group>"; };
+		BC885F871D36E280006DAFA2 /* NYT360Controls.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYT360Controls.m; sourceTree = "<group>"; };
 		BC8FD81E1D34214000759D12 /* scenekittest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = scenekittest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC8FD8221D34214000759D12 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BC8FD8241D34214000759D12 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -61,6 +64,8 @@
 		BC8FD8201D34214000759D12 /* scenekittest */ = {
 			isa = PBXGroup;
 			children = (
+				BC885F861D36E280006DAFA2 /* NYT360Controls.h */,
+				BC885F871D36E280006DAFA2 /* NYT360Controls.m */,
 				BC8FD8241D34214000759D12 /* AppDelegate.h */,
 				BC8FD8251D34214000759D12 /* AppDelegate.m */,
 				BC8FD8271D34214000759D12 /* ViewController.h */,
@@ -155,6 +160,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC8FD8291D34214000759D12 /* ViewController.m in Sources */,
+				BC885F881D36E280006DAFA2 /* NYT360Controls.m in Sources */,
 				BC8FD8261D34214000759D12 /* AppDelegate.m in Sources */,
 				BC8FD8231D34214000759D12 /* main.m in Sources */,
 				BC8FD83D1D358DA200759D12 /* NYT360ViewController.m in Sources */,

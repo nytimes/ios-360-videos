@@ -28,11 +28,7 @@
     
     [self.view addSubview: _nyt360.view];
     [_player play];
-    
-    UISlider *slider = [[UISlider alloc] init];
-    [slider addTarget:self action:@selector(slide:) forControlEvents: UIControlEventValueChanged];
-    slider.frame = CGRectMake(0, 600, 350, 30);
-    [self.view addSubview:slider];
+
 }
 
 - (void)slide: (UISlider *) sender {
