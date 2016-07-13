@@ -26,4 +26,6 @@
 
 - (id) initWithView: (SCNView *) view;
 
+- (void) update;
+
 @end

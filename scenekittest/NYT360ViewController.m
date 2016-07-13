@@ -49,7 +49,6 @@
     view.autoenablesDefaultLighting = YES;
     _cameraNode.position = SCNVector3Make(0, 0, 0);
 
-//    _cameraNode.eulerAngles = SCNVector3Make(-M_PI_2, 0.0, M_PI);
     [_scene.rootNode addChildNode: _cameraNode];
 
     view.scene = _scene;
@@ -81,12 +80,12 @@ _skScene;
 
     view.userInteractionEnabled = YES;
     _controls = [[NYT360Controls alloc] initWithView: view];
-
 }
 
 - (void)renderer:(id<SCNSceneRenderer>)renderer
   didRenderScene:(SCNScene *)scene
           atTime:(NSTimeInterval)time {
+    [_controls update];
 }
 
 - (void) didReceiveMemoryWarning {

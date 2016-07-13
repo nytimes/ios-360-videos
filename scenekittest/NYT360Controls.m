@@ -18,24 +18,20 @@
     _view = view;
     _currentPosition = CGPointMake(0, 0);
 
-    NSOperationQueue *controlsQueue = [[NSOperationQueue alloc] init];
-
     _panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)];
     _panRecognizer.delegate = self;
     [_view addGestureRecognizer:_panRecognizer];
 
     _motionManager = [[CMMotionManager alloc] init];
-    _motionManager.gyroUpdateInterval = 0.01;
-    [_motionManager startGyroUpdatesToQueue:controlsQueue withHandler:^(CMGyroData * gyroData, NSError * _Nullable error) {
-        [self handleGyroscope:gyroData];
-    }];
+    _motionManager.deviceMotionUpdateInterval = 0.01;
+    [_motionManager startDeviceMotionUpdates];
 
     return self;
 }
 
--(void)handleGyroscope:(CMGyroData *)gyroData {
-    CMRotationRate rotationRate = [gyroData rotationRate];
-    _currentPosition = CGPointMake(_currentPosition.x + rotationRate.y * 0.025,
+-(void)update {
+    CMRotationRate rotationRate = _motionManager.deviceMotion.rotationRate;
+    _currentPosition = CGPointMake(_currentPosition.x + rotationRate.y * 0.02,
                                    _currentPosition.y - rotationRate.x * 0.02 * -1);
     _currentPosition.y = CLAMP(_currentPosition.y, -M_PI / 2 , M_PI / 2);
     _camera.eulerAngles = SCNVector3Make(_currentPosition.y, _currentPosition.x, 0);
