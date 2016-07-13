@@ -8,6 +8,8 @@
 
 #import "ViewController.h"
 
+#import "NYT360ViewController.h"
+
 @interface ViewController ()
 
 @end
@@ -16,7 +18,26 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+
+    
+    NSURL *videoURL = [[NSURL alloc] initWithString:@"https://vp.nyt.com/video/360/hls/video.m3u8"];
+
+    self.player = [[AVPlayer alloc] initWithURL: videoURL];
+
+    self.nyt360 = [[NYT360ViewController alloc] initWithAVPlayer: self.player];
+    
+    [self.view addSubview: _nyt360.view];
+    [_player play];
+    
+    UISlider *slider = [[UISlider alloc] init];
+    [slider addTarget:self action:@selector(slide:) forControlEvents: UIControlEventValueChanged];
+    slider.frame = CGRectMake(0, 600, 350, 30);
+    [self.view addSubview:slider];
+}
+
+- (void)slide: (UISlider *) sender {
+    _nyt360.cameraNode.position = SCNVector3Make(0, 0, (1 - sender.value) * 20);
+
 }
 
 - (void)didReceiveMemoryWarning {

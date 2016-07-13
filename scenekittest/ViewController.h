@@ -8,8 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+#import "NYT360ViewController.h"
+
+@import AVFoundation;
+
 @interface ViewController : UIViewController
 
+@property (nonatomic,strong) AVPlayer *player;
+@property (nonatomic, strong) NYT360ViewController *nyt360;
 
 @end
 
