@@ -6,18 +6,15 @@
 //  Copyright © 2016 The New York Times. All rights reserved.
 //
 
+@import AVFoundation;
+
 #import "NYT360ViewController.h"
 #import "NYT360CameraController.h"
+#import "NYT360PlayerScene.h"
 
 @interface NYT360ViewController ()
 
-@property (nonatomic) AVPlayer *player;
-@property (nonatomic) SCNScene *scene;
-@property (nonatomic) SCNNode *videoNode;
-@property (nonatomic) SCNNode *cameraNode;
-@property (nonatomic) SCNCamera *camera;
-@property (nonatomic) SKScene *skScene;
-@property (nonatomic) SKVideoNode *skVideoNode;
+@property (nonatomic) NYT360PlayerScene *playerScene;
 @property (nonatomic) NYT360CameraController *cameraController;
 
 @end
@@ -27,36 +24,7 @@
 - (id)initWithAVPlayer:(AVPlayer *)player {
     self = [super init];
     if (self) {
-        _player = player;
-        
-        _camera = [[SCNCamera alloc] init];
-        
-        _cameraNode = [[SCNNode alloc] init];
-        _cameraNode.camera = _camera;
-        _cameraNode.position = SCNVector3Make(0, 0, 0);
-        
-        _scene = [[SCNScene alloc] init];
-        [_scene.rootNode addChildNode:_cameraNode];
-        
-        _skScene = [[SKScene alloc] initWithSize:CGSizeMake(1280, 1280)];
-        _skScene.shouldRasterize = YES;
-        _skScene.scaleMode = SKSceneScaleModeAspectFit;
-        
-        _skVideoNode = [[SKVideoNode alloc] initWithAVPlayer:_player];
-        _skVideoNode.position = CGPointMake(_skScene.size.width / 2, _skScene.size.height / 2);
-        _skVideoNode.size = _skScene.size;
-        _skVideoNode.yScale = -1;
-        _skVideoNode.xScale = -1;
-        [_skScene addChild:_skVideoNode];
-        
-        _videoNode = [[SCNNode alloc] init];
-        _videoNode.position = SCNVector3Make(0, 0, 0);
-        _videoNode.geometry = [SCNSphere sphereWithRadius:100.0]; //TODO [DZ]: What is the correct size here?
-        _videoNode.geometry.firstMaterial.diffuse.contents = _skScene;
-        _videoNode.geometry.firstMaterial.diffuse.minificationFilter = SCNFilterModeLinear;
-        _videoNode.geometry.firstMaterial.diffuse.magnificationFilter = SCNFilterModeLinear;
-        _videoNode.geometry.firstMaterial.doubleSided = YES;
-        [_scene.rootNode addChildNode:_videoNode];
+        _playerScene = [[NYT360PlayerScene alloc] initWithAVPlayer:player];
     }
     return self;
 }
@@ -76,9 +44,7 @@
     view.backgroundColor = [UIColor greenColor];
     view.delegate = self;
     
-    view.scene = self.scene;
-    view.pointOfView = self.cameraNode;
-    view.playing = YES;
+    [self.playerScene bindToView:view];
     
     self.cameraController = [[NYT360CameraController alloc] initWithView:view];
     [self adjustCameraFOV];
@@ -108,10 +74,10 @@
 - (void)adjustCameraFOV {
     // TODO [DZ]: What are the correct values here?
     if (UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation) || [UIDevice currentDevice].orientation == UIInterfaceOrientationUnknown) {
-        self.camera.yFov = 100;
+        self.playerScene.camera.yFov = 100;
     }
     else {
-        self.camera.yFov = 60;
+        self.playerScene.camera.yFov = 60;
     }
 }
 

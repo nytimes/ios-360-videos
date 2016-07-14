@@ -6,6 +6,9 @@
 //  Copyright © 2016 The New York Times. All rights reserved.
 //
 
+@import SceneKit;
+@import CoreMotion;
+
 #import "NYT360CameraController.h"
 
 #define CLAMP(x, low, high) (((x) > (high)) ? (high) : (((x) < (low)) ? (low) : (x)))

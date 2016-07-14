@@ -6,10 +6,9 @@
 //  Copyright © 2016 The New York Times. All rights reserved.
 //
 
-@import Foundation;
 @import UIKit;
-@import SceneKit;
-@import CoreMotion;
+
+@class SCNView;
 
 NS_ASSUME_NONNULL_BEGIN
 

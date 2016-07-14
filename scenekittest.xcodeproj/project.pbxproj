@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		93049E3F1D3829B800721241 /* NYT360PlayerScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 93049E3E1D3829B800721241 /* NYT360PlayerScene.m */; };
 		BC885F881D36E280006DAFA2 /* NYT360CameraController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC885F871D36E280006DAFA2 /* NYT360CameraController.m */; };
 		BC8FD8231D34214000759D12 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8FD8221D34214000759D12 /* main.m */; };
 		BC8FD8261D34214000759D12 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8FD8251D34214000759D12 /* AppDelegate.m */; };
@@ -18,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		93049E3D1D3829B800721241 /* NYT360PlayerScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYT360PlayerScene.h; sourceTree = "<group>"; };
+		93049E3E1D3829B800721241 /* NYT360PlayerScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYT360PlayerScene.m; sourceTree = "<group>"; };
 		BC885F861D36E280006DAFA2 /* NYT360CameraController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYT360CameraController.h; sourceTree = "<group>"; };
 		BC885F871D36E280006DAFA2 /* NYT360CameraController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYT360CameraController.m; sourceTree = "<group>"; };
 		BC8FD81E1D34214000759D12 /* scenekittest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = scenekittest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,6 +71,8 @@
 				BC885F871D36E280006DAFA2 /* NYT360CameraController.m */,
 				BC8FD83B1D358DA200759D12 /* NYT360ViewController.h */,
 				BC8FD83C1D358DA200759D12 /* NYT360ViewController.m */,
+				93049E3D1D3829B800721241 /* NYT360PlayerScene.h */,
+				93049E3E1D3829B800721241 /* NYT360PlayerScene.m */,
 				BC8FD8241D34214000759D12 /* AppDelegate.h */,
 				BC8FD8251D34214000759D12 /* AppDelegate.m */,
 				BC8FD8271D34214000759D12 /* ViewController.h */,
@@ -184,6 +189,7 @@
 				BC8FD8261D34214000759D12 /* AppDelegate.m in Sources */,
 				BC8FD8231D34214000759D12 /* main.m in Sources */,
 				BC8FD83D1D358DA200759D12 /* NYT360ViewController.m in Sources */,
+				93049E3F1D3829B800721241 /* NYT360PlayerScene.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
