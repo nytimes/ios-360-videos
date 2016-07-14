@@ -49,7 +49,11 @@ CGPoint subtractPoints(CGPoint a, CGPoint b) {
     return self;
 }
 
-- (void)update {
+- (void)dealloc {
+    [self.motionManager stopDeviceMotionUpdates];
+}
+
+- (void)updateCameraAngle {
     CMRotationRate rotationRate = self.motionManager.deviceMotion.rotationRate;
     CGPoint position = CGPointMake(self.currentPosition.x + rotationRate.y * 0.02,
                                    self.currentPosition.y - rotationRate.x * 0.02 * -1);

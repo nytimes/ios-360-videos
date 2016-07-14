@@ -19,9 +19,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)initWithView:(SCNView *)view;
 
-#pragma mark -
+#pragma mark - 
 
-- (void)update;
+- (void)updateCameraAngle;
 
 @end
 

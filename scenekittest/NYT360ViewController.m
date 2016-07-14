@@ -18,7 +18,7 @@
 @property (nonatomic) SCNCamera *camera;
 @property (nonatomic) SKScene *skScene;
 @property (nonatomic) SKVideoNode *skVideoNode;
-@property (nonatomic) NYT360CameraController *controls;
+@property (nonatomic) NYT360CameraController *cameraController;
 
 @end
 
@@ -80,7 +80,7 @@
     view.pointOfView = self.cameraNode;
     view.playing = YES;
     
-    self.controls = [[NYT360CameraController alloc] initWithView:view];
+    self.cameraController = [[NYT360CameraController alloc] initWithView:view];
     [self adjustCameraFOV];
 }
 
