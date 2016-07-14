@@ -84,10 +84,8 @@
     [self adjustCameraFOV];
 }
 
-- (void)  renderer:(id <SCNSceneRenderer>)renderer
-    didRenderScene:(SCNScene *)scene
-            atTime:(NSTimeInterval)time {
-    [self.controls update];
+- (void)renderer:(id <SCNSceneRenderer>)renderer updateAtTime:(NSTimeInterval)time {
+    [self.cameraController updateCameraAngle];
 }
 
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id <UIViewControllerTransitionCoordinator>)coordinator {
