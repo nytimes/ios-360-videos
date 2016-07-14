@@ -120,6 +120,8 @@
 				TargetAttributes = {
 					BC8FD81D1D34214000759D12 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = FL458598BU;
+						DevelopmentTeamName = "The New York Times Company";
 					};
 				};
 			};
