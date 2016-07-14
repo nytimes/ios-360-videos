@@ -47,6 +47,7 @@
         _skVideoNode.position = CGPointMake(_skScene.size.width / 2, _skScene.size.height / 2);
         _skVideoNode.size = _skScene.size;
         _skVideoNode.yScale = -1;
+        _skVideoNode.xScale = -1;
         [_skScene addChild:_skVideoNode];
         
         _videoNode = [[SCNNode alloc] init];
