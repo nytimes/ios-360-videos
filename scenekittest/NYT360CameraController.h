@@ -26,7 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark -
 
-- (void)updateFromDeviceMotion;
+- (void)updateCameraAngle;
 
 @end
 

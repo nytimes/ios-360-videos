@@ -56,7 +56,7 @@ CGPoint subtractPoints(CGPoint a, CGPoint b) {
     [self.motionManager stopDeviceMotionUpdates];
 }
 
-- (void)updateFromDeviceMotion {
+- (void)updateCameraAngle {
 #ifdef DEBUG
     if (!self.motionManager.deviceMotionActive) {
         NSLog(@"Warning: %@ called while %@ is not receiving motion updates", NSStringFromSelector(_cmd), NSStringFromClass(self.class));

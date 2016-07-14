@@ -18,7 +18,7 @@
 @property (nonatomic) SCNCamera *camera;
 @property (nonatomic) SKScene *skScene;
 @property (nonatomic) SKVideoNode *skVideoNode;
-@property (nonatomic) NYT360CameraController *controls;
+@property (nonatomic) NYT360CameraController *cameraController;
 
 @end
 
@@ -80,28 +80,24 @@
     view.pointOfView = self.cameraNode;
     view.playing = YES;
     
-    self.controls = [[NYT360CameraController alloc] initWithView:view];
+    self.cameraController = [[NYT360CameraController alloc] initWithView:view];
     [self adjustCameraFOV];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    [self.controls startMotionUpdates];
+    [self.cameraController startMotionUpdates];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
     
-    [self.controls stopMotionUpdates];
+    [self.cameraController stopMotionUpdates];
 }
 
-// TODO: willREnder?
-
-- (void)  renderer:(id <SCNSceneRenderer>)renderer
-    didRenderScene:(SCNScene *)scene
-            atTime:(NSTimeInterval)time {
-    [self.controls updateFromDeviceMotion];
+- (void)renderer:(id <SCNSceneRenderer>)renderer updateAtTime:(NSTimeInterval)time {
+    [self.cameraController updateCameraAngle];
 }
 
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id <UIViewControllerTransitionCoordinator>)coordinator {
