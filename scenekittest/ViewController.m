@@ -11,6 +11,9 @@
 
 @interface ViewController ()
 
+@property (nonatomic) AVPlayer *player;
+@property (nonatomic) NYT360ViewController *nyt360VC;
+
 @end
 
 @implementation ViewController
