@@ -66,6 +66,8 @@
 			children = (
 				BC885F861D36E280006DAFA2 /* NYT360CameraController.h */,
 				BC885F871D36E280006DAFA2 /* NYT360CameraController.m */,
+				BC8FD83B1D358DA200759D12 /* NYT360ViewController.h */,
+				BC8FD83C1D358DA200759D12 /* NYT360ViewController.m */,
 				BC8FD8241D34214000759D12 /* AppDelegate.h */,
 				BC8FD8251D34214000759D12 /* AppDelegate.m */,
 				BC8FD8271D34214000759D12 /* ViewController.h */,
@@ -75,8 +77,6 @@
 				BC8FD82F1D34214000759D12 /* LaunchScreen.storyboard */,
 				BC8FD8321D34214000759D12 /* Info.plist */,
 				BC8FD8211D34214000759D12 /* Supporting Files */,
-				BC8FD83B1D358DA200759D12 /* NYT360ViewController.h */,
-				BC8FD83C1D358DA200759D12 /* NYT360ViewController.m */,
 			);
 			path = scenekittest;
 			sourceTree = "<group>";

@@ -12,11 +12,5 @@
 #import "NYT360ViewController.h"
 
 @interface ViewController : UIViewController
-
-#pragma mark - Properties
-
-@property (nonatomic) AVPlayer *player;
-@property (nonatomic) NYT360ViewController *nyt360;
-
 @end
 

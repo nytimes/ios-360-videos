@@ -11,6 +11,9 @@
 
 @interface ViewController ()
 
+@property (nonatomic) AVPlayer *player;
+@property (nonatomic) NYT360ViewController *nyt360VC;
+
 @end
 
 @implementation ViewController
@@ -20,17 +23,15 @@
     
     NSURL *videoURL = [[NSURL alloc] initWithString:@"https://vp.nyt.com/video/360/hls/video.m3u8"];
     self.player = [[AVPlayer alloc] initWithURL:videoURL];
-    
-    self.nyt360 = [[NYT360ViewController alloc] initWithAVPlayer:self.player];
+
     self.view.backgroundColor = [UIColor blackColor];
-    [self.view addSubview:self.nyt360.view];
-    [self addChildViewController:self.nyt360];
+    self.nyt360VC = [[NYT360ViewController alloc] initWithAVPlayer:self.player];
+
+    [self addChildViewController:self.nyt360VC];
+    [self.view addSubview:self.nyt360VC.view];
+    [self.nyt360VC didMoveToParentViewController:self];
     
     [self.player play];
-}
-
-- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id <UIViewControllerTransitionCoordinator>)coordinator {
-    [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
 }
 
 @end
