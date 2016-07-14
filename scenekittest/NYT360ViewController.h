@@ -6,11 +6,10 @@
 //  Copyright © 2016 The New York Times. All rights reserved.
 //
 
-
-@import AVFoundation;
-@import SceneKit;
 @import UIKit;
-@import SpriteKit;
+@import SceneKit;
+
+@class AVPlayer;
 
 NS_ASSUME_NONNULL_BEGIN
 
