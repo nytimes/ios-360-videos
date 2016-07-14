@@ -13,7 +13,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NYT360Controls : NSObject <UIGestureRecognizerDelegate>
+@interface NYT360CameraController : NSObject <UIGestureRecognizerDelegate>
 
 #pragma mark - Initializers
 

@@ -6,7 +6,7 @@
 //  Copyright © 2016 The New York Times. All rights reserved.
 //
 
-#import "NYT360Controls.h"
+#import "NYT360CameraController.h"
 
 #define CLAMP(x, low, high) (((x) > (high)) ? (high) : (((x) < (low)) ? (low) : (x)))
 
@@ -14,7 +14,7 @@ CGPoint subtractPoints(CGPoint a, CGPoint b) {
     return CGPointMake(b.x - a.x, b.y - a.y);
 }
 
-@interface NYT360Controls ()
+@interface NYT360CameraController ()
 
 @property (nonatomic) SCNView *view;
 @property (nonatomic) UIGestureRecognizer *panRecognizer;
@@ -28,7 +28,7 @@ CGPoint subtractPoints(CGPoint a, CGPoint b) {
 
 @end
 
-@implementation NYT360Controls
+@implementation NYT360CameraController
 
 - (id)initWithView:(SCNView *)view {
     self = [super init];

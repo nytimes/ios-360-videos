@@ -12,8 +12,6 @@
 @import UIKit;
 @import SpriteKit;
 
-#import "NYT360Controls.h"
-
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NYT360ViewController : UIViewController <SCNSceneRendererDelegate>

@@ -7,7 +7,7 @@
 //
 
 #import "NYT360ViewController.h"
-#import "NYT360Controls.h"
+#import "NYT360CameraController.h"
 
 @interface NYT360ViewController ()
 
@@ -18,7 +18,7 @@
 @property (nonatomic) SCNCamera *camera;
 @property (nonatomic) SKScene *skScene;
 @property (nonatomic) SKVideoNode *skVideoNode;
-@property (nonatomic) NYT360Controls *controls;
+@property (nonatomic) NYT360CameraController *controls;
 
 @end
 
@@ -78,7 +78,7 @@
     view.pointOfView = self.cameraNode;
     view.playing = YES;
     
-    self.controls = [[NYT360Controls alloc] initWithView:view];
+    self.controls = [[NYT360CameraController alloc] initWithView:view];
 }
 
 - (void)  renderer:(id <SCNSceneRenderer>)renderer
