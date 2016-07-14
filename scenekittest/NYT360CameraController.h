@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark -
 
-- (void)update;
+- (void)updateFromDeviceMotion;
 
 @end
 

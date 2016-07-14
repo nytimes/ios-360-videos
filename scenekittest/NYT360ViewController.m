@@ -87,7 +87,7 @@
 - (void)  renderer:(id <SCNSceneRenderer>)renderer
     didRenderScene:(SCNScene *)scene
             atTime:(NSTimeInterval)time {
-    [self.controls update];
+    [self.controls updateFromDeviceMotion];
 }
 
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id <UIViewControllerTransitionCoordinator>)coordinator {
