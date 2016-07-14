@@ -15,7 +15,7 @@
 
 @implementation NYT360ViewController
 
-- (id) initWithAVPlayer: (AVPlayer *)player {
+- (id)initWithAVPlayer: (AVPlayer *)player {
     self = [super init];
     _player = player;
 
@@ -55,13 +55,13 @@
     return self;
 }
 
-- (void) loadView {
+- (void)loadView {
     // the size should also come from the user
     SCNView *view = [[SCNView alloc] initWithFrame: [[UIScreen mainScreen] bounds]];
     self.view = view;
 }
 
-- (void) viewDidLoad {
+- (void)viewDidLoad {
     [super viewDidLoad];
     SCNView *view = (SCNView *) self.view;
     view.backgroundColor = [UIColor greenColor];
@@ -80,19 +80,9 @@
     [_controls update];
 }
 
-- (void) didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

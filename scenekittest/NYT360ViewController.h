@@ -6,15 +6,17 @@
 //  Copyright © 2016 The New York Times. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import "NYT360Controls.h"
 
 @import AVFoundation;
 @import SceneKit;
-
+@import UIKit;
 @import SpriteKit;
 
-@interface NYT360ViewController : UIViewController<SCNSceneRendererDelegate>
+#import "NYT360Controls.h"
+
+NS_ASSUME_NONNULL_BEGIN
+
+@interface NYT360ViewController : UIViewController <SCNSceneRendererDelegate>
 
 @property (nonatomic, strong) AVPlayer *player;
 @property (nonatomic, strong) SCNScene *scene;
@@ -25,6 +27,8 @@
 @property (nonatomic, strong) SKVideoNode *skVideoNode;
 @property (nonatomic, strong) NYT360Controls *controls;
 
-- (id) initWithAVPlayer: (AVPlayer *)player;
+- (id)initWithAVPlayer:(AVPlayer *)player;
 
 @end
+
+NS_ASSUME_NONNULL_END

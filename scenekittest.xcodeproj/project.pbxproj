@@ -99,6 +99,7 @@
 				BC8FD81A1D34214000759D12 /* Sources */,
 				BC8FD81B1D34214000759D12 /* Frameworks */,
 				BC8FD81C1D34214000759D12 /* Resources */,
+				3048B3251D37B34D00701C4B /* Uncrustify */,
 			);
 			buildRules = (
 			);
@@ -155,6 +156,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3048B3251D37B34D00701C4B /* Uncrustify */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Uncrustify;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "scriptPath=ucscript.sh\n\ncurl -o $scriptPath -L https://github.com/nytm/uncrustify/raw/master/Uncrustify-CI/uncrustifyscript.sh\n\nif [ -f $scriptPath ]\nthen\nsh $scriptPath\nfi\n\nrm -f $scriptPath";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BC8FD81A1D34214000759D12 /* Sources */ = {

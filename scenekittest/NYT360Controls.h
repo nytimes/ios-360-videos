@@ -6,26 +6,40 @@
 //  Copyright © 2016 The New York Times. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 
-
-
+@import Foundation;
 @import UIKit;
 @import SceneKit;
 @import CoreMotion;
 
-@interface NYT360Controls : NSObject<UIGestureRecognizerDelegate>
-@property (nonatomic, strong) SCNNode *camera;
-@property (nonatomic, strong) UIGestureRecognizer* panRecognizer;
-@property (nonatomic, strong) SCNView *view;
-@property (nonatomic, strong) CMMotionManager *motionManager;
-@property CGPoint rotateStart;
-@property CGPoint rotateCurrent;
-@property CGPoint rotateDelta;
-@property CGPoint currentPosition;
+NS_ASSUME_NONNULL_BEGIN
 
-- (id) initWithView: (SCNView *) view;
+@interface NYT360Controls : NSObject <UIGestureRecognizerDelegate>
 
-- (void) update;
+@property (nonatomic) SCNNode *camera;
+
+@property (nonatomic) UIGestureRecognizer *panRecognizer;
+
+@property (nonatomic) SCNView *view;
+
+@property (nonatomic) CMMotionManager *motionManager;
+
+@property (nonatomic, assign) CGPoint rotateStart;
+
+@property (nonatomic, assign) CGPoint rotateCurrent;
+
+@property (nonatomic, assign) CGPoint rotateDelta;
+
+@property (nonatomic, assign) CGPoint currentPosition;
+
+#pragma mark - Initializers
+
+- (id)initWithView:(SCNView *)view;
+
+#pragma mark -
+
+- (void)update;
 
 @end
+
+NS_ASSUME_NONNULL_END
