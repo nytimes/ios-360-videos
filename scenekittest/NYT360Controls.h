@@ -6,7 +6,6 @@
 //  Copyright © 2016 The New York Times. All rights reserved.
 //
 
-
 @import Foundation;
 @import UIKit;
 @import SceneKit;
@@ -18,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - Initializers
 
-- (id)initWithView:(SCNView *)view;
+- (instancetype)initWithView:(SCNView *)view;
 
 #pragma mark -
 
