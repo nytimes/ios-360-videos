@@ -19,6 +19,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)initWithView:(SCNView *)view;
 
+#pragma mark - Observing Device Motion
+
+- (void)startMotionUpdates;
+- (void)stopMotionUpdates;
+
 #pragma mark -
 
 - (void)updateFromDeviceMotion;

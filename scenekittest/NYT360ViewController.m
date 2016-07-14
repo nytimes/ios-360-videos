@@ -84,6 +84,20 @@
     [self adjustCameraFOV];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self.controls startMotionUpdates];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    
+    [self.controls stopMotionUpdates];
+}
+
+// TODO: willREnder?
+
 - (void)  renderer:(id <SCNSceneRenderer>)renderer
     didRenderScene:(SCNScene *)scene
             atTime:(NSTimeInterval)time {

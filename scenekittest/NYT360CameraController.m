@@ -48,7 +48,21 @@ CGPoint subtractPoints(CGPoint a, CGPoint b) {
     return self;
 }
 
+- (void)startMotionUpdates {
+    [self.motionManager startDeviceMotionUpdates];
+}
+
+- (void)stopMotionUpdates {
+    [self.motionManager stopDeviceMotionUpdates];
+}
+
 - (void)updateFromDeviceMotion {
+#ifdef DEBUG
+    if (!self.motionManager.deviceMotionActive) {
+        NSLog(@"Warning: %@ called while %@ is not receiving motion updates", NSStringFromSelector(_cmd), NSStringFromClass(self.class));
+    }
+#endif
+    
     CMRotationRate rotationRate = self.motionManager.deviceMotion.rotationRate;
     CGPoint position = CGPointMake(self.currentPosition.x + rotationRate.y * 0.02,
                                    self.currentPosition.y - rotationRate.x * 0.02 * -1);
