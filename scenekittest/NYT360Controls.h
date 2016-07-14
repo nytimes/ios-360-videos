@@ -16,24 +16,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NYT360Controls : NSObject <UIGestureRecognizerDelegate>
 
-#pragma mark - Properties
-
-@property (nonatomic) SCNNode *camera;
-
-@property (nonatomic) UIGestureRecognizer *panRecognizer;
-
-@property (nonatomic) SCNView *view;
-
-@property (nonatomic) CMMotionManager *motionManager;
-
-@property (nonatomic, assign) CGPoint rotateStart;
-
-@property (nonatomic, assign) CGPoint rotateCurrent;
-
-@property (nonatomic, assign) CGPoint rotateDelta;
-
-@property (nonatomic, assign) CGPoint currentPosition;
-
 #pragma mark - Initializers
 
 - (id)initWithView:(SCNView *)view;
