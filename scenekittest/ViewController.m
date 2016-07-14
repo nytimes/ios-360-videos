@@ -19,17 +19,18 @@
     [super viewDidLoad];
     
     NSURL *videoURL = [[NSURL alloc] initWithString:@"https://vp.nyt.com/video/360/hls/video.m3u8"];
-    self.player = [[AVPlayer alloc] initWithURL: videoURL];
-
-    self.nyt360 = [[NYT360ViewController alloc] initWithAVPlayer: self.player];
-    [self.view addSubview: self.nyt360.view];
+    self.player = [[AVPlayer alloc] initWithURL:videoURL];
+    
+    self.nyt360 = [[NYT360ViewController alloc] initWithAVPlayer:self.player];
+    self.view.backgroundColor = [UIColor blackColor];
+    [self.view addSubview:self.nyt360.view];
+    [self addChildViewController:self.nyt360];
     
     [self.player play];
-
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id <UIViewControllerTransitionCoordinator>)coordinator {
+    [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
 }
 
 @end
