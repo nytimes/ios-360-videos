@@ -42,8 +42,7 @@ CGPoint subtractPoints(CGPoint a, CGPoint b) {
         [_view addGestureRecognizer:_panRecognizer];
         
         _motionManager = [[CMMotionManager alloc] init];
-        _motionManager.deviceMotionUpdateInterval = 0.01;
-        [_motionManager startDeviceMotionUpdates];
+        _motionManager.deviceMotionUpdateInterval = (1.f / 60.f);
     }
     
     return self;
