@@ -65,6 +65,7 @@
 - (void)loadView {
     // the size should also come from the user
     SCNView *view = [[SCNView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    view.showsStatistics = YES;
     self.view = view;
 }
 
