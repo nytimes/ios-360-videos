@@ -42,18 +42,27 @@ CGPoint subtractPoints(CGPoint a, CGPoint b) {
         [_view addGestureRecognizer:_panRecognizer];
         
         _motionManager = [[CMMotionManager alloc] init];
-        _motionManager.deviceMotionUpdateInterval = 0.01;
-        [_motionManager startDeviceMotionUpdates];
+        _motionManager.deviceMotionUpdateInterval = (1.f / 60.f);
     }
     
     return self;
 }
 
-- (void)dealloc {
+- (void)startMotionUpdates {
+    [self.motionManager startDeviceMotionUpdates];
+}
+
+- (void)stopMotionUpdates {
     [self.motionManager stopDeviceMotionUpdates];
 }
 
 - (void)updateCameraAngle {
+#ifdef DEBUG
+    if (!self.motionManager.deviceMotionActive) {
+        NSLog(@"Warning: %@ called while %@ is not receiving motion updates", NSStringFromSelector(_cmd), NSStringFromClass(self.class));
+    }
+#endif
+    
     CMRotationRate rotationRate = self.motionManager.deviceMotion.rotationRate;
     CGPoint position = CGPointMake(self.currentPosition.x + rotationRate.y * 0.02,
                                    self.currentPosition.y - rotationRate.x * 0.02 * -1);
@@ -63,9 +72,9 @@ CGPoint subtractPoints(CGPoint a, CGPoint b) {
     self.camera.eulerAngles = SCNVector3Make(self.currentPosition.y, self.currentPosition.x, 0);
 }
 
-- (void)handlePan:(UIPanGestureRecognizer *)sender {
-    CGPoint point = [sender locationInView:self.view];
-    switch (sender.state) {
+- (void)handlePan:(UIPanGestureRecognizer *)recognizer {
+    CGPoint point = [recognizer locationInView:self.view];
+    switch (recognizer.state) {
         case UIGestureRecognizerStateBegan:
             self.rotateStart = point;
             break;

@@ -84,6 +84,18 @@
     [self adjustCameraFOV];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self.cameraController startMotionUpdates];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    
+    [self.cameraController stopMotionUpdates];
+}
+
 - (void)renderer:(id <SCNSceneRenderer>)renderer updateAtTime:(NSTimeInterval)time {
     [self.cameraController updateCameraAngle];
 }
