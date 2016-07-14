@@ -66,13 +66,26 @@ CGPoint subtractPoints(CGPoint a, CGPoint b) {
     }
 #endif
     
-    CMRotationRate rotationRate = self.motionManager.deviceMotion.rotationRate;
-    CGPoint position = CGPointMake(self.currentPosition.x + rotationRate.y * 0.02,
-                                   self.currentPosition.y - rotationRate.x * 0.02 * -1);
-    position.y = CLAMP(position.y, -M_PI / 2, M_PI / 2);
-    self.currentPosition = position;
+    CMRotationRate rotationRate = _motionManager.deviceMotion.rotationRate;
+    UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
+    // TODO: [thiago] I think this can be simplified later
+    if (UIInterfaceOrientationIsLandscape(orientation)) {
+        if (orientation == UIInterfaceOrientationLandscapeLeft) {
+            _currentPosition = CGPointMake(_currentPosition.x + rotationRate.x * 0.02 * -1,
+                                           _currentPosition.y + rotationRate.y * 0.02);
+        }
+        else {
+            _currentPosition = CGPointMake(_currentPosition.x + rotationRate.x * 0.02,
+                                           _currentPosition.y + rotationRate.y * 0.02 * -1);
+        }
+    }
+    else {
+        _currentPosition = CGPointMake(_currentPosition.x + rotationRate.y * 0.02,
+                                       _currentPosition.y - rotationRate.x * 0.02 * -1);
+    }
+    _currentPosition.y = CLAMP(_currentPosition.y, -M_PI / 2, M_PI / 2);
     
-    self.camera.eulerAngles = SCNVector3Make(self.currentPosition.y, self.currentPosition.x, 0);
+    _camera.eulerAngles = SCNVector3Make(_currentPosition.y, _currentPosition.x, 0);
 }
 
 - (void)handlePan:(UIPanGestureRecognizer *)recognizer {
