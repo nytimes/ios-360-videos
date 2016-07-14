@@ -6,6 +6,8 @@
 //  Copyright © 2016 The New York Times. All rights reserved.
 //
 
+NS_ASSUME_NONNULL_BEGIN
+
 @import SceneKit;
 
 @interface NYT360PlayerScene : SCNScene
@@ -17,3 +19,5 @@
 - (void)bindToView:(SCNView *)view;
 
 @end
+
+NS_ASSUME_NONNULL_END
