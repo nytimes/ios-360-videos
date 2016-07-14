@@ -7,7 +7,6 @@
 //
 
 #import "ViewController.h"
-
 #import "NYT360ViewController.h"
 
 @interface ViewController ()
@@ -20,19 +19,17 @@
     [super viewDidLoad];
     
     NSURL *videoURL = [[NSURL alloc] initWithString:@"https://vp.nyt.com/video/360/hls/video.m3u8"];
-
     self.player = [[AVPlayer alloc] initWithURL: videoURL];
 
     self.nyt360 = [[NYT360ViewController alloc] initWithAVPlayer: self.player];
+    [self.view addSubview: self.nyt360.view];
     
-    [self.view addSubview: _nyt360.view];
-    [_player play];
+    [self.player play];
 
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

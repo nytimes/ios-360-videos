@@ -6,16 +6,17 @@
 //  Copyright © 2016 The New York Times. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+@import UIKit;
+@import AVFoundation;
 
 #import "NYT360ViewController.h"
 
-@import AVFoundation;
-
 @interface ViewController : UIViewController
 
-@property (nonatomic,strong) AVPlayer *player;
-@property (nonatomic, strong) NYT360ViewController *nyt360;
+#pragma mark - Properties
+
+@property (nonatomic) AVPlayer *player;
+@property (nonatomic) NYT360ViewController *nyt360;
 
 @end
 

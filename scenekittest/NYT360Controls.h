@@ -16,6 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NYT360Controls : NSObject <UIGestureRecognizerDelegate>
 
+#pragma mark - Properties
+
 @property (nonatomic) SCNNode *camera;
 
 @property (nonatomic) UIGestureRecognizer *panRecognizer;

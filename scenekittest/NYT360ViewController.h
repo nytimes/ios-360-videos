@@ -18,14 +18,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NYT360ViewController : UIViewController <SCNSceneRendererDelegate>
 
-@property (nonatomic, strong) AVPlayer *player;
-@property (nonatomic, strong) SCNScene *scene;
-@property (nonatomic, strong) SCNNode *videoNode;
-@property (nonatomic, strong) SCNNode *cameraNode;
-@property (nonatomic, strong) SCNCamera *camera;
-@property (nonatomic, strong) SKScene *skScene;
-@property (nonatomic, strong) SKVideoNode *skVideoNode;
-@property (nonatomic, strong) NYT360Controls *controls;
+#pragma mark - Properties
+
+@property (nonatomic) AVPlayer *player;
+@property (nonatomic) SCNScene *scene;
+@property (nonatomic) SCNNode *videoNode;
+@property (nonatomic) SCNNode *cameraNode;
+@property (nonatomic) SCNCamera *camera;
+@property (nonatomic) SKScene *skScene;
+@property (nonatomic) SKVideoNode *skVideoNode;
+@property (nonatomic) NYT360Controls *controls;
+
+#pragma mark - Initializers
 
 - (id)initWithAVPlayer:(AVPlayer *)player;
 

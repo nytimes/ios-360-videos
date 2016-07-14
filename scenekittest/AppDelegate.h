@@ -6,12 +6,11 @@
 //  Copyright © 2016 The New York Times. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+@import UIKit;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
-@property (strong, nonatomic) UIWindow *window;
-
+@property (nonatomic) UIWindow *window;
 
 @end
 

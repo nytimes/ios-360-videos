@@ -18,43 +18,50 @@ CGPoint subtractPoints(CGPoint a, CGPoint b) {
 
 - (id)initWithView:(SCNView *)view {
     self = [super init];
-    _camera = view.pointOfView;
-    _view = view;
-    _currentPosition = CGPointMake(0, 0);
-    
-    _panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)];
-    _panRecognizer.delegate = self;
-    [_view addGestureRecognizer:_panRecognizer];
-    
-    _motionManager = [[CMMotionManager alloc] init];
-    _motionManager.deviceMotionUpdateInterval = 0.01;
-    [_motionManager startDeviceMotionUpdates];
-    
+    if (self) {
+        _camera = view.pointOfView;
+        _view = view;
+        _currentPosition = CGPointMake(0, 0);
+
+        _panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)];
+        _panRecognizer.delegate = self;
+        [_view addGestureRecognizer:_panRecognizer];
+
+        _motionManager = [[CMMotionManager alloc] init];
+        _motionManager.deviceMotionUpdateInterval = 0.01;
+        [_motionManager startDeviceMotionUpdates];
+    }
+
     return self;
 }
 
 - (void)update {
-    CMRotationRate rotationRate = _motionManager.deviceMotion.rotationRate;
-    _currentPosition = CGPointMake(_currentPosition.x + rotationRate.y * 0.02,
-                                   _currentPosition.y - rotationRate.x * 0.02 * -1);
-    _currentPosition.y = CLAMP(_currentPosition.y, -M_PI / 2, M_PI / 2);
-    _camera.eulerAngles = SCNVector3Make(_currentPosition.y, _currentPosition.x, 0);
+    CMRotationRate rotationRate = self.motionManager.deviceMotion.rotationRate;
+    CGPoint position = CGPointMake(self.currentPosition.x + rotationRate.y * 0.02,
+                                   self.currentPosition.y - rotationRate.x * 0.02 * -1);
+    position.y = CLAMP(self.currentPosition.y, -M_PI / 2, M_PI / 2);
+    self.currentPosition = position;
+
+    self.camera.eulerAngles = SCNVector3Make(self.currentPosition.y, self.currentPosition.x, 0);
 }
 
 - (void)handlePan:(UIPanGestureRecognizer *)sender {
-    CGPoint point = [sender locationInView:_view];
+    CGPoint point = [sender locationInView:self.view];
     switch (sender.state) {
         case UIGestureRecognizerStateBegan:
-            _rotateStart = point;
+            self.rotateStart = point;
             break;
         case UIGestureRecognizerStateChanged:
-            _rotateCurrent = point;
-            _rotateDelta = subtractPoints(_rotateStart, _rotateCurrent);
-            _rotateStart = _rotateCurrent;
-            _currentPosition = CGPointMake(_currentPosition.x + 2 * M_PI * _rotateDelta.x / _view.frame.size.width * 0.5,
-                                           _currentPosition.y + 2 * M_PI * _rotateDelta.y / _view.frame.size.height * 0.4);
-            _currentPosition.y = CLAMP(_currentPosition.y, -M_PI / 2, M_PI / 2);
-            _camera.eulerAngles = SCNVector3Make(_currentPosition.y, _currentPosition.x, 0);
+            self.rotateCurrent = point;
+            self.rotateDelta = subtractPoints(self.rotateStart, self.rotateCurrent);
+            self.rotateStart = self.rotateCurrent;
+
+            CGPoint position = CGPointMake(self.currentPosition.x + 2 * M_PI * self.rotateDelta.x / self.view.frame.size.width * 0.5,
+                                           self.currentPosition.y + 2 * M_PI * self.rotateDelta.y / self.view.frame.size.height * 0.4);
+            position.y = CLAMP(self.currentPosition.y, -M_PI / 2, M_PI / 2);
+            self.currentPosition = position;
+
+            self.camera.eulerAngles = SCNVector3Make(self.currentPosition.y, self.currentPosition.x, 0);
             break;
         default:
             break;
