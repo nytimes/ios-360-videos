@@ -27,6 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark -
 
 - (void)updateCameraAngle;
+- (double)getCameraDirection;
 
 @end
 

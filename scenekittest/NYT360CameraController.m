@@ -48,6 +48,16 @@ CGPoint subtractPoints(CGPoint a, CGPoint b) {
     return self;
 }
 
+- (double)getCameraDirection {
+    
+    double theta = atan2(_currentPosition.x, _currentPosition.y);
+    double angle = (theta * 180 / M_PI);
+//    NSLog(@"camera euler (x:%f, y:%f) - theta %f - angle %f", _camera.eulerAngles.x * 180 / M_PI, _camera.eulerAngles.y * 180 / M_PI, theta, angle);
+    /*var theta = Math.atan2(direction.x, direction.z);
+     *   var angle = ((theta * 180 / Math.PI) + 180) * -1;*/
+    return _camera.eulerAngles.y * 180 / M_PI;
+}
+
 - (void)startMotionUpdates {
     [self.motionManager startDeviceMotionUpdates];
 }
@@ -62,6 +72,7 @@ CGPoint subtractPoints(CGPoint a, CGPoint b) {
         NSLog(@"Warning: %@ called while %@ is not receiving motion updates", NSStringFromSelector(_cmd), NSStringFromClass(self.class));
     }
 #endif
+    
     
     CMRotationRate rotationRate = self.motionManager.deviceMotion.rotationRate;
     CGPoint position = CGPointMake(self.currentPosition.x + rotationRate.y * 0.02,

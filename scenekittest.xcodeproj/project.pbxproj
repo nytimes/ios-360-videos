@@ -15,6 +15,7 @@
 		BC8FD82E1D34214000759D12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC8FD82D1D34214000759D12 /* Assets.xcassets */; };
 		BC8FD8311D34214000759D12 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC8FD82F1D34214000759D12 /* LaunchScreen.storyboard */; };
 		BC8FD83D1D358DA200759D12 /* NYT360ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8FD83C1D358DA200759D12 /* NYT360ViewController.m */; };
+		FDEA54261D38195B00F354C6 /* NYT360Icon.m in Sources */ = {isa = PBXBuildFile; fileRef = FDEA54251D38195B00F354C6 /* NYT360Icon.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,8 @@
 		BC8FD8321D34214000759D12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BC8FD83B1D358DA200759D12 /* NYT360ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYT360ViewController.h; sourceTree = "<group>"; };
 		BC8FD83C1D358DA200759D12 /* NYT360ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYT360ViewController.m; sourceTree = "<group>"; };
+		FDEA54241D38195B00F354C6 /* NYT360Icon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYT360Icon.h; sourceTree = "<group>"; };
+		FDEA54251D38195B00F354C6 /* NYT360Icon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYT360Icon.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +80,8 @@
 				BC8FD82F1D34214000759D12 /* LaunchScreen.storyboard */,
 				BC8FD8321D34214000759D12 /* Info.plist */,
 				BC8FD8211D34214000759D12 /* Supporting Files */,
+				FDEA54241D38195B00F354C6 /* NYT360Icon.h */,
+				FDEA54251D38195B00F354C6 /* NYT360Icon.m */,
 			);
 			path = scenekittest;
 			sourceTree = "<group>";
@@ -179,6 +184,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDEA54261D38195B00F354C6 /* NYT360Icon.m in Sources */,
 				BC8FD8291D34214000759D12 /* ViewController.m in Sources */,
 				BC885F881D36E280006DAFA2 /* NYT360CameraController.m in Sources */,
 				BC8FD8261D34214000759D12 /* AppDelegate.m in Sources */,

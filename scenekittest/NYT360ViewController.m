@@ -8,6 +8,7 @@
 
 #import "NYT360ViewController.h"
 #import "NYT360CameraController.h"
+#import "NYT360Icon.h"
 
 @interface NYT360ViewController ()
 
@@ -19,6 +20,8 @@
 @property (nonatomic) SKScene *skScene;
 @property (nonatomic) SKVideoNode *skVideoNode;
 @property (nonatomic) NYT360CameraController *cameraController;
+@property (nonatomic) NYT360Icon *icon;
+@property (nonatomic) int previousTime;
 
 @end
 
@@ -30,7 +33,7 @@
         _player = player;
         
         _camera = [[SCNCamera alloc] init];
-        
+        _previousTime = 0;
         _cameraNode = [[SCNNode alloc] init];
         _cameraNode.camera = _camera;
         _cameraNode.position = SCNVector3Make(0, 0, 0);
@@ -82,6 +85,9 @@
     
     self.cameraController = [[NYT360CameraController alloc] initWithView:view];
     [self adjustCameraFOV];
+    
+    _icon = [[NYT360Icon alloc] init:CGRectMake(300, 600, 100, 100)];
+    [[self.view layer] addSublayer:_icon];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -98,6 +104,16 @@
 
 - (void)renderer:(id <SCNSceneRenderer>)renderer updateAtTime:(NSTimeInterval)time {
     [self.cameraController updateCameraAngle];
+    
+    int currentTime = (int)time % 1000;
+    NSLog(@" previous-current:%d - %d", _previousTime, currentTime);
+    if (currentTime > _previousTime) {
+        [_icon updateRotation:(int)[self.cameraController getCameraDirection]];
+        NSLog(@" UPDATE %d", _previousTime);
+        
+        _previousTime = currentTime;
+        NSLog(@" NOW  %d", _previousTime);
+    }
 }
 
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id <UIViewControllerTransitionCoordinator>)coordinator {
