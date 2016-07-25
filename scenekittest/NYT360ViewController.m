@@ -21,12 +21,11 @@
 
 @implementation NYT360ViewController
 
-- (id)initWithAVPlayer:(AVPlayer *)player {
-    self = [super init];
-    if (self) {
-        _playerScene = [[NYT360PlayerScene alloc] initWithAVPlayer:player];
+- (void)setPlayer:(AVPlayer *)player {
+    if (_player != player) {
+        _player = player;
+        self.playerScene = [[NYT360PlayerScene alloc] initWithAVPlayer:_player];
     }
-    return self;
 }
 
 - (void)loadView {

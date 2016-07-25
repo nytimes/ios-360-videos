@@ -15,9 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NYT360ViewController : UIViewController <SCNSceneRendererDelegate>
 
-#pragma mark - Initializers
-
-- (instancetype)initWithAVPlayer:(AVPlayer *)player;
+@property (nonatomic, null_unspecified) AVPlayer *player;
 
 @end
 
