@@ -1,13 +1,15 @@
 //
 //  ViewController.m
-//  scenekittest
+//  Three60_PlayerExample
 //
-//  Created by Thiago on 7/11/16.
-//  Copyright © 2016 The New York Times. All rights reserved.
+//  Created by Chris Dzombak on 7/25/16.
+//
 //
 
+@import AVFoundation;
+@import Three60_Player;
+
 #import "ViewController.h"
-#import "NYT360ViewController.h"
 
 @interface ViewController ()
 
@@ -20,7 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     NSURL *videoURL = [[NSURL alloc] initWithString:@"https://vp.nyt.com/video/360/hls/video.m3u8"];
     self.player = [[AVPlayer alloc] initWithURL:videoURL];
 
@@ -30,7 +32,7 @@
     [self addChildViewController:self.nyt360VC];
     [self.view addSubview:self.nyt360VC.view];
     [self.nyt360VC didMoveToParentViewController:self];
-    
+
     [self.player play];
 }
 

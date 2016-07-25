@@ -1,9 +1,9 @@
 //
 //  main.m
-//  scenekittest
+//  Three60_PlayerExample
 //
-//  Created by Thiago on 7/11/16.
-//  Copyright © 2016 The New York Times. All rights reserved.
+//  Created by Chris Dzombak on 7/25/16.
+//
 //
 
 #import <UIKit/UIKit.h>
