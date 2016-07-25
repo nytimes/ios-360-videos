@@ -82,6 +82,7 @@
 		934A49851D46B446001AD295 /* NYT360PlayerScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYT360PlayerScene.m; sourceTree = "<group>"; };
 		934A49861D46B446001AD295 /* NYT360ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYT360ViewController.h; sourceTree = "<group>"; };
 		934A49871D46B446001AD295 /* NYT360ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYT360ViewController.m; sourceTree = "<group>"; };
+		934A49961D46BBB6001AD295 /* Three60_Player.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = Three60_Player.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +151,7 @@
 		934A49551D46B318001AD295 /* Metadata */ = {
 			isa = PBXGroup;
 			children = (
+				934A49961D46BBB6001AD295 /* Three60_Player.podspec */,
 				934A49571D46B32D001AD295 /* README.md */,
 				934A49561D46B32D001AD295 /* LICENSE */,
 			);
