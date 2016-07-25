@@ -3,7 +3,7 @@
 //  scenekittest
 //
 //  Created by Chris Dzombak on 7/14/16.
-//  Copyright © 2016 The New York Times. All rights reserved.
+//  Copyright © 2016 The New York Times Company. All rights reserved.
 //
 
 NS_ASSUME_NONNULL_BEGIN

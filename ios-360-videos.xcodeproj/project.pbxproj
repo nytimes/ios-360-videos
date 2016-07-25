@@ -269,7 +269,9 @@
 		934A493E1D46AFBB001AD295 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = NYT;
 				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "The New York Times Company";
 				TargetAttributes = {
 					934A49481D46B0A1001AD295 = {
 						CreatedOnToolsVersion = 7.3.1;

@@ -1,9 +1,9 @@
 //
-//  Controls.h
+//  NYT360CameraController.h
 //  scenekittest
 //
 //  Created by Thiago on 7/13/16.
-//  Copyright © 2016 The New York Times. All rights reserved.
+//  Copyright © 2016 The New York Times Company. All rights reserved.
 //
 
 @import UIKit;
