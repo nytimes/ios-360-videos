@@ -11,9 +11,7 @@
 
 #import "NYT360CameraController.h"
 
-#define CLAMP(x, low, high) (((x) > (high)) ? (high) : (((x) < (low)) ? (low) : (x)))
-
-CGPoint subtractPoints(CGPoint a, CGPoint b) {
+static inline CGPoint subtractPoints(CGPoint a, CGPoint b) {
     return CGPointMake(b.x - a.x, b.y - a.y);
 }
 
