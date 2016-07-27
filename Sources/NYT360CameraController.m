@@ -39,6 +39,7 @@ CGPoint subtractPoints(CGPoint a, CGPoint b) {
         _camera = view.pointOfView;
         _view = view;
         _currentPosition = CGPointMake(0, 0);
+        _allowedPanningAxes = NYT360PanningAxisHorizontal & NYT360PanningAxisVertical;
         
         _panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)];
         _panRecognizer.delegate = self;
@@ -68,7 +69,12 @@ CGPoint subtractPoints(CGPoint a, CGPoint b) {
     
     CMRotationRate rotationRate = self.motionManager.deviceMotion.rotationRate;
     UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
+    
     // TODO: [thiago] I think this can be simplified later
+    
+    // TODO: [jaredsinclair] Clamp x/y components to 0 if the relevant axis is not
+    // included in `allowedPanningAxes`.
+    
     if (UIInterfaceOrientationIsLandscape(orientation)) {
         if (orientation == UIInterfaceOrientationLandscapeLeft) {
             self.currentPosition = CGPointMake(self.currentPosition.x + rotationRate.x * 0.02 * -1,
@@ -89,6 +95,13 @@ CGPoint subtractPoints(CGPoint a, CGPoint b) {
     self.camera.eulerAngles = SCNVector3Make(self.currentPosition.y, self.currentPosition.x, 0);
 }
 
+- (void)setAllowedPanningAxes:(NYT360PanningAxis)allowedPanningAxes {
+    _allowedPanningAxes = allowedPanningAxes;
+    // TODO: [jaredsinclair] Clamp the appropriate x/y component to 0 when the
+    // new value for `allowedPanningAxes` excludes it, so that the camera angles
+    // are reset to their at-rest values.
+}
+
 - (void)handlePan:(UIPanGestureRecognizer *)recognizer {
     CGPoint point = [recognizer locationInView:self.view];
     switch (recognizer.state) {
@@ -99,6 +112,9 @@ CGPoint subtractPoints(CGPoint a, CGPoint b) {
             self.rotateCurrent = point;
             self.rotateDelta = subtractPoints(self.rotateStart, self.rotateCurrent);
             self.rotateStart = self.rotateCurrent;
+            
+            // TODO: [jaredsinclair] Clamp x/y components to 0 if the relevant axis is not
+            // included in `allowedPanningAxes`.
         
             CGPoint position = CGPointMake(self.currentPosition.x + 2 * M_PI * self.rotateDelta.x / self.view.frame.size.width * 0.5,
                                            self.currentPosition.y + 2 * M_PI * self.rotateDelta.y / self.view.frame.size.height * 0.4);
