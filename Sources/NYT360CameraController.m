@@ -74,10 +74,11 @@ static inline CGPoint subtractPoints(CGPoint a, CGPoint b) {
 }
 
 - (void)setAllowedPanningAxes:(NYT360PanningAxis)allowedPanningAxes {
+    // TODO: [jaredsinclair] Consider adding an animated version of this method.
     _allowedPanningAxes = allowedPanningAxes;
-    // TODO: [jaredsinclair] Clamp the appropriate x/y component to 0 when the
-    // new value for `allowedPanningAxes` excludes it, so that the camera angles
-    // are reset to their at-rest values.
+    NYT360EulerAngleCalculationResult result = NYT360UpdatedPositionAndAnglesForAllowedAxes(self.currentPosition, allowedPanningAxes);
+    self.currentPosition = result.position;
+    self.camera.eulerAngles = result.eulerAngles;
 }
 
 - (void)handlePan:(UIPanGestureRecognizer *)recognizer {
