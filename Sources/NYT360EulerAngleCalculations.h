@@ -26,6 +26,6 @@ typedef struct NYT360EulerAngleCalculationResult NYT360EulerAngleCalculationResu
 
 #pragma mark - Calculations
 
-NYT360EulerAngleCalculationResult NYT360DeviceMotionCalculation(CGPoint position, CMRotationRate rotationRate, UIInterfaceOrientation orientation);
+NYT360EulerAngleCalculationResult NYT360DeviceMotionCalculation(CGPoint position, CMRotationRate rotationRate, UIInterfaceOrientation orientation, NYT360PanningAxis allowedPanningAxes);
 
 NYT360EulerAngleCalculationResult NYT360PanGestureChangeCalculation(CGPoint currentPosition, CGPoint rotateDelta, CGSize viewSize, NYT360PanningAxis allowedPanningAxes);

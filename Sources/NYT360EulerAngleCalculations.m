@@ -27,7 +27,7 @@ static inline NYT360EulerAngleCalculationResult NYT360EulerAngleCalculationResul
 
 #pragma mark - Calculations
 
-NYT360EulerAngleCalculationResult NYT360DeviceMotionCalculation(CGPoint position, CMRotationRate rotationRate, UIInterfaceOrientation orientation) {
+NYT360EulerAngleCalculationResult NYT360DeviceMotionCalculation(CGPoint position, CMRotationRate rotationRate, UIInterfaceOrientation orientation, NYT360PanningAxis allowedPanningAxes) {
     
     CGFloat damping = NYT360EulerAngleCalculationRotationRateDampingFactor;
     

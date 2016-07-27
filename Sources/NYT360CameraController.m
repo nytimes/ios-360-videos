@@ -69,29 +69,10 @@ CGPoint subtractPoints(CGPoint a, CGPoint b) {
     
     CMRotationRate rotationRate = self.motionManager.deviceMotion.rotationRate;
     UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
-    
-    // TODO: [jaredsinclair] Clamp x/y components to 0 if the relevant axis is not
-    // included in `allowedPanningAxes`.
-    
-    // TODO: [thiago] I think this can be simplified later
-    if (UIInterfaceOrientationIsLandscape(orientation)) {
-        if (orientation == UIInterfaceOrientationLandscapeLeft) {
-            self.currentPosition = CGPointMake(self.currentPosition.x + rotationRate.x * 0.02 * -1,
-                                               self.currentPosition.y + rotationRate.y * 0.02);
-        }
-        else {
-            self.currentPosition = CGPointMake(self.currentPosition.x + rotationRate.x * 0.02,
-                                               self.currentPosition.y + rotationRate.y * 0.02 * -1);
-        }
-    }
-    else {
-        self.currentPosition = CGPointMake(self.currentPosition.x + rotationRate.y * 0.02,
-                                           self.currentPosition.y - rotationRate.x * 0.02 * -1);
-    }
-    self.currentPosition = CGPointMake(self.currentPosition.x,
-                                       CLAMP(self.currentPosition.y, -M_PI / 2, M_PI / 2));
-    
-    self.camera.eulerAngles = SCNVector3Make(self.currentPosition.y, self.currentPosition.x, 0);
+    NYT360EulerAngleCalculationResult result;
+    result = NYT360DeviceMotionCalculation(self.currentPosition, rotationRate, orientation, self.allowedPanningAxes);
+    self.currentPosition = result.position;
+    self.camera.eulerAngles = result.eulerAngles;
 }
 
 - (void)setAllowedPanningAxes:(NYT360PanningAxis)allowedPanningAxes {
@@ -111,16 +92,9 @@ CGPoint subtractPoints(CGPoint a, CGPoint b) {
             self.rotateCurrent = point;
             self.rotateDelta = subtractPoints(self.rotateStart, self.rotateCurrent);
             self.rotateStart = self.rotateCurrent;
-            
-            // TODO: [jaredsinclair] Clamp x/y components to 0 if the relevant axis is not
-            // included in `allowedPanningAxes`.
-        
-            CGPoint position = CGPointMake(self.currentPosition.x + 2 * M_PI * self.rotateDelta.x / self.view.frame.size.width * 0.5,
-                                           self.currentPosition.y + 2 * M_PI * self.rotateDelta.y / self.view.frame.size.height * 0.4);
-            position.y = CLAMP(position.y, -M_PI / 2, M_PI / 2);
-            self.currentPosition = position;
-        
-            self.camera.eulerAngles = SCNVector3Make(self.currentPosition.y, self.currentPosition.x, 0);
+            NYT360EulerAngleCalculationResult result = NYT360PanGestureChangeCalculation(self.currentPosition, self.rotateDelta, self.view.bounds.size, self.allowedPanningAxes);
+            self.currentPosition = result.position;
+            self.camera.eulerAngles = result.eulerAngles;
             break;
         default:
             break;
