@@ -40,7 +40,7 @@ NS_ASSUME_NONNULL_BEGIN
  angles to be clamped to zero for that axis. Existing angles for the any allowed 
  axes will not be affected.
  
- Defaults to NYT360PanningAxisHorizontal & NYT360PanningAxisVertical.
+ Defaults to NYT360PanningAxisHorizontal | NYT360PanningAxisVertical.
  */
 @property (nonatomic, assign) NYT360PanningAxis allowedPanningAxes;
 

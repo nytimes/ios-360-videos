@@ -39,7 +39,7 @@ CGPoint subtractPoints(CGPoint a, CGPoint b) {
         _camera = view.pointOfView;
         _view = view;
         _currentPosition = CGPointMake(0, 0);
-        _allowedPanningAxes = NYT360PanningAxisHorizontal & NYT360PanningAxisVertical;
+        _allowedPanningAxes = NYT360PanningAxisHorizontal | NYT360PanningAxisVertical;
         
         _panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)];
         _panRecognizer.delegate = self;
