@@ -8,7 +8,7 @@
 
 @import UIKit;
 
-#import "NYT360EulerAngleCalculations.h"
+#import "NYT360DataTypes.h"
 
 @class SCNView;
 

@@ -11,12 +11,9 @@
 @import SceneKit;
 @import CoreMotion;
 
-#pragma mark - Data Types
+#import "NYT360DataTypes.h"
 
-typedef NS_OPTIONS(NSInteger, NYT360PanningAxis) {
-    NYT360PanningAxisHorizontal = 1 << 0,
-    NYT360PanningAxisVertical   = 1 << 1
-};
+#pragma mark - Data Types
 
 struct NYT360EulerAngleCalculationResult {
     CGPoint position;
