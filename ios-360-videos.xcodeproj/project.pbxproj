@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		47DCD2A31D493E1400FBCD4B /* NYT360EulerAngleCalculations.h in Headers */ = {isa = PBXBuildFile; fileRef = 47DCD2A11D493E1400FBCD4B /* NYT360EulerAngleCalculations.h */; };
+		470DB5DB1D4950AF001DD20C /* NYT360EulerAngleCalculationsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 470DB5DA1D4950AF001DD20C /* NYT360EulerAngleCalculationsTests.m */; };
+		470DB5DC1D4950FC001DD20C /* NYT360DataTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 470DB5D91D494F90001DD20C /* NYT360DataTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		47DCD2A31D493E1400FBCD4B /* NYT360EulerAngleCalculations.h in Headers */ = {isa = PBXBuildFile; fileRef = 47DCD2A11D493E1400FBCD4B /* NYT360EulerAngleCalculations.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		47DCD2A41D493E1400FBCD4B /* NYT360EulerAngleCalculations.m in Sources */ = {isa = PBXBuildFile; fileRef = 47DCD2A21D493E1400FBCD4B /* NYT360EulerAngleCalculations.m */; };
 		934A494D1D46B0A1001AD295 /* Three60_Player.h in Headers */ = {isa = PBXBuildFile; fileRef = 934A494C1D46B0A1001AD295 /* Three60_Player.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		934A495F1D46B3B5001AD295 /* Three60_PlayerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 934A495E1D46B3B5001AD295 /* Three60_PlayerTests.m */; };
@@ -61,6 +63,7 @@
 
 /* Begin PBXFileReference section */
 		470DB5D91D494F90001DD20C /* NYT360DataTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYT360DataTypes.h; sourceTree = "<group>"; };
+		470DB5DA1D4950AF001DD20C /* NYT360EulerAngleCalculationsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYT360EulerAngleCalculationsTests.m; sourceTree = "<group>"; };
 		47DCD2A11D493E1400FBCD4B /* NYT360EulerAngleCalculations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYT360EulerAngleCalculations.h; sourceTree = "<group>"; };
 		47DCD2A21D493E1400FBCD4B /* NYT360EulerAngleCalculations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYT360EulerAngleCalculations.m; sourceTree = "<group>"; };
 		934A49491D46B0A1001AD295 /* Three60_Player.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Three60_Player.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -170,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				934A495E1D46B3B5001AD295 /* Three60_PlayerTests.m */,
+				470DB5DA1D4950AF001DD20C /* NYT360EulerAngleCalculationsTests.m */,
 				934A49601D46B3B5001AD295 /* Info.plist */,
 			);
 			path = Three60_PlayerTests;
@@ -207,9 +211,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				934A494D1D46B0A1001AD295 /* Three60_Player.h in Headers */,
+				470DB5DC1D4950FC001DD20C /* NYT360DataTypes.h in Headers */,
+				47DCD2A31D493E1400FBCD4B /* NYT360EulerAngleCalculations.h in Headers */,
 				934A49881D46B446001AD295 /* NYT360CameraController.h in Headers */,
 				934A498A1D46B446001AD295 /* NYT360PlayerScene.h in Headers */,
-				47DCD2A31D493E1400FBCD4B /* NYT360EulerAngleCalculations.h in Headers */,
 				934A498C1D46B446001AD295 /* NYT360ViewController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -357,6 +362,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				934A495F1D46B3B5001AD295 /* Three60_PlayerTests.m in Sources */,
+				470DB5DB1D4950AF001DD20C /* NYT360EulerAngleCalculationsTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
