@@ -57,18 +57,18 @@ NYT360EulerAngleCalculationResult NYT360DeviceMotionCalculation(CGPoint position
     return NYT360EulerAngleCalculationResultMake(position, eulerAngles);
 }
 
-NYT360EulerAngleCalculationResult NYT360PanGestureChangeCalculation(CGPoint currentPosition, CGPoint rotateDelta, CGSize viewSize, NYT360PanningAxis allowedPanningAxes) {
+NYT360EulerAngleCalculationResult NYT360PanGestureChangeCalculation(CGPoint position, CGPoint rotateDelta, CGSize viewSize, NYT360PanningAxis allowedPanningAxes) {
     
     // TODO: [jaredsinclair] Clamp x/y components to 0 if the relevant axis is not
     // included in `allowedPanningAxes`.
     
     // TODO: [jaredsinclair] Consider adding constants for the multipliers
     // TODO: [jaredsinclair] Find out why the y multiplier is 0.4 and not 0.5
-    CGPoint position = CGPointMake(currentPosition.x + 2 * M_PI * rotateDelta.x / viewSize.width * 0.5,
-                                   currentPosition.y + 2 * M_PI * rotateDelta.y / viewSize.height * 0.4);
+    position = CGPointMake(position.x + 2 * M_PI * rotateDelta.x / viewSize.width * 0.5,
+                           position.y + 2 * M_PI * rotateDelta.y / viewSize.height * 0.4);
     position.y = NYT360Clamp(position.y, -M_PI / 2, M_PI / 2);
     
-    SCNVector3 eulerAngles = SCNVector3Make(currentPosition.y, currentPosition.x, 0);
+    SCNVector3 eulerAngles = SCNVector3Make(position.y, position.x, 0);
     
     return NYT360EulerAngleCalculationResultMake(position, eulerAngles);
 }

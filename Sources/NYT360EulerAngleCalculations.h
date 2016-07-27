@@ -28,4 +28,4 @@ typedef struct NYT360EulerAngleCalculationResult NYT360EulerAngleCalculationResu
 
 NYT360EulerAngleCalculationResult NYT360DeviceMotionCalculation(CGPoint position, CMRotationRate rotationRate, UIInterfaceOrientation orientation, NYT360PanningAxis allowedPanningAxes);
 
-NYT360EulerAngleCalculationResult NYT360PanGestureChangeCalculation(CGPoint currentPosition, CGPoint rotateDelta, CGSize viewSize, NYT360PanningAxis allowedPanningAxes);
+NYT360EulerAngleCalculationResult NYT360PanGestureChangeCalculation(CGPoint position, CGPoint rotateDelta, CGSize viewSize, NYT360PanningAxis allowedPanningAxes);
