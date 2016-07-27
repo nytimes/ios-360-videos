@@ -39,6 +39,12 @@ static inline CGPoint NYT360AdjustPositionForAllowedAxes(CGPoint position, NYT36
 
 #pragma mark - Calculations
 
+NYT360EulerAngleCalculationResult NYT360UpdatedPositionAndAnglesForAllowedAxes(CGPoint position, NYT360PanningAxis allowedPanningAxes) {
+    position = NYT360AdjustPositionForAllowedAxes(position, allowedPanningAxes);
+    SCNVector3 eulerAngles = SCNVector3Make(position.y, position.x, 0);
+    return NYT360EulerAngleCalculationResultMake(position, eulerAngles);
+}
+
 NYT360EulerAngleCalculationResult NYT360DeviceMotionCalculation(CGPoint position, CMRotationRate rotationRate, UIInterfaceOrientation orientation, NYT360PanningAxis allowedPanningAxes) {
     
     CGFloat damping = NYT360EulerAngleCalculationRotationRateDampingFactor;
