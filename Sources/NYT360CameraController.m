@@ -70,11 +70,10 @@ CGPoint subtractPoints(CGPoint a, CGPoint b) {
     CMRotationRate rotationRate = self.motionManager.deviceMotion.rotationRate;
     UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
     
-    // TODO: [thiago] I think this can be simplified later
-    
     // TODO: [jaredsinclair] Clamp x/y components to 0 if the relevant axis is not
     // included in `allowedPanningAxes`.
     
+    // TODO: [thiago] I think this can be simplified later
     if (UIInterfaceOrientationIsLandscape(orientation)) {
         if (orientation == UIInterfaceOrientationLandscapeLeft) {
             self.currentPosition = CGPointMake(self.currentPosition.x + rotationRate.x * 0.02 * -1,
