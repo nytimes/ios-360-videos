@@ -25,14 +25,23 @@ static inline NYT360EulerAngleCalculationResult NYT360EulerAngleCalculationResul
     return result;
 }
 
+static inline CGPoint NYT360AdjustPositionForAllowedAxes(CGPoint position, NYT360PanningAxis allowedPanningAxes) {
+    BOOL suppressXaxis = (allowedPanningAxes & NYT360PanningAxisHorizontal) == 0;
+    BOOL suppressYaxis = (allowedPanningAxes & NYT360PanningAxisVertical) == 0;
+    if (suppressXaxis) {
+        position.x = 0;
+    }
+    if (suppressYaxis) {
+        position.y = 0;
+    }
+    return position;
+}
+
 #pragma mark - Calculations
 
 NYT360EulerAngleCalculationResult NYT360DeviceMotionCalculation(CGPoint position, CMRotationRate rotationRate, UIInterfaceOrientation orientation, NYT360PanningAxis allowedPanningAxes) {
     
     CGFloat damping = NYT360EulerAngleCalculationRotationRateDampingFactor;
-    
-    // TODO: [jaredsinclair] Clamp x/y components to 0 if the relevant axis is not
-    // included in `allowedPanningAxes`.
     
     // TODO: [thiago] I think this can be simplified later
     if (UIInterfaceOrientationIsLandscape(orientation)) {
@@ -52,6 +61,11 @@ NYT360EulerAngleCalculationResult NYT360DeviceMotionCalculation(CGPoint position
     position = CGPointMake(position.x,
                            NYT360Clamp(position.y, -M_PI / 2, M_PI / 2));
     
+    // Zero-out these values here rather than above, since that would over-
+    // complicate the if/else logic or require unreadable numbers of ternary
+    // operators.
+    position = NYT360AdjustPositionForAllowedAxes(position, allowedPanningAxes);
+    
     SCNVector3 eulerAngles = SCNVector3Make(position.y, position.x, 0);
     
     return NYT360EulerAngleCalculationResultMake(position, eulerAngles);
@@ -59,14 +73,13 @@ NYT360EulerAngleCalculationResult NYT360DeviceMotionCalculation(CGPoint position
 
 NYT360EulerAngleCalculationResult NYT360PanGestureChangeCalculation(CGPoint position, CGPoint rotateDelta, CGSize viewSize, NYT360PanningAxis allowedPanningAxes) {
     
-    // TODO: [jaredsinclair] Clamp x/y components to 0 if the relevant axis is not
-    // included in `allowedPanningAxes`.
-    
     // TODO: [jaredsinclair] Consider adding constants for the multipliers
     // TODO: [jaredsinclair] Find out why the y multiplier is 0.4 and not 0.5
     position = CGPointMake(position.x + 2 * M_PI * rotateDelta.x / viewSize.width * 0.5,
                            position.y + 2 * M_PI * rotateDelta.y / viewSize.height * 0.4);
     position.y = NYT360Clamp(position.y, -M_PI / 2, M_PI / 2);
+    
+    position = NYT360AdjustPositionForAllowedAxes(position, allowedPanningAxes);
     
     SCNVector3 eulerAngles = SCNVector3Make(position.y, position.x, 0);
     
