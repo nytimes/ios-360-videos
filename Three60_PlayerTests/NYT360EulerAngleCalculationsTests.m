@@ -7,8 +7,9 @@
 //
 
 @import XCTest;
-@import CoreMotion;
-@import Three60_Player;
+
+#import "NYT360DataTypes.h"
+#import "NYT360EulerAngleCalculations.h"
 
 @interface NYT360EulerAngleCalculationsTests : XCTestCase
 

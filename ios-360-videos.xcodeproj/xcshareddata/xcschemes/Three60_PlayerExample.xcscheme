@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "934A49481D46B0A1001AD295"
-               BuildableName = "Three60_Player.framework"
-               BlueprintName = "Three60_Player_iOS"
+               BlueprintIdentifier = "934A496A1D46B3FD001AD295"
+               BuildableName = "Three60_PlayerExample.app"
+               BlueprintName = "Three60_PlayerExample"
                ReferencedContainer = "container:ios-360-videos.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,23 +28,13 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "934A495B1D46B3B5001AD295"
-               BuildableName = "Three60_PlayerTests.xctest"
-               BlueprintName = "Three60_PlayerTests"
-               ReferencedContainer = "container:ios-360-videos.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "934A49481D46B0A1001AD295"
-            BuildableName = "Three60_Player.framework"
-            BlueprintName = "Three60_Player_iOS"
+            BlueprintIdentifier = "934A496A1D46B3FD001AD295"
+            BuildableName = "Three60_PlayerExample.app"
+            BlueprintName = "Three60_PlayerExample"
             ReferencedContainer = "container:ios-360-videos.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -61,15 +51,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "934A49481D46B0A1001AD295"
-            BuildableName = "Three60_Player.framework"
-            BlueprintName = "Three60_Player_iOS"
+            BlueprintIdentifier = "934A496A1D46B3FD001AD295"
+            BuildableName = "Three60_PlayerExample.app"
+            BlueprintName = "Three60_PlayerExample"
             ReferencedContainer = "container:ios-360-videos.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -79,15 +70,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "934A49481D46B0A1001AD295"
-            BuildableName = "Three60_Player.framework"
-            BlueprintName = "Three60_Player_iOS"
+            BlueprintIdentifier = "934A496A1D46B3FD001AD295"
+            BuildableName = "Three60_PlayerExample.app"
+            BlueprintName = "Three60_PlayerExample"
             ReferencedContainer = "container:ios-360-videos.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

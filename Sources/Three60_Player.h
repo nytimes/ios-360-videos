@@ -18,4 +18,3 @@ FOUNDATION_EXPORT const unsigned char Three60_PlayerVersionString[];
 
 #import <Three60_Player/NYT360ViewController.h>
 #import <Three60_Player/NYT360DataTypes.h>
-#import <Three60_Player/NYT360EulerAngleCalculations.h>

@@ -7,7 +7,6 @@
 //
 
 @import XCTest;
-@import Three60_Player;
 
 @interface Three60_PlayerTests : XCTestCase
 
