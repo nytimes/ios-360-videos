@@ -1,5 +1,5 @@
-# ios-360-videos
-## Three60_Player 360º video playback from The New York Times
+# Three60_Player
+## 360º video playback from The New York Times
 
 [![Version](https://img.shields.io/cocoapods/v/NYT360Video.svg?style=flat)](http://cocoapods.org/pods/NYT360Video)
 [![License](https://img.shields.io/cocoapods/l/NYT360Video.svg?style=flat)](http://cocoapods.org/pods/NYT360Video)
