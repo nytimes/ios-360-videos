@@ -79,8 +79,9 @@ NYT360EulerAngleCalculationResult NYT360DeviceMotionCalculation(CGPoint position
 
 NYT360EulerAngleCalculationResult NYT360PanGestureChangeCalculation(CGPoint position, CGPoint rotateDelta, CGSize viewSize, NYT360PanningAxis allowedPanningAxes) {
     
-    // TODO: [jaredsinclair] Consider adding constants for the multipliers
-    // TODO: [jaredsinclair] Find out why the y multiplier is 0.4 and not 0.5
+    // TODO: [jaredsinclair] Consider adding constants for the multipliers.
+    
+    // The y multiplier is 0.4 and not 0.5 because 0.5 felt too uncomfortable.
     position = CGPointMake(position.x + 2 * M_PI * rotateDelta.x / viewSize.width * 0.5,
                            position.y + 2 * M_PI * rotateDelta.y / viewSize.height * 0.4);
     position.y = NYT360Clamp(position.y, -M_PI / 2, M_PI / 2);
