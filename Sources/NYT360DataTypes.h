@@ -7,9 +7,6 @@
 //
 
 @import Foundation;
-@import UIKit;
-@import SceneKit;
-@import CoreMotion;
 
 typedef NS_OPTIONS(NSInteger, NYT360PanningAxis) {
     NYT360PanningAxisHorizontal = 1 << 0,
