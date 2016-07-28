@@ -7,9 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		470DB5DB1D4950AF001DD20C /* NYT360EulerAngleCalculationsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 470DB5DA1D4950AF001DD20C /* NYT360EulerAngleCalculationsTests.m */; };
+		470DB5DC1D4950FC001DD20C /* NYT360DataTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 470DB5D91D494F90001DD20C /* NYT360DataTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		470DB5DD1D49A058001DD20C /* NYT360CameraController.m in Sources */ = {isa = PBXBuildFile; fileRef = 934A49831D46B446001AD295 /* NYT360CameraController.m */; };
+		470DB5DE1D49A058001DD20C /* NYT360EulerAngleCalculations.m in Sources */ = {isa = PBXBuildFile; fileRef = 47DCD2A21D493E1400FBCD4B /* NYT360EulerAngleCalculations.m */; };
+		470DB5DF1D49A058001DD20C /* NYT360PlayerScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 934A49851D46B446001AD295 /* NYT360PlayerScene.m */; };
+		470DB5E01D49A058001DD20C /* NYT360ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 934A49871D46B446001AD295 /* NYT360ViewController.m */; };
+		47DCD2A31D493E1400FBCD4B /* NYT360EulerAngleCalculations.h in Headers */ = {isa = PBXBuildFile; fileRef = 47DCD2A11D493E1400FBCD4B /* NYT360EulerAngleCalculations.h */; };
+		47DCD2A41D493E1400FBCD4B /* NYT360EulerAngleCalculations.m in Sources */ = {isa = PBXBuildFile; fileRef = 47DCD2A21D493E1400FBCD4B /* NYT360EulerAngleCalculations.m */; };
 		934A494D1D46B0A1001AD295 /* Three60_Player.h in Headers */ = {isa = PBXBuildFile; fileRef = 934A494C1D46B0A1001AD295 /* Three60_Player.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		934A495F1D46B3B5001AD295 /* Three60_PlayerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 934A495E1D46B3B5001AD295 /* Three60_PlayerTests.m */; };
-		934A49611D46B3B5001AD295 /* Three60_Player.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 934A49491D46B0A1001AD295 /* Three60_Player.framework */; };
 		934A496F1D46B3FD001AD295 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 934A496E1D46B3FD001AD295 /* main.m */; };
 		934A49721D46B3FD001AD295 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 934A49711D46B3FD001AD295 /* AppDelegate.m */; };
 		934A49751D46B3FD001AD295 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 934A49741D46B3FD001AD295 /* ViewController.m */; };
@@ -27,13 +34,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		934A49621D46B3B5001AD295 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 934A493E1D46AFBB001AD295 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 934A49481D46B0A1001AD295;
-			remoteInfo = "360 Player iOS";
-		};
 		934A498F1D46B563001AD295 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 934A493E1D46AFBB001AD295 /* Project object */;
@@ -58,6 +58,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		470DB5D91D494F90001DD20C /* NYT360DataTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYT360DataTypes.h; sourceTree = "<group>"; };
+		470DB5DA1D4950AF001DD20C /* NYT360EulerAngleCalculationsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYT360EulerAngleCalculationsTests.m; sourceTree = "<group>"; };
+		47DCD2A11D493E1400FBCD4B /* NYT360EulerAngleCalculations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYT360EulerAngleCalculations.h; sourceTree = "<group>"; };
+		47DCD2A21D493E1400FBCD4B /* NYT360EulerAngleCalculations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYT360EulerAngleCalculations.m; sourceTree = "<group>"; };
 		934A49491D46B0A1001AD295 /* Three60_Player.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Three60_Player.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		934A494C1D46B0A1001AD295 /* Three60_Player.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Three60_Player.h; sourceTree = "<group>"; };
 		934A49531D46B119001AD295 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -97,7 +101,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				934A49611D46B3B5001AD295 /* Three60_Player.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,8 +139,11 @@
 		934A49521D46B119001AD295 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				470DB5D91D494F90001DD20C /* NYT360DataTypes.h */,
 				934A49821D46B446001AD295 /* NYT360CameraController.h */,
 				934A49831D46B446001AD295 /* NYT360CameraController.m */,
+				47DCD2A11D493E1400FBCD4B /* NYT360EulerAngleCalculations.h */,
+				47DCD2A21D493E1400FBCD4B /* NYT360EulerAngleCalculations.m */,
 				934A49841D46B446001AD295 /* NYT360PlayerScene.h */,
 				934A49851D46B446001AD295 /* NYT360PlayerScene.m */,
 				934A49861D46B446001AD295 /* NYT360ViewController.h */,
@@ -162,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				934A495E1D46B3B5001AD295 /* Three60_PlayerTests.m */,
+				470DB5DA1D4950AF001DD20C /* NYT360EulerAngleCalculationsTests.m */,
 				934A49601D46B3B5001AD295 /* Info.plist */,
 			);
 			path = Three60_PlayerTests;
@@ -199,7 +206,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				934A494D1D46B0A1001AD295 /* Three60_Player.h in Headers */,
+				470DB5DC1D4950FC001DD20C /* NYT360DataTypes.h in Headers */,
 				934A49881D46B446001AD295 /* NYT360CameraController.h in Headers */,
+				47DCD2A31D493E1400FBCD4B /* NYT360EulerAngleCalculations.h in Headers */,
 				934A498A1D46B446001AD295 /* NYT360PlayerScene.h in Headers */,
 				934A498C1D46B446001AD295 /* NYT360ViewController.h in Headers */,
 			);
@@ -237,7 +246,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				934A49631D46B3B5001AD295 /* PBXTargetDependency */,
 			);
 			name = Three60_PlayerTests;
 			productName = Three60_PlayerTests;
@@ -339,6 +347,7 @@
 				934A498D1D46B446001AD295 /* NYT360ViewController.m in Sources */,
 				934A49891D46B446001AD295 /* NYT360CameraController.m in Sources */,
 				934A498B1D46B446001AD295 /* NYT360PlayerScene.m in Sources */,
+				47DCD2A41D493E1400FBCD4B /* NYT360EulerAngleCalculations.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,7 +355,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				470DB5DD1D49A058001DD20C /* NYT360CameraController.m in Sources */,
+				470DB5DE1D49A058001DD20C /* NYT360EulerAngleCalculations.m in Sources */,
+				470DB5DF1D49A058001DD20C /* NYT360PlayerScene.m in Sources */,
+				470DB5E01D49A058001DD20C /* NYT360ViewController.m in Sources */,
 				934A495F1D46B3B5001AD295 /* Three60_PlayerTests.m in Sources */,
+				470DB5DB1D4950AF001DD20C /* NYT360EulerAngleCalculationsTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,11 +377,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		934A49631D46B3B5001AD295 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 934A49481D46B0A1001AD295 /* Three60_Player_iOS */;
-			targetProxy = 934A49621D46B3B5001AD295 /* PBXContainerItemProxy */;
-		};
 		934A49901D46B563001AD295 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 934A49481D46B0A1001AD295 /* Three60_Player_iOS */;
@@ -637,6 +646,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -663,6 +673,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "nyt.Three60-PlayerExample";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -686,6 +697,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -705,6 +717,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "nyt.Three60-PlayerExample";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -738,6 +751,7 @@
 				934A49651D46B3B5001AD295 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		934A497F1D46B3FD001AD295 /* Build configuration list for PBXNativeTarget "Three60_PlayerExample" */ = {
 			isa = XCConfigurationList;
@@ -746,6 +760,7 @@
 				934A49811D46B3FD001AD295 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

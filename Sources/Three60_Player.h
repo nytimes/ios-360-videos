@@ -17,3 +17,4 @@ FOUNDATION_EXPORT const unsigned char Three60_PlayerVersionString[];
 // In this header, you should import all the public headers of your framework using statements like #import <Three60_Player_iOS/PublicHeader.h>
 
 #import <Three60_Player/NYT360ViewController.h>
+#import <Three60_Player/NYT360DataTypes.h>
