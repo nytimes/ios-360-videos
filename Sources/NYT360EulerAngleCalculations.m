@@ -10,6 +10,7 @@
 
 #pragma mark - Constants
 
+CGFloat const NYT360EulerAngleCalculationNoiseThresholdDefault = 0.12;
 static CGFloat NYT360EulerAngleCalculationRotationRateDampingFactor = 0.02;
 
 #pragma mark - Inline Functions
@@ -45,7 +46,15 @@ NYT360EulerAngleCalculationResult NYT360UpdatedPositionAndAnglesForAllowedAxes(C
     return NYT360EulerAngleCalculationResultMake(position, eulerAngles);
 }
 
-NYT360EulerAngleCalculationResult NYT360DeviceMotionCalculation(CGPoint position, CMRotationRate rotationRate, UIInterfaceOrientation orientation, NYT360PanningAxis allowedPanningAxes) {
+NYT360EulerAngleCalculationResult NYT360DeviceMotionCalculation(CGPoint position, CMRotationRate rotationRate, UIInterfaceOrientation orientation, NYT360PanningAxis allowedPanningAxes, CGFloat noiseThreshold) {
+    
+    if (fabs(rotationRate.x) < noiseThreshold) {
+        rotationRate.x = 0;
+    }
+    
+    if (fabs(rotationRate.y) < noiseThreshold) {
+        rotationRate.y = 0;
+    }
     
     CGFloat damping = NYT360EulerAngleCalculationRotationRateDampingFactor;
     
