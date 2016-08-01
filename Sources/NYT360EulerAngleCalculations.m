@@ -48,6 +48,20 @@ NYT360EulerAngleCalculationResult NYT360UpdatedPositionAndAnglesForAllowedAxes(C
 
 NYT360EulerAngleCalculationResult NYT360DeviceMotionCalculation(CGPoint position, CMRotationRate rotationRate, UIInterfaceOrientation orientation, NYT360PanningAxis allowedPanningAxes, CGFloat noiseThreshold) {
     
+    // On some devices, the rotation rates exhibit a low-level drift on one or
+    // more rotation axes. The symptom expressions are not identical, but they
+    // appear to be related to low component quality (iPhone 5c versus higher
+    // end devices) and/or rough usage (drops, etc). In an ideal scenario, we
+    // could ask users to calibrate their gyroscopes and apply a corrective
+    // factor to all inputs. Barring that, the next best thing we can try is to
+    // add a low-pass filter which ignores input less than a given threshold.
+    // In my non-scientific testing with the only affected devices at my
+    // disposal, I found that a noise threshold between 0.10 and 0.15 filtered
+    // out the noise with a minimal loss in sensitivity. Less than 0.10 and the
+    // 360 camera position starts to drift.
+    // ~ Jared Sinclair, August 1, 2016.
+    // See also: https://forums.developer.apple.com/thread/12049
+    
     if (fabs(rotationRate.x) < noiseThreshold) {
         rotationRate.x = 0;
     }
