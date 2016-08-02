@@ -21,6 +21,8 @@
 
 @implementation NYT360ViewController
 
+#pragma mark - Init
+
 - (id)initWithAVPlayer:(AVPlayer *)player {
     self = [super init];
     if (self) {
@@ -28,6 +30,8 @@
     }
     return self;
 }
+
+#pragma mark - UIViewController
 
 - (void)loadView {
     // the size should also come from the user
@@ -62,14 +66,18 @@
     [self.cameraController stopMotionUpdates];
 }
 
-- (void)renderer:(id <SCNSceneRenderer>)renderer updateAtTime:(NSTimeInterval)time {
-    [self.cameraController updateCameraAngle];
-}
-
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id <UIViewControllerTransitionCoordinator>)coordinator {
     [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
     [self adjustCameraFOV];
 }
+
+#pragma mark - SCNSceneRendererDelegate
+
+- (void)renderer:(id <SCNSceneRenderer>)renderer updateAtTime:(NSTimeInterval)time {
+    [self.cameraController updateCameraAngle];
+}
+
+#pragma mark - Private
 
 - (void)adjustCameraFOV {
     // TODO [DZ]: What are the correct values here?
