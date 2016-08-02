@@ -105,11 +105,23 @@ CGRect NYT360ViewControllerSceneBoundsForScreenBounds(CGRect screenBounds) {
 
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id <UIViewControllerTransitionCoordinator>)coordinator {
     [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
+    
+    // The goal below is to avoid a jarring change of the .yFov property of the
+    // camera node. Luckily, that property is animatable. While it isn't strictly
+    // necessary to call `adjustCameraFOV` from within the UIKit animation block,
+    // it does make the logic here more readable. It also means we can reset the
+    // transaction animation duration back to 0 at the end of the transition by
+    // using the coordinator method's completion block argument.
+    
     [coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext>  _Nonnull context) {
         [SCNTransaction setAnimationDuration:coordinator.transitionDuration];
         [self adjustCameraFOV];
     } completion:^(id<UIViewControllerTransitionCoordinatorContext>  _Nonnull context) {
         if (!context.isCancelled) {
+            // If you don't reset the duration to 0, all future camera upates
+            // coming from device motion or manual panning will be applied with
+            // the non-zero transaction duration, making the camera updates feel
+            // sluggish.
             [SCNTransaction setAnimationDuration:0];
         }
     }];
