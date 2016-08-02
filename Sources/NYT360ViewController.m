@@ -31,6 +31,16 @@
     return self;
 }
 
+#pragma mark - Playback
+
+- (void)play {
+    
+}
+
+- (void)pause {
+    
+}
+
 #pragma mark - UIViewController
 
 - (void)loadView {
