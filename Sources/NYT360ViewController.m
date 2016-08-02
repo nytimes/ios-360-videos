@@ -84,6 +84,10 @@ CGRect NYT360ViewControllerSceneBoundsForScreenBounds(CGRect screenBounds) {
 
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
+    
+    // We cannot change the aspect ratio of the scene view without introducing
+    // visual distortions. Instead, we must preserve the (arbitrary) underlying
+    // aspect ratio and resize the scene view to fill the bounds of `self.view`.
     self.sceneView.frame = NYT360ViewControllerSceneFrameForContainingBounds(self.view.bounds, self.underlyingSceneSize);
 }
 
