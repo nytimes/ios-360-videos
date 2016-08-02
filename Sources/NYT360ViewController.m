@@ -34,11 +34,11 @@
 #pragma mark - Playback
 
 - (void)play {
-    
+    [self.playerScene play];
 }
 
 - (void)pause {
-    
+    [self.playerScene pause];
 }
 
 #pragma mark - UIViewController
