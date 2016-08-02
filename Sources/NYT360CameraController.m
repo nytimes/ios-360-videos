@@ -32,6 +32,8 @@ static inline CGPoint subtractPoints(CGPoint a, CGPoint b) {
 
 @implementation NYT360CameraController
 
+#pragma mark - Initializers
+
 - (id)initWithView:(SCNView *)view {
     self = [super init];
     if (self) {
@@ -51,6 +53,8 @@ static inline CGPoint subtractPoints(CGPoint a, CGPoint b) {
     return self;
 }
 
+#pragma mark - Observing Device Motion
+
 - (void)startMotionUpdates {
     [self.motionManager startDeviceMotionUpdates];
 }
@@ -58,6 +62,8 @@ static inline CGPoint subtractPoints(CGPoint a, CGPoint b) {
 - (void)stopMotionUpdates {
     [self.motionManager stopDeviceMotionUpdates];
 }
+
+#pragma mark - Camera Angle Updates
 
 - (void)updateCameraAngle {
 #ifdef DEBUG
@@ -74,6 +80,8 @@ static inline CGPoint subtractPoints(CGPoint a, CGPoint b) {
     self.camera.eulerAngles = result.eulerAngles;
 }
 
+#pragma mark - Panning Options
+
 - (void)setAllowedPanningAxes:(NYT360PanningAxis)allowedPanningAxes {
     // TODO: [jaredsinclair] Consider adding an animated version of this method.
     if (_allowedPanningAxes != allowedPanningAxes) {
@@ -84,6 +92,8 @@ static inline CGPoint subtractPoints(CGPoint a, CGPoint b) {
 
     }
 }
+
+#pragma mark - Private
 
 - (void)handlePan:(UIPanGestureRecognizer *)recognizer {
     CGPoint point = [recognizer locationInView:self.view];
