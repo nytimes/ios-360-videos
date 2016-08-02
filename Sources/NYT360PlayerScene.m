@@ -43,15 +43,15 @@
             scene;
         });
 
-        SCNNode *videoNode = [SCNNode new];
-        videoNode.position = SCNVector3Make(0, 0, 0);
-        videoNode.geometry = [SCNSphere sphereWithRadius:100.0]; //TODO [DZ]: What is the correct size here?
-        videoNode.geometry.firstMaterial.diffuse.contents = skScene;
-        videoNode.geometry.firstMaterial.diffuse.minificationFilter = SCNFilterModeLinear;
-        videoNode.geometry.firstMaterial.diffuse.magnificationFilter = SCNFilterModeLinear;
-        videoNode.geometry.firstMaterial.doubleSided = YES;
+        SCNNode *sphereNode = [SCNNode new];
+        sphereNode.position = SCNVector3Make(0, 0, 0);
+        sphereNode.geometry = [SCNSphere sphereWithRadius:100.0]; //TODO [DZ]: What is the correct size here?
+        sphereNode.geometry.firstMaterial.diffuse.contents = skScene;
+        sphereNode.geometry.firstMaterial.diffuse.minificationFilter = SCNFilterModeLinear;
+        sphereNode.geometry.firstMaterial.diffuse.magnificationFilter = SCNFilterModeLinear;
+        sphereNode.geometry.firstMaterial.doubleSided = YES;
 
-        [self.rootNode addChildNode:videoNode];
+        [self.rootNode addChildNode:sphereNode];
     }
 
     return self;
