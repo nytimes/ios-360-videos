@@ -13,6 +13,7 @@
 @interface NYT360PlayerScene ()
 
 @property (nonatomic, readonly) SCNNode *cameraNode;
+@property (nonatomic, readonly) SKVideoNode *videoNode;
 
 @end
 
@@ -33,13 +34,13 @@
             scene.shouldRasterize = YES;
             scene.scaleMode = SKSceneScaleModeAspectFit;
 
-            SKVideoNode *skVideoNode = [[SKVideoNode alloc] initWithAVPlayer:player];
-            skVideoNode.position = CGPointMake(scene.size.width / 2, scene.size.height / 2);
-            skVideoNode.size = scene.size;
-            skVideoNode.yScale = -1;
-            skVideoNode.xScale = -1;
+            _videoNode = [[SKVideoNode alloc] initWithAVPlayer:player];
+            _videoNode.position = CGPointMake(scene.size.width / 2, scene.size.height / 2);
+            _videoNode.size = scene.size;
+            _videoNode.yScale = -1;
+            _videoNode.xScale = -1;
 
-            [scene addChild:skVideoNode];
+            [scene addChild:_videoNode];
             scene;
         });
 
@@ -66,11 +67,11 @@
 #pragma mark - Playback
 
 - (void)play {
-    
+    [self.videoNode play];
 }
 
 - (void)pause {
-    
+    [self.videoNode pause];
 }
 
 @end
