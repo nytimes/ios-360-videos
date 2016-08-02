@@ -63,4 +63,14 @@
     view.playing = YES;
 }
 
+#pragma mark - Playback
+
+- (void)play {
+    
+}
+
+- (void)pause {
+    
+}
+
 @end

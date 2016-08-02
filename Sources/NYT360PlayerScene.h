@@ -18,6 +18,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)bindToView:(SCNView *)view;
 
+- (void)play;
+
+- (void)pause;
+
 @end
 
 NS_ASSUME_NONNULL_END
