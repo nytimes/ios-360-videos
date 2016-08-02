@@ -6,13 +6,11 @@
 //  Copyright © 2016 The New York Times Company. All rights reserved.
 //
 
-@import AVFoundation;
-
 #import "NYT360ViewController.h"
 #import "NYT360CameraController.h"
 #import "NYT360PlayerScene.h"
 
-static inline CGRect NYT360ViewControllerSceneFrameForContainingBounds(CGRect containingBounds, CGSize underlyingSceneSize) {
+CGRect NYT360ViewControllerSceneFrameForContainingBounds(CGRect containingBounds, CGSize underlyingSceneSize) {
     
     if (CGSizeEqualToSize(underlyingSceneSize, CGSizeZero)) {
         return containingBounds;
@@ -36,7 +34,7 @@ static inline CGRect NYT360ViewControllerSceneFrameForContainingBounds(CGRect co
     return targetFrame;
 }
 
-static inline CGRect NYT360ViewControllerSceneBoundsForScreenBounds(CGRect screenBounds) {
+CGRect NYT360ViewControllerSceneBoundsForScreenBounds(CGRect screenBounds) {
     CGFloat max = MAX(screenBounds.size.width, screenBounds.size.height);
     CGFloat min = MIN(screenBounds.size.width, screenBounds.size.height);
     return CGRectMake(0, 0, max, min);
@@ -60,24 +58,16 @@ static inline CGRect NYT360ViewControllerSceneBoundsForScreenBounds(CGRect scree
         CGRect initialSceneFrame = NYT360ViewControllerSceneBoundsForScreenBounds(screenBounds);
         _underlyingSceneSize = initialSceneFrame.size;
         _sceneView = [[SCNView alloc] initWithFrame:initialSceneFrame];
+        _playerScene = [[NYT360PlayerScene alloc] initWithAVPlayer:player bindToView:_sceneView];
         _cameraController = [[NYT360CameraController alloc] initWithView:_sceneView];
-        _playerScene = [[NYT360PlayerScene alloc] initWithAVPlayer:player];
     }
     return self;
-}
-
-- (void)loadView {
-    // the size should also come from the user
-    SCNView *view = [[SCNView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    view.showsStatistics = YES;
-    view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    self.view = view;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor blueColor];
+    self.view.backgroundColor = [UIColor blackColor];
     self.view.opaque = YES;
     
     // self.sceneView.showsStatistics = YES;
@@ -86,8 +76,8 @@ static inline CGRect NYT360ViewControllerSceneBoundsForScreenBounds(CGRect scree
     self.sceneView.opaque = YES;
     self.sceneView.delegate = self;
     [self.view addSubview:self.sceneView];
-    
-    [self.playerScene bindToView:self.sceneView];
+        
+    self.sceneView.playing = true;
     
     [self adjustCameraFOV];
 }
@@ -115,7 +105,14 @@ static inline CGRect NYT360ViewControllerSceneBoundsForScreenBounds(CGRect scree
 
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id <UIViewControllerTransitionCoordinator>)coordinator {
     [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
-    [self adjustCameraFOV];
+    [coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext>  _Nonnull context) {
+        [SCNTransaction setAnimationDuration:coordinator.transitionDuration];
+        [self adjustCameraFOV];
+    } completion:^(id<UIViewControllerTransitionCoordinatorContext>  _Nonnull context) {
+        if (!context.isCancelled) {
+            [SCNTransaction setAnimationDuration:0];
+        }
+    }];
 }
 
 - (void)adjustCameraFOV {

@@ -18,7 +18,7 @@
 
 @implementation NYT360PlayerScene
 
-- (instancetype)initWithAVPlayer:(AVPlayer *)player {
+- (instancetype)initWithAVPlayer:(AVPlayer *)player bindToView:(SCNView *)view {
     if ((self = [super init])) {
         _camera = [SCNCamera new];
 
@@ -52,15 +52,12 @@
         videoNode.geometry.firstMaterial.doubleSided = YES;
 
         [self.rootNode addChildNode:videoNode];
+        
+        view.scene = self;
+        view.pointOfView = self.cameraNode;
     }
 
     return self;
-}
-
-- (void)bindToView:(SCNView *)view {
-    view.scene = self;
-    view.pointOfView = self.cameraNode;
-    view.playing = YES;
 }
 
 @end
