@@ -21,6 +21,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)initWithAVPlayer:(AVPlayer *)player;
 
+#pragma mark - Playback
+
+- (void)play;
+- (void)pause;
+
 @end
 
 NS_ASSUME_NONNULL_END
