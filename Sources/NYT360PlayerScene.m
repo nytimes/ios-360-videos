@@ -18,7 +18,7 @@
 
 @implementation NYT360PlayerScene
 
-- (instancetype)initWithAVPlayer:(AVPlayer *)player bindToView:(SCNView *)view {
+- (instancetype)initWithAVPlayer:(AVPlayer *)player boundToView:(SCNView *)view {
     if ((self = [super init])) {
         _camera = [SCNCamera new];
 

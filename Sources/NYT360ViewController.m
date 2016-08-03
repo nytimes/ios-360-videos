@@ -58,7 +58,7 @@ CGRect NYT360ViewControllerSceneBoundsForScreenBounds(CGRect screenBounds) {
         CGRect initialSceneFrame = NYT360ViewControllerSceneBoundsForScreenBounds(screenBounds);
         _underlyingSceneSize = initialSceneFrame.size;
         _sceneView = [[SCNView alloc] initWithFrame:initialSceneFrame];
-        _playerScene = [[NYT360PlayerScene alloc] initWithAVPlayer:player bindToView:_sceneView];
+        _playerScene = [[NYT360PlayerScene alloc] initWithAVPlayer:player boundToView:_sceneView];
         _cameraController = [[NYT360CameraController alloc] initWithView:_sceneView];
     }
     return self;
