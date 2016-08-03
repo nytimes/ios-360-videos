@@ -9,15 +9,15 @@
 @import Foundation;
 @import CoreMotion;
 
-#import "NYTMotionManagement.h"
+#import "NYT360MotionManagement.h"
 
 /**
- This is an example implementation of `NYTMotionManagement`. Your application
+ This is an example implementation of `NYT360MotionManagement`. Your application
  can provide another implementation if so desired.
  
  @seealso `NYT360ViewController`.
  */
-@interface NYT360MotionManager : NSObject <NYTMotionManagement>
+@interface NYT360MotionManager : NSObject <NYT360MotionManagement>
 
 #pragma mark - Singleton
 

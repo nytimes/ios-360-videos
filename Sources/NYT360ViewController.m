@@ -51,7 +51,7 @@ CGRect NYT360ViewControllerSceneBoundsForScreenBounds(CGRect screenBounds) {
 
 @implementation NYT360ViewController
 
-- (instancetype)initWithAVPlayer:(AVPlayer *)player motionManager:(id<NYTMotionManagement>)motionManager {
+- (instancetype)initWithAVPlayer:(AVPlayer *)player motionManager:(id<NYT360MotionManagement>)motionManager {
     self = [super init];
     if (self) {
         CGRect screenBounds = [[UIScreen mainScreen] bounds];

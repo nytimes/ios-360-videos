@@ -11,7 +11,7 @@
 @import CoreMotion;
 
 #import "NYT360DataTypes.h"
-#import "NYTMotionManagement.h"
+#import "NYT360MotionManagement.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -29,13 +29,13 @@ NS_ASSUME_NONNULL_BEGIN
  
  @param view The view whose camera NYT360CameraController will manage.
  
- @param motionManager A class conforming to NYTMotionManagement. Ideally the
+ @param motionManager A class conforming to NYT360MotionManagement. Ideally the
  same motion manager should be shared throughout an application, since multiple 
  active managers can degrade performance.
  
- @seealso: `NYTMotionManagement.h`
+ @seealso: `NYT360MotionManagement.h`
  */
-- (instancetype)initWithView:(SCNView *)view motionManager:(id<NYTMotionManagement>)motionManager NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithView:(SCNView *)view motionManager:(id<NYT360MotionManagement>)motionManager NS_DESIGNATED_INITIALIZER;
 
 #pragma mark - Observing Device Motion
 

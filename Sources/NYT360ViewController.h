@@ -10,7 +10,7 @@
 @import SceneKit;
 @import AVFoundation;
 
-#import "NYTMotionManagement.h"
+#import "NYT360MotionManagement.h"
 
 CGRect NYT360ViewControllerSceneFrameForContainingBounds(CGRect containingBounds, CGSize underlyingSceneSize);
 CGRect NYT360ViewControllerSceneBoundsForScreenBounds(CGRect screenBounds);
@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - Initializers
 
-- (id)initWithAVPlayer:(AVPlayer *)player motionManager:(id<NYTMotionManagement>)motionManager;
+- (id)initWithAVPlayer:(AVPlayer *)player motionManager:(id<NYT360MotionManagement>)motionManager;
 
 @end
 

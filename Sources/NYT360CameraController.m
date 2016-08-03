@@ -19,7 +19,7 @@ static inline CGPoint subtractPoints(CGPoint a, CGPoint b) {
 
 @property (nonatomic) SCNView *view;
 @property (nonatomic) UIGestureRecognizer *panRecognizer;
-@property (nonatomic) id<NYTMotionManagement> motionManager;
+@property (nonatomic) id<NYT360MotionManagement> motionManager;
 @property (nonatomic, strong, nullable) NSUUID *motionUpdateIdentifier;
 @property (nonatomic) SCNNode *camera;
 
@@ -32,7 +32,7 @@ static inline CGPoint subtractPoints(CGPoint a, CGPoint b) {
 
 @implementation NYT360CameraController
 
-- (instancetype)initWithView:(SCNView *)view motionManager:(id<NYTMotionManagement>)motionManager {
+- (instancetype)initWithView:(SCNView *)view motionManager:(id<NYT360MotionManagement>)motionManager {
     self = [super init];
     if (self) {
         

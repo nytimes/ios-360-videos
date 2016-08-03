@@ -71,7 +71,7 @@ static const NSTimeInterval NYT360MotionManagerPreferredMotionUpdateInterval = (
     return self;
 }
 
-#pragma mark - NYTMotionManagement
+#pragma mark - NYT360MotionManagement
 
 - (BOOL)isDeviceMotionAvailable {
     return self.motionManager.isDeviceMotionAvailable;

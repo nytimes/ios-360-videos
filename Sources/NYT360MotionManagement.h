@@ -1,5 +1,5 @@
 //
-//  NYTMotionManagement.h
+//  NYT360MotionManagement.h
 //  ios-360-videos
 //
 //  Created by Jared Sinclair on 8/3/16.
@@ -19,21 +19,21 @@ NS_ASSUME_NONNULL_BEGIN
  undesirable that all these entities would have direct access to the same shared
  manager, leading to misconfigurations or a premature call to 
  `stopDeviceMotionUpdates`. To facilitate the use of a shared motion manager 
- without exposing a surface area for misuse, the `NYTMotionManagement` protocol
+ without exposing a surface area for misuse, the `NYT360MotionManagement` protocol
  defines a set of expectations for a shared "wrapper" around a shared 
  `CMMotionManager`. The conforming class will ensure that a shared 
  `CMMotionManager` is kept private, properly configured, and activated or
  deactivated at the appropriate times.
  
  A host application is free to provide a custom class conforming to
- `NYTMotionManagement`. If your application does not need to customize the
+ `NYT360MotionManagement`. If your application does not need to customize the
  behaviors beyond what is expected by NYT360Videos, we recommend that you use 
  the shared instance of `NYT360MotionManager`, a ready-made class that already 
- conforms to `NYTMotionManagement`.
+ conforms to `NYT360MotionManagement`.
  
  @seealso `NYT360MotionManager.h`
  */
-@protocol NYTMotionManagement <NSObject>
+@protocol NYT360MotionManagement <NSObject>
 
 /**
  Determines whether device motion hardware and APIs are available.
