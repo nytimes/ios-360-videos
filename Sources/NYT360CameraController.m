@@ -11,6 +11,7 @@
 
 #import "NYT360CameraController.h"
 #import "NYT360EulerAngleCalculations.h"
+#import "NYTMotionManagement.h"
 
 static inline CGPoint subtractPoints(CGPoint a, CGPoint b) {
     return CGPointMake(b.x - a.x, b.y - a.y);

@@ -13,6 +13,8 @@
 		470DB5DE1D49A058001DD20C /* NYT360EulerAngleCalculations.m in Sources */ = {isa = PBXBuildFile; fileRef = 47DCD2A21D493E1400FBCD4B /* NYT360EulerAngleCalculations.m */; };
 		470DB5DF1D49A058001DD20C /* NYT360PlayerScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 934A49851D46B446001AD295 /* NYT360PlayerScene.m */; };
 		470DB5E01D49A058001DD20C /* NYT360ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 934A49871D46B446001AD295 /* NYT360ViewController.m */; };
+		472324FF1D5240DF00784F8F /* NYT360MotionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 472324FD1D5240DF00784F8F /* NYT360MotionManager.h */; };
+		472325001D5240DF00784F8F /* NYT360MotionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 472324FE1D5240DF00784F8F /* NYT360MotionManager.m */; };
 		47DCD2A31D493E1400FBCD4B /* NYT360EulerAngleCalculations.h in Headers */ = {isa = PBXBuildFile; fileRef = 47DCD2A11D493E1400FBCD4B /* NYT360EulerAngleCalculations.h */; };
 		47DCD2A41D493E1400FBCD4B /* NYT360EulerAngleCalculations.m in Sources */ = {isa = PBXBuildFile; fileRef = 47DCD2A21D493E1400FBCD4B /* NYT360EulerAngleCalculations.m */; };
 		934A494D1D46B0A1001AD295 /* Three60_Player.h in Headers */ = {isa = PBXBuildFile; fileRef = 934A494C1D46B0A1001AD295 /* Three60_Player.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -60,6 +62,9 @@
 /* Begin PBXFileReference section */
 		470DB5D91D494F90001DD20C /* NYT360DataTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYT360DataTypes.h; sourceTree = "<group>"; };
 		470DB5DA1D4950AF001DD20C /* NYT360EulerAngleCalculationsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYT360EulerAngleCalculationsTests.m; sourceTree = "<group>"; };
+		472324FC1D523F6000784F8F /* NYTMotionManagement.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYTMotionManagement.h; sourceTree = "<group>"; };
+		472324FD1D5240DF00784F8F /* NYT360MotionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYT360MotionManager.h; sourceTree = "<group>"; };
+		472324FE1D5240DF00784F8F /* NYT360MotionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYT360MotionManager.m; sourceTree = "<group>"; };
 		47DCD2A11D493E1400FBCD4B /* NYT360EulerAngleCalculations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYT360EulerAngleCalculations.h; sourceTree = "<group>"; };
 		47DCD2A21D493E1400FBCD4B /* NYT360EulerAngleCalculations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYT360EulerAngleCalculations.m; sourceTree = "<group>"; };
 		934A49491D46B0A1001AD295 /* Three60_Player.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Three60_Player.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -140,6 +145,9 @@
 			isa = PBXGroup;
 			children = (
 				470DB5D91D494F90001DD20C /* NYT360DataTypes.h */,
+				472324FC1D523F6000784F8F /* NYTMotionManagement.h */,
+				472324FD1D5240DF00784F8F /* NYT360MotionManager.h */,
+				472324FE1D5240DF00784F8F /* NYT360MotionManager.m */,
 				934A49821D46B446001AD295 /* NYT360CameraController.h */,
 				934A49831D46B446001AD295 /* NYT360CameraController.m */,
 				47DCD2A11D493E1400FBCD4B /* NYT360EulerAngleCalculations.h */,
@@ -207,6 +215,7 @@
 			files = (
 				934A494D1D46B0A1001AD295 /* Three60_Player.h in Headers */,
 				470DB5DC1D4950FC001DD20C /* NYT360DataTypes.h in Headers */,
+				472324FF1D5240DF00784F8F /* NYT360MotionManager.h in Headers */,
 				934A49881D46B446001AD295 /* NYT360CameraController.h in Headers */,
 				47DCD2A31D493E1400FBCD4B /* NYT360EulerAngleCalculations.h in Headers */,
 				934A498A1D46B446001AD295 /* NYT360PlayerScene.h in Headers */,
@@ -348,6 +357,7 @@
 				934A49891D46B446001AD295 /* NYT360CameraController.m in Sources */,
 				934A498B1D46B446001AD295 /* NYT360PlayerScene.m in Sources */,
 				47DCD2A41D493E1400FBCD4B /* NYT360EulerAngleCalculations.m in Sources */,
+				472325001D5240DF00784F8F /* NYT360MotionManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
