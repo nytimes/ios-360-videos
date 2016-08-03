@@ -21,37 +21,43 @@
 
 - (instancetype)initWithAVPlayer:(AVPlayer *)player {
     if ((self = [super init])) {
+        
         _camera = [SCNCamera new];
 
-        _cameraNode = [SCNNode new];
-        _cameraNode.camera = _camera;
-        _cameraNode.position = SCNVector3Make(0, 0, 0);
-
+        _cameraNode = ({
+            SCNNode *cameraNode = [SCNNode new];
+            cameraNode.camera = _camera;
+            cameraNode.position = SCNVector3Make(0, 0, 0);
+            cameraNode;
+        });
         [self.rootNode addChildNode:_cameraNode];
 
         SKScene *skScene = ({
             SKScene *scene = [[SKScene alloc] initWithSize:CGSizeMake(1280, 1280)];
             scene.shouldRasterize = YES;
             scene.scaleMode = SKSceneScaleModeAspectFit;
-
-            _videoNode = [[SKVideoNode alloc] initWithAVPlayer:player];
-            _videoNode.position = CGPointMake(scene.size.width / 2, scene.size.height / 2);
-            _videoNode.size = scene.size;
-            _videoNode.yScale = -1;
-            _videoNode.xScale = -1;
-
+            _videoNode = ({
+                SKVideoNode *videoNode = [[SKVideoNode alloc] initWithAVPlayer:player];
+                videoNode.position = CGPointMake(scene.size.width / 2, scene.size.height / 2);
+                videoNode.size = scene.size;
+                videoNode.yScale = -1;
+                videoNode.xScale = -1;
+                videoNode;
+            });
             [scene addChild:_videoNode];
             scene;
         });
 
-        SCNNode *sphereNode = [SCNNode new];
-        sphereNode.position = SCNVector3Make(0, 0, 0);
-        sphereNode.geometry = [SCNSphere sphereWithRadius:100.0]; //TODO [DZ]: What is the correct size here?
-        sphereNode.geometry.firstMaterial.diffuse.contents = skScene;
-        sphereNode.geometry.firstMaterial.diffuse.minificationFilter = SCNFilterModeLinear;
-        sphereNode.geometry.firstMaterial.diffuse.magnificationFilter = SCNFilterModeLinear;
-        sphereNode.geometry.firstMaterial.doubleSided = YES;
-
+        SCNNode *sphereNode = ({
+            SCNNode *sphereNode = [SCNNode new];
+            sphereNode.position = SCNVector3Make(0, 0, 0);
+            sphereNode.geometry = [SCNSphere sphereWithRadius:100.0]; //TODO [DZ]: What is the correct size here?
+            sphereNode.geometry.firstMaterial.diffuse.contents = skScene;
+            sphereNode.geometry.firstMaterial.diffuse.minificationFilter = SCNFilterModeLinear;
+            sphereNode.geometry.firstMaterial.diffuse.magnificationFilter = SCNFilterModeLinear;
+            sphereNode.geometry.firstMaterial.doubleSided = YES;
+            sphereNode;
+        });
         [self.rootNode addChildNode:sphereNode];
     }
 
