@@ -78,14 +78,6 @@ CGRect NYT360ViewControllerSceneBoundsForScreenBounds(CGRect screenBounds) {
 
 #pragma mark - UIViewController
 
-- (void)loadView {
-    // the size should also come from the user
-    SCNView *view = [[SCNView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    view.showsStatistics = YES;
-    view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    self.view = view;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
