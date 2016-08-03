@@ -29,6 +29,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)updateCameraAngle;
 
+#pragma mark - Camera Angle Direction
+
+- (double)getCameraDirection;
+
 #pragma mark - Panning Options
 
 /**
