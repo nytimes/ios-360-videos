@@ -15,7 +15,7 @@
 @interface NYT360MotionManagerObserverItem: NSObject
 
 @property (nonatomic, readonly) NSUUID *identifier;
-@property (nonatomic) NSTimeInterval preferredUpdateInterval;
+@property (nonatomic, readonly) NSTimeInterval preferredUpdateInterval;
 
 @end
 
