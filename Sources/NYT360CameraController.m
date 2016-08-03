@@ -35,6 +35,10 @@ static inline CGPoint subtractPoints(CGPoint a, CGPoint b) {
 - (id)initWithView:(SCNView *)view {
     self = [super init];
     if (self) {
+        
+        NSAssert(view.pointOfView != nil, @"NYT360CameraController must be initialized with a view with a non-nil pointOfView node.");
+        NSAssert(view.pointOfView.camera != nil, @"NYT360CameraController must be initialized with a view with a non-nil camera node for view.pointOfView.");
+        
         _camera = view.pointOfView;
         _view = view;
         _currentPosition = CGPointMake(0, 0);

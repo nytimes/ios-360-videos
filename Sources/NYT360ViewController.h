@@ -8,8 +8,10 @@
 
 @import UIKit;
 @import SceneKit;
+@import AVFoundation;
 
-@class AVPlayer;
+CGRect NYT360ViewControllerSceneFrameForContainingBounds(CGRect containingBounds, CGSize underlyingSceneSize);
+CGRect NYT360ViewControllerSceneBoundsForScreenBounds(CGRect screenBounds);
 
 NS_ASSUME_NONNULL_BEGIN
 
