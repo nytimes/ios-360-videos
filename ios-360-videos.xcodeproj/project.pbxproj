@@ -31,6 +31,8 @@
 		934A498D1D46B446001AD295 /* NYT360ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 934A49871D46B446001AD295 /* NYT360ViewController.m */; };
 		934A498E1D46B525001AD295 /* Three60_Player.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 934A49491D46B0A1001AD295 /* Three60_Player.framework */; };
 		934A49941D46B9E9001AD295 /* Three60_Player.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 934A49491D46B0A1001AD295 /* Three60_Player.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BC3BB6F71D52627400839170 /* NYT360Icon.h in Headers */ = {isa = PBXBuildFile; fileRef = BC3BB6F51D52627400839170 /* NYT360Icon.h */; };
+		BC3BB6F81D52627400839170 /* NYT360Icon.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3BB6F61D52627400839170 /* NYT360Icon.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +89,8 @@
 		934A49861D46B446001AD295 /* NYT360ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYT360ViewController.h; sourceTree = "<group>"; };
 		934A49871D46B446001AD295 /* NYT360ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYT360ViewController.m; sourceTree = "<group>"; };
 		934A49961D46BBB6001AD295 /* Three60_Player.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = Three60_Player.podspec; sourceTree = "<group>"; };
+		BC3BB6F51D52627400839170 /* NYT360Icon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYT360Icon.h; sourceTree = "<group>"; };
+		BC3BB6F61D52627400839170 /* NYT360Icon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYT360Icon.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +151,8 @@
 				934A49841D46B446001AD295 /* NYT360PlayerScene.h */,
 				934A49851D46B446001AD295 /* NYT360PlayerScene.m */,
 				934A49861D46B446001AD295 /* NYT360ViewController.h */,
+				BC3BB6F51D52627400839170 /* NYT360Icon.h */,
+				BC3BB6F61D52627400839170 /* NYT360Icon.m */,
 				934A49871D46B446001AD295 /* NYT360ViewController.m */,
 				934A494C1D46B0A1001AD295 /* Three60_Player.h */,
 				934A49531D46B119001AD295 /* Info.plist */,
@@ -211,6 +217,7 @@
 				47DCD2A31D493E1400FBCD4B /* NYT360EulerAngleCalculations.h in Headers */,
 				934A498A1D46B446001AD295 /* NYT360PlayerScene.h in Headers */,
 				934A498C1D46B446001AD295 /* NYT360ViewController.h in Headers */,
+				BC3BB6F71D52627400839170 /* NYT360Icon.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,6 +353,7 @@
 			files = (
 				934A498D1D46B446001AD295 /* NYT360ViewController.m in Sources */,
 				934A49891D46B446001AD295 /* NYT360CameraController.m in Sources */,
+				BC3BB6F81D52627400839170 /* NYT360Icon.m in Sources */,
 				934A498B1D46B446001AD295 /* NYT360PlayerScene.m in Sources */,
 				47DCD2A41D493E1400FBCD4B /* NYT360EulerAngleCalculations.m in Sources */,
 			);
