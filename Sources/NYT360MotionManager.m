@@ -7,7 +7,6 @@
 //
 
 #import "NYT360MotionManager.h"
-#import "NYT360CameraController.h"
 
 ///-----------------------------------------------------------------------------
 /// NYT360MotionManagerObserverItem
@@ -37,6 +36,8 @@
 /// NYT360MotionManager
 ///-----------------------------------------------------------------------------
 
+static const NSTimeInterval NYT360MotionManagerPreferredMotionUpdateInterval = (1.0 / 60.0);
+
 @interface NYT360MotionManager ()
 
 @property (nonatomic, readonly) NSMutableDictionary <__kindof NSUUID *, NYT360MotionManagerObserverItem *> *observerItems;
@@ -46,6 +47,15 @@
 
 @implementation NYT360MotionManager
 
+#pragma mark - Singleton
+
++ (instancetype)sharedManager {
+    static dispatch_once_t once;
+    static NYT360MotionManager *sharedManager;
+    dispatch_once(&once, ^ { sharedManager = [[self alloc] init]; });
+    return sharedManager;
+}
+
 #pragma mark - Init
 
 - (instancetype)init {
@@ -54,7 +64,7 @@
         _observerItems = [NSMutableDictionary new];
         _motionManager = ({
             CMMotionManager *manager = [CMMotionManager new];
-            manager.deviceMotionUpdateInterval = NYT360CameraControllerPreferredMotionUpdateInterval;
+            manager.deviceMotionUpdateInterval = NYT360MotionManagerPreferredMotionUpdateInterval;
             manager;
         });
     }
@@ -106,7 +116,7 @@
 - (NSTimeInterval)resolvedUpdateInterval {
     NSArray *allItems = self.observerItems.allValues;
     if (allItems.count == 0) {
-        return NYT360CameraControllerPreferredMotionUpdateInterval;
+        return NYT360MotionManagerPreferredMotionUpdateInterval;
     }
     return [[allItems valueForKeyPath:@"@max.preferredUpdateInterval"] doubleValue];
 }
