@@ -20,6 +20,11 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - Initializers
 
 /**
+ Use `initWithView:motionManager:`.
+ */
+- (instancetype)init NS_UNAVAILABLE;
+
+/**
  Designated initializer.
  
  @param view The view whose camera NYT360CameraController will manage.

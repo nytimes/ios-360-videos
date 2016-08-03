@@ -32,11 +32,6 @@ static inline CGPoint subtractPoints(CGPoint a, CGPoint b) {
 
 @implementation NYT360CameraController
 
-- (instancetype)init NS_UNAVAILABLE {
-    NSAssert(NO, @"NYT360CameraController must not be initialized with `init`.");
-    return nil;
-}
-
 - (instancetype)initWithView:(SCNView *)view motionManager:(id<NYTMotionManagement>)motionManager {
     self = [super init];
     if (self) {
