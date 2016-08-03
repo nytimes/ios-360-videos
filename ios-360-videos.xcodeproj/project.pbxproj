@@ -16,6 +16,7 @@
 		472324FF1D5240DF00784F8F /* NYT360MotionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 472324FD1D5240DF00784F8F /* NYT360MotionManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		472325001D5240DF00784F8F /* NYT360MotionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 472324FE1D5240DF00784F8F /* NYT360MotionManager.m */; };
 		472325011D524AB600784F8F /* NYTMotionManagement.h in Headers */ = {isa = PBXBuildFile; fileRef = 472324FC1D523F6000784F8F /* NYTMotionManagement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4795F62F1D5122AA00B5B289 /* NYT360ViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4795F62E1D5122AA00B5B289 /* NYT360ViewControllerTests.m */; };
 		47DCD2A31D493E1400FBCD4B /* NYT360EulerAngleCalculations.h in Headers */ = {isa = PBXBuildFile; fileRef = 47DCD2A11D493E1400FBCD4B /* NYT360EulerAngleCalculations.h */; };
 		47DCD2A41D493E1400FBCD4B /* NYT360EulerAngleCalculations.m in Sources */ = {isa = PBXBuildFile; fileRef = 47DCD2A21D493E1400FBCD4B /* NYT360EulerAngleCalculations.m */; };
 		47FD3DBD1D52507600BC0248 /* NYT360MotionManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 47FD3DBC1D52507600BC0248 /* NYT360MotionManagerTests.m */; };
@@ -68,6 +69,7 @@
 		472324FC1D523F6000784F8F /* NYTMotionManagement.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYTMotionManagement.h; sourceTree = "<group>"; };
 		472324FD1D5240DF00784F8F /* NYT360MotionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYT360MotionManager.h; sourceTree = "<group>"; };
 		472324FE1D5240DF00784F8F /* NYT360MotionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYT360MotionManager.m; sourceTree = "<group>"; };
+		4795F62E1D5122AA00B5B289 /* NYT360ViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYT360ViewControllerTests.m; sourceTree = "<group>"; };
 		47DCD2A11D493E1400FBCD4B /* NYT360EulerAngleCalculations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYT360EulerAngleCalculations.h; sourceTree = "<group>"; };
 		47DCD2A21D493E1400FBCD4B /* NYT360EulerAngleCalculations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYT360EulerAngleCalculations.m; sourceTree = "<group>"; };
 		47FD3DBC1D52507600BC0248 /* NYT360MotionManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYT360MotionManagerTests.m; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				934A495E1D46B3B5001AD295 /* Three60_PlayerTests.m */,
 				470DB5DA1D4950AF001DD20C /* NYT360EulerAngleCalculationsTests.m */,
 				47FD3DBC1D52507600BC0248 /* NYT360MotionManagerTests.m */,
+				4795F62E1D5122AA00B5B289 /* NYT360ViewControllerTests.m */,
 				934A49601D46B3B5001AD295 /* Info.plist */,
 			);
 			path = Three60_PlayerTests;
@@ -378,6 +381,7 @@
 				934A495F1D46B3B5001AD295 /* Three60_PlayerTests.m in Sources */,
 				47FD3DBE1D52508100BC0248 /* NYT360MotionManager.m in Sources */,
 				47FD3DBD1D52507600BC0248 /* NYT360MotionManagerTests.m in Sources */,
+				4795F62F1D5122AA00B5B289 /* NYT360ViewControllerTests.m in Sources */,
 				470DB5DB1D4950AF001DD20C /* NYT360EulerAngleCalculationsTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -685,7 +689,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = Three60_PlayerExample/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -730,7 +734,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = Three60_PlayerExample/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "nyt.Three60-PlayerExample";

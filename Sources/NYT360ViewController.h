@@ -12,6 +12,9 @@
 
 #import "NYTMotionManagement.h"
 
+CGRect NYT360ViewControllerSceneFrameForContainingBounds(CGRect containingBounds, CGSize underlyingSceneSize);
+CGRect NYT360ViewControllerSceneBoundsForScreenBounds(CGRect screenBounds);
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NYT360ViewController : UIViewController <SCNSceneRendererDelegate>
