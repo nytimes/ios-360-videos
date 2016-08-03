@@ -24,11 +24,11 @@ NS_ASSUME_NONNULL_BEGIN
  
  @param view The view whose camera NYT360CameraController will manage.
  
- @param motionManager Ideally only one CMMotionManager should be shared throughout
- the application, since multiple active managers can degrade performance. 
- NYT360CameraController expects that the motion manager's update interval has
- already been configured. See NYT360CameraControllerPreferredMotionUpdateInterval
- for it's preferred interval.
+ @param motionManager A class conforming to NYTMotionManagement. Ideally the
+ same motion manager should be shared throughout an application, since multiple 
+ active managers can degrade performance.
+ 
+ @seealso: `NYTMotionManagement.h`
  */
 - (instancetype)initWithView:(SCNView *)view motionManager:(id<NYTMotionManagement>)motionManager NS_DESIGNATED_INITIALIZER;
 
