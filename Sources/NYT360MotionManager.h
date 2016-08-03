@@ -13,4 +13,9 @@
 
 @interface NYT360MotionManager : NSObject <NYTMotionManagement>
 
+#pragma mark - Internal
+
+- (NSTimeInterval)resolvedUpdateInterval;
+- (NSUInteger)numberOfObservers;
+
 @end

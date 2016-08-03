@@ -9,14 +9,18 @@
 @import Foundation;
 @import CoreMotion;
 
+NS_ASSUME_NONNULL_BEGIN
+
 @protocol NYTMotionManagement <NSObject>
 
 @property (nonatomic, readonly) BOOL isDeviceMotionAvailable;
 @property (nonatomic, readonly) BOOL isDeviceMotionActive;
-@property (nonatomic, readonly) CMDeviceMotion *deviceMotion;
+@property (nonatomic, readonly, nullable) CMDeviceMotion *deviceMotion;
 
 - (NSUUID *)startUpdating:(NSTimeInterval)preferredUpdateInterval;
 
 - (void)stopUpdating:(NSUUID *)identifier;
 
 @end
+
+NS_ASSUME_NONNULL_END
