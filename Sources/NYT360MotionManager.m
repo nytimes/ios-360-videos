@@ -118,7 +118,7 @@ static const NSTimeInterval NYT360MotionManagerPreferredMotionUpdateInterval = (
     if (allItems.count == 0) {
         return NYT360MotionManagerPreferredMotionUpdateInterval;
     }
-    return [[allItems valueForKeyPath:@"@max.preferredUpdateInterval"] doubleValue];
+    return [[allItems valueForKeyPath:@"@min.preferredUpdateInterval"] doubleValue];
 }
 
 @end

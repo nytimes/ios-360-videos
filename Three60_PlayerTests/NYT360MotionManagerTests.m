@@ -44,14 +44,14 @@
     
     NSUUID *identiferA = [manager startUpdating:1000];
     NSUUID *identiferB = [manager startUpdating:10];
-    XCTAssert(manager.resolvedUpdateInterval == 1000);
+    XCTAssert(manager.resolvedUpdateInterval == 10);
     XCTAssert(manager.numberOfObservers == 2);
     
-    [manager stopUpdating:identiferA];
-    XCTAssert(manager.resolvedUpdateInterval == 10);
+    [manager stopUpdating:identiferB];
+    XCTAssert(manager.resolvedUpdateInterval == 1000);
     XCTAssert(manager.numberOfObservers == 1);
     
-    [manager stopUpdating:identiferB];
+    [manager stopUpdating:identiferA];
     XCTAssert(manager.resolvedUpdateInterval == initialInterval);
     XCTAssert(manager.numberOfObservers == 0);
     XCTAssertFalse(manager.isDeviceMotionActive);
