@@ -11,6 +11,12 @@
 
 #import "NYTMotionManagement.h"
 
+/**
+ This is an example implementation of `NYTMotionManagement`. Your application
+ can provide another implementation if so desired.
+ 
+ @seealso `NYT360ViewController`.
+ */
 @interface NYT360MotionManager : NSObject <NYTMotionManagement>
 
 #pragma mark - Singleton
