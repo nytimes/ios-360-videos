@@ -13,8 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol NYTMotionManagement <NSObject>
 
-@property (nonatomic, readonly) BOOL isDeviceMotionAvailable;
-@property (nonatomic, readonly) BOOL isDeviceMotionActive;
+@property (nonatomic, readonly, getter=isDeviceMotionAvailable) BOOL deviceMotionAvailable;
+@property (nonatomic, readonly, getter=isDeviceMotionActive) BOOL deviceMotionActive;
 @property (nonatomic, readonly, nullable) CMDeviceMotion *deviceMotion;
 
 - (NSUUID *)startUpdating:(NSTimeInterval)preferredUpdateInterval;

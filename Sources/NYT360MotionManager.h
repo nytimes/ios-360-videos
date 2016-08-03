@@ -13,6 +13,10 @@
 
 @interface NYT360MotionManager : NSObject <NYTMotionManagement>
 
+#pragma mark - Singleton
+
++ (instancetype)sharedManager;
+
 #pragma mark - Internal
 
 - (NSTimeInterval)resolvedUpdateInterval;
