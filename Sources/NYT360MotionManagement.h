@@ -26,10 +26,10 @@ NS_ASSUME_NONNULL_BEGIN
  deactivated at the appropriate times.
  
  A host application is free to provide a custom class conforming to
- `NYT360MotionManagement`. If your application does not need to customize the
- behaviors beyond what is expected by NYT360Videos, we recommend that you use 
- the shared instance of `NYT360MotionManager`, a ready-made class that already 
- conforms to `NYT360MotionManagement`.
+ `NYT360MotionManagement`. If your application does not use a CMMotionManager 
+ outside of NYT360Videos, we recommend that you use the shared instance of 
+ `NYT360MotionManager`, a ready-made class that already conforms to 
+ `NYT360MotionManagement`.
  
  @seealso `NYT360MotionManager.h`
  */
