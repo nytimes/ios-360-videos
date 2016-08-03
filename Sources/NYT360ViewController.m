@@ -16,15 +16,17 @@
 
 @property (nonatomic) NYT360PlayerScene *playerScene;
 @property (nonatomic) NYT360CameraController *cameraController;
+@property (nonatomic, strong, readonly) id<NYTMotionManagement> motionManager;
 
 @end
 
 @implementation NYT360ViewController
 
-- (id)initWithAVPlayer:(AVPlayer *)player {
+- (id)initWithAVPlayer:(AVPlayer *)player motionManager:(id<NYTMotionManagement>)motionManager {
     self = [super init];
     if (self) {
         _playerScene = [[NYT360PlayerScene alloc] initWithAVPlayer:player];
+        _motionManager = motionManager;
     }
     return self;
 }
@@ -46,7 +48,7 @@
     
     [self.playerScene bindToView:view];
     
-    self.cameraController = [[NYT360CameraController alloc] initWithView:view];
+    self.cameraController = [[NYT360CameraController alloc] initWithView:view motionManager:self.motionManager];
     [self adjustCameraFOV];
 }
 

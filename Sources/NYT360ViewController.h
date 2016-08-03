@@ -8,8 +8,9 @@
 
 @import UIKit;
 @import SceneKit;
+@import AVFoundation;
 
-@class AVPlayer;
+#import "NYTMotionManagement.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -17,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - Initializers
 
-- (instancetype)initWithAVPlayer:(AVPlayer *)player;
+- (id)initWithAVPlayer:(AVPlayer *)player motionManager:(id<NYTMotionManagement>)motionManager;
 
 @end
 

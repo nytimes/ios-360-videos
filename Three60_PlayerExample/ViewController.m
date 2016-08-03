@@ -27,7 +27,8 @@
     self.player = [[AVPlayer alloc] initWithURL:videoURL];
 
     self.view.backgroundColor = [UIColor blackColor];
-    self.nyt360VC = [[NYT360ViewController alloc] initWithAVPlayer:self.player];
+    NYT360MotionManager *manager = [NYT360MotionManager sharedManager];
+    self.nyt360VC = [[NYT360ViewController alloc] initWithAVPlayer:self.player motionManager:manager];
 
     [self addChildViewController:self.nyt360VC];
     [self.view addSubview:self.nyt360VC.view];

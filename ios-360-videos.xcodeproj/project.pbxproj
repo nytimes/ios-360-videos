@@ -13,8 +13,9 @@
 		470DB5DE1D49A058001DD20C /* NYT360EulerAngleCalculations.m in Sources */ = {isa = PBXBuildFile; fileRef = 47DCD2A21D493E1400FBCD4B /* NYT360EulerAngleCalculations.m */; };
 		470DB5DF1D49A058001DD20C /* NYT360PlayerScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 934A49851D46B446001AD295 /* NYT360PlayerScene.m */; };
 		470DB5E01D49A058001DD20C /* NYT360ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 934A49871D46B446001AD295 /* NYT360ViewController.m */; };
-		472324FF1D5240DF00784F8F /* NYT360MotionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 472324FD1D5240DF00784F8F /* NYT360MotionManager.h */; };
+		472324FF1D5240DF00784F8F /* NYT360MotionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 472324FD1D5240DF00784F8F /* NYT360MotionManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		472325001D5240DF00784F8F /* NYT360MotionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 472324FE1D5240DF00784F8F /* NYT360MotionManager.m */; };
+		472325011D524AB600784F8F /* NYTMotionManagement.h in Headers */ = {isa = PBXBuildFile; fileRef = 472324FC1D523F6000784F8F /* NYTMotionManagement.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		47DCD2A31D493E1400FBCD4B /* NYT360EulerAngleCalculations.h in Headers */ = {isa = PBXBuildFile; fileRef = 47DCD2A11D493E1400FBCD4B /* NYT360EulerAngleCalculations.h */; };
 		47DCD2A41D493E1400FBCD4B /* NYT360EulerAngleCalculations.m in Sources */ = {isa = PBXBuildFile; fileRef = 47DCD2A21D493E1400FBCD4B /* NYT360EulerAngleCalculations.m */; };
 		934A494D1D46B0A1001AD295 /* Three60_Player.h in Headers */ = {isa = PBXBuildFile; fileRef = 934A494C1D46B0A1001AD295 /* Three60_Player.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -214,6 +215,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				934A494D1D46B0A1001AD295 /* Three60_Player.h in Headers */,
+				472325011D524AB600784F8F /* NYTMotionManagement.h in Headers */,
 				470DB5DC1D4950FC001DD20C /* NYT360DataTypes.h in Headers */,
 				472324FF1D5240DF00784F8F /* NYT360MotionManager.h in Headers */,
 				934A49881D46B446001AD295 /* NYT360CameraController.h in Headers */,

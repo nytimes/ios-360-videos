@@ -7,10 +7,11 @@
 //
 
 @import UIKit;
+@import SceneKit;
+@import CoreMotion;
 
 #import "NYT360DataTypes.h"
-
-@class SCNView;
+#import "NYTMotionManagement.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -18,7 +19,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - Initializers
 
-- (instancetype)initWithView:(SCNView *)view;
+/**
+ Designated initializer.
+ 
+ @param view The view whose camera NYT360CameraController will manage.
+ 
+ @param motionManager Ideally only one CMMotionManager should be shared throughout
+ the application, since multiple active managers can degrade performance. 
+ NYT360CameraController expects that the motion manager's update interval has
+ already been configured. See NYT360CameraControllerPreferredMotionUpdateInterval
+ for it's preferred interval.
+ */
+- (instancetype)initWithView:(SCNView *)view motionManager:(id<NYTMotionManagement>)motionManager NS_DESIGNATED_INITIALIZER;
 
 #pragma mark - Observing Device Motion
 
