@@ -42,8 +42,8 @@
     NSTimeInterval initialInterval = manager.resolvedUpdateInterval;
     XCTAssertFalse(manager.isDeviceMotionActive);
     
-    NSUUID *identiferA = [manager startUpdating:1000];
     NSUUID *identiferB = [manager startUpdating:10];
+    NSUUID *identiferA = [manager startUpdating:1000];
     XCTAssert(manager.resolvedUpdateInterval == 10);
     XCTAssert(manager.numberOfObservers == 2);
     
