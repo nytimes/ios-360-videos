@@ -14,9 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, readonly) SCNCamera *camera;
 
-- (instancetype)initWithAVPlayer:(AVPlayer *)player;
-
-- (void)bindToView:(SCNView *)view;
+- (instancetype)initWithAVPlayer:(AVPlayer *)player boundToView:(SCNView *)view;
 
 - (void)play;
 

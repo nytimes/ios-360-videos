@@ -19,7 +19,7 @@
 
 @implementation NYT360PlayerScene
 
-- (instancetype)initWithAVPlayer:(AVPlayer *)player {
+- (instancetype)initWithAVPlayer:(AVPlayer *)player boundToView:(SCNView *)view {
     if ((self = [super init])) {
         
         _camera = [SCNCamera new];
@@ -59,15 +59,12 @@
             sphereNode;
         });
         [self.rootNode addChildNode:sphereNode];
+        
+        view.scene = self;
+        view.pointOfView = self.cameraNode;
     }
 
     return self;
-}
-
-- (void)bindToView:(SCNView *)view {
-    view.scene = self;
-    view.pointOfView = self.cameraNode;
-    view.playing = YES;
 }
 
 #pragma mark - Playback
