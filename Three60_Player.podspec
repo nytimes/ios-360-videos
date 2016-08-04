@@ -1,10 +1,10 @@
 Pod::Spec.new do |s|
-    s.name             = 'Three60_Player'
-    s.version          = '0.3.0'
-    s.summary          = 'Three60_Player plays 360º video streamed from an AVPlayer.'
+    s.name             = 'NYT360Video'
+    s.version          = '0.3.1'
+    s.summary          = 'NYT360Video plays 360º video streamed from an AVPlayer.'
 
     s.description      = <<-DESC
-    Three60_Player from The New York Times is a view controller allowing playback of a 360º video stream from an `AVPlayer`.
+    NYT360Video from The New York Times is a framework allowing playback of a 360º video stream from an `AVPlayer`.
 
     It provides no control user interface; it is intended to be embedded in your own video player implementation.
     DESC
@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
     s.ios.deployment_target = '9.0'
 
     s.source_files = 'Sources/**/*.{h,m}'
-    s.public_header_files = 'Sources/Three60_Player.h', 'Sources/NYT360ViewController.h'
+    s.public_header_files = 'Sources/NYT360Video.h', 'Sources/NYT360ViewController.h'
 
     s.frameworks = 'UIKit', 'SceneKit', 'SpriteKit', 'AVFoundation', 'CoreMotion'
 end

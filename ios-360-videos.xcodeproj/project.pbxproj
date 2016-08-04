@@ -35,8 +35,8 @@
 		934A498B1D46B446001AD295 /* NYT360PlayerScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 934A49851D46B446001AD295 /* NYT360PlayerScene.m */; };
 		934A498C1D46B446001AD295 /* NYT360ViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 934A49861D46B446001AD295 /* NYT360ViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		934A498D1D46B446001AD295 /* NYT360ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 934A49871D46B446001AD295 /* NYT360ViewController.m */; };
-		934A498E1D46B525001AD295 /* Three60_Player.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 934A49491D46B0A1001AD295 /* Three60_Player.framework */; };
-		934A49941D46B9E9001AD295 /* Three60_Player.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 934A49491D46B0A1001AD295 /* Three60_Player.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		934A498E1D46B525001AD295 /* NYT360Video.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 934A49491D46B0A1001AD295 /* NYT360Video.framework */; };
+		934A49941D46B9E9001AD295 /* NYT360Video.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 934A49491D46B0A1001AD295 /* NYT360Video.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,7 +56,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				934A49941D46B9E9001AD295 /* Three60_Player.framework in Embed Frameworks */,
+				934A49941D46B9E9001AD295 /* NYT360Video.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -73,15 +73,15 @@
 		47DCD2A11D493E1400FBCD4B /* NYT360EulerAngleCalculations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYT360EulerAngleCalculations.h; sourceTree = "<group>"; };
 		47DCD2A21D493E1400FBCD4B /* NYT360EulerAngleCalculations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYT360EulerAngleCalculations.m; sourceTree = "<group>"; };
 		47FD3DBC1D52507600BC0248 /* NYT360MotionManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYT360MotionManagerTests.m; sourceTree = "<group>"; };
-		934A49491D46B0A1001AD295 /* Three60_Player.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Three60_Player.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		934A49491D46B0A1001AD295 /* NYT360Video.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NYT360Video.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		934A494C1D46B0A1001AD295 /* Three60_Player.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Three60_Player.h; sourceTree = "<group>"; };
 		934A49531D46B119001AD295 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		934A49561D46B32D001AD295 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		934A49571D46B32D001AD295 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		934A495C1D46B3B5001AD295 /* Three60_PlayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Three60_PlayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		934A495C1D46B3B5001AD295 /* NYT360VideoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NYT360VideoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		934A495E1D46B3B5001AD295 /* Three60_PlayerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Three60_PlayerTests.m; sourceTree = "<group>"; };
 		934A49601D46B3B5001AD295 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		934A496B1D46B3FD001AD295 /* Three60_PlayerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Three60_PlayerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		934A496B1D46B3FD001AD295 /* NYT360VideoExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NYT360VideoExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		934A496E1D46B3FD001AD295 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		934A49701D46B3FD001AD295 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		934A49711D46B3FD001AD295 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -119,7 +119,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				934A498E1D46B525001AD295 /* Three60_Player.framework in Frameworks */,
+				934A498E1D46B525001AD295 /* NYT360Video.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,9 +140,9 @@
 		934A494A1D46B0A1001AD295 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				934A49491D46B0A1001AD295 /* Three60_Player.framework */,
-				934A495C1D46B3B5001AD295 /* Three60_PlayerTests.xctest */,
-				934A496B1D46B3FD001AD295 /* Three60_PlayerExample.app */,
+				934A49491D46B0A1001AD295 /* NYT360Video.framework */,
+				934A495C1D46B3B5001AD295 /* NYT360VideoTests.xctest */,
+				934A496B1D46B3FD001AD295 /* NYT360VideoExample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -235,9 +235,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		934A49481D46B0A1001AD295 /* Three60_Player_iOS */ = {
+		934A49481D46B0A1001AD295 /* NYT360Video */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 934A494F1D46B0A1001AD295 /* Build configuration list for PBXNativeTarget "Three60_Player_iOS" */;
+			buildConfigurationList = 934A494F1D46B0A1001AD295 /* Build configuration list for PBXNativeTarget "NYT360Video" */;
 			buildPhases = (
 				934A49441D46B0A1001AD295 /* Sources */,
 				934A49451D46B0A1001AD295 /* Frameworks */,
@@ -248,14 +248,14 @@
 			);
 			dependencies = (
 			);
-			name = Three60_Player_iOS;
+			name = NYT360Video;
 			productName = "360 Player iOS";
-			productReference = 934A49491D46B0A1001AD295 /* Three60_Player.framework */;
+			productReference = 934A49491D46B0A1001AD295 /* NYT360Video.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		934A495B1D46B3B5001AD295 /* Three60_PlayerTests */ = {
+		934A495B1D46B3B5001AD295 /* NYT360VideoTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 934A49661D46B3B5001AD295 /* Build configuration list for PBXNativeTarget "Three60_PlayerTests" */;
+			buildConfigurationList = 934A49661D46B3B5001AD295 /* Build configuration list for PBXNativeTarget "NYT360VideoTests" */;
 			buildPhases = (
 				934A49581D46B3B5001AD295 /* Sources */,
 				934A49591D46B3B5001AD295 /* Frameworks */,
@@ -265,14 +265,14 @@
 			);
 			dependencies = (
 			);
-			name = Three60_PlayerTests;
+			name = NYT360VideoTests;
 			productName = Three60_PlayerTests;
-			productReference = 934A495C1D46B3B5001AD295 /* Three60_PlayerTests.xctest */;
+			productReference = 934A495C1D46B3B5001AD295 /* NYT360VideoTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		934A496A1D46B3FD001AD295 /* Three60_PlayerExample */ = {
+		934A496A1D46B3FD001AD295 /* NYT360VideoExample */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 934A497F1D46B3FD001AD295 /* Build configuration list for PBXNativeTarget "Three60_PlayerExample" */;
+			buildConfigurationList = 934A497F1D46B3FD001AD295 /* Build configuration list for PBXNativeTarget "NYT360VideoExample" */;
 			buildPhases = (
 				934A49671D46B3FD001AD295 /* Sources */,
 				934A49681D46B3FD001AD295 /* Frameworks */,
@@ -284,9 +284,9 @@
 			dependencies = (
 				934A49901D46B563001AD295 /* PBXTargetDependency */,
 			);
-			name = Three60_PlayerExample;
+			name = NYT360VideoExample;
 			productName = Three60_PlayerExample;
-			productReference = 934A496B1D46B3FD001AD295 /* Three60_PlayerExample.app */;
+			productReference = 934A496B1D46B3FD001AD295 /* NYT360VideoExample.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -323,9 +323,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				934A49481D46B0A1001AD295 /* Three60_Player_iOS */,
-				934A495B1D46B3B5001AD295 /* Three60_PlayerTests */,
-				934A496A1D46B3FD001AD295 /* Three60_PlayerExample */,
+				934A49481D46B0A1001AD295 /* NYT360Video */,
+				934A495B1D46B3B5001AD295 /* NYT360VideoTests */,
+				934A496A1D46B3FD001AD295 /* NYT360VideoExample */,
 			);
 		};
 /* End PBXProject section */
@@ -401,7 +401,7 @@
 /* Begin PBXTargetDependency section */
 		934A49901D46B563001AD295 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 934A49481D46B0A1001AD295 /* Three60_Player_iOS */;
+			target = 934A49481D46B0A1001AD295 /* NYT360Video */;
 			targetProxy = 934A498F1D46B563001AD295 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -497,8 +497,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "nyt.Three60-Player-iOS";
-				PRODUCT_NAME = Three60_Player;
+				PRODUCT_BUNDLE_IDENTIFIER = "nyt.NYT360Video-iOS";
+				PRODUCT_NAME = NYT360Video;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -548,8 +548,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "nyt.Three60-Player-iOS";
-				PRODUCT_NAME = Three60_Player;
+				PRODUCT_BUNDLE_IDENTIFIER = "nyt.NYT360Video-iOS";
+				PRODUCT_NAME = NYT360Video;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -596,12 +596,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = Three60_PlayerTests/Info.plist;
+				INFOPLIST_FILE = NYT360Video/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "nyt.Three60-PlayerTests";
+				PRODUCT_BUNDLE_IDENTIFIER = nyt.NYT360VideoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 			};
@@ -638,11 +638,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = Three60_PlayerTests/Info.plist;
+				INFOPLIST_FILE = NYT360Video/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "nyt.Three60-PlayerTests";
+				PRODUCT_BUNDLE_IDENTIFIER = nyt.NYT360VideoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -688,7 +688,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = Three60_PlayerExample/Info.plist;
+				INFOPLIST_FILE = NYT360VideoExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -733,7 +733,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = Three60_PlayerExample/Info.plist;
+				INFOPLIST_FILE = NYT360VideoExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -757,7 +757,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		934A494F1D46B0A1001AD295 /* Build configuration list for PBXNativeTarget "Three60_Player_iOS" */ = {
+		934A494F1D46B0A1001AD295 /* Build configuration list for PBXNativeTarget "NYT360Video" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				934A49501D46B0A1001AD295 /* Debug */,
@@ -766,7 +766,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		934A49661D46B3B5001AD295 /* Build configuration list for PBXNativeTarget "Three60_PlayerTests" */ = {
+		934A49661D46B3B5001AD295 /* Build configuration list for PBXNativeTarget "NYT360VideoTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				934A49641D46B3B5001AD295 /* Debug */,
@@ -775,7 +775,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		934A497F1D46B3FD001AD295 /* Build configuration list for PBXNativeTarget "Three60_PlayerExample" */ = {
+		934A497F1D46B3FD001AD295 /* Build configuration list for PBXNativeTarget "NYT360VideoExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				934A49801D46B3FD001AD295 /* Debug */,

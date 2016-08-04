@@ -16,7 +16,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "934A49481D46B0A1001AD295"
                BuildableName = "Three60_Player.framework"
-               BlueprintName = "Three60_Player_iOS"
+               BlueprintName = "NYT360Video"
                ReferencedContainer = "container:ios-360-videos.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -33,8 +33,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "934A495B1D46B3B5001AD295"
-               BuildableName = "Three60_PlayerTests.xctest"
-               BlueprintName = "Three60_PlayerTests"
+               BuildableName = "NYT360VideoTests.xctest"
+               BlueprintName = "NYT360VideoTests"
                ReferencedContainer = "container:ios-360-videos.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -44,7 +44,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "934A49481D46B0A1001AD295"
             BuildableName = "Three60_Player.framework"
-            BlueprintName = "Three60_Player_iOS"
+            BlueprintName = "NYT360Video"
             ReferencedContainer = "container:ios-360-videos.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -66,7 +66,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "934A49481D46B0A1001AD295"
             BuildableName = "Three60_Player.framework"
-            BlueprintName = "Three60_Player_iOS"
+            BlueprintName = "NYT360Video"
             ReferencedContainer = "container:ios-360-videos.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -84,7 +84,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "934A49481D46B0A1001AD295"
             BuildableName = "Three60_Player.framework"
-            BlueprintName = "Three60_Player_iOS"
+            BlueprintName = "NYT360Video"
             ReferencedContainer = "container:ios-360-videos.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
