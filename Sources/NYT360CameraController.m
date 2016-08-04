@@ -1,6 +1,6 @@
 //
 //  NYT360CameraController.m
-//  scenekittest
+//  NYT360Video
 //
 //  Created by Thiago on 7/13/16.
 //  Copyright © 2016 The New York Times Company. All rights reserved.
