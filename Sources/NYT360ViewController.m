@@ -51,6 +51,8 @@ CGRect NYT360ViewControllerSceneBoundsForScreenBounds(CGRect screenBounds) {
 
 @implementation NYT360ViewController
 
+#pragma mark - Init
+
 - (instancetype)initWithAVPlayer:(AVPlayer *)player motionManager:(id<NYT360MotionManagement>)motionManager {
     self = [super init];
     if (self) {
@@ -63,6 +65,18 @@ CGRect NYT360ViewControllerSceneBoundsForScreenBounds(CGRect screenBounds) {
     }
     return self;
 }
+
+#pragma mark - Playback
+
+- (void)play {
+    [self.playerScene play];
+}
+
+- (void)pause {
+    [self.playerScene pause];
+}
+
+#pragma mark - UIViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -103,10 +117,6 @@ CGRect NYT360ViewControllerSceneBoundsForScreenBounds(CGRect screenBounds) {
     [self.cameraController stopMotionUpdates];
 }
 
-- (void)renderer:(id <SCNSceneRenderer>)renderer updateAtTime:(NSTimeInterval)time {
-    [self.cameraController updateCameraAngle];
-}
-
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id <UIViewControllerTransitionCoordinator>)coordinator {
     [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
     
@@ -130,6 +140,14 @@ CGRect NYT360ViewControllerSceneBoundsForScreenBounds(CGRect screenBounds) {
         }
     }];
 }
+
+#pragma mark - SCNSceneRendererDelegate
+
+- (void)renderer:(id <SCNSceneRenderer>)renderer updateAtTime:(NSTimeInterval)time {
+    [self.cameraController updateCameraAngle];
+}
+
+#pragma mark - Private
 
 - (void)adjustCameraFOV {
     // TODO [DZ]: What are the correct values here?

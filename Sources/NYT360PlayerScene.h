@@ -16,6 +16,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)initWithAVPlayer:(AVPlayer *)player boundToView:(SCNView *)view;
 
+- (void)play;
+
+- (void)pause;
+
 @end
 
 NS_ASSUME_NONNULL_END

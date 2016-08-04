@@ -23,6 +23,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (id)initWithAVPlayer:(AVPlayer *)player motionManager:(id<NYT360MotionManagement>)motionManager;
 
+#pragma mark - Playback
+
+- (void)play;
+- (void)pause;
+
 @end
 
 NS_ASSUME_NONNULL_END
