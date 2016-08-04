@@ -14,7 +14,7 @@
 
 @interface NYT360MotionManagerObserverItem: NSObject
 
-@property (nonatomic, readonly) NSUUID *identifier;
+@property (nonatomic, readonly) NSUUID *token;
 @property (nonatomic, readonly) NSTimeInterval preferredUpdateInterval;
 
 @end
@@ -24,7 +24,7 @@
 - (instancetype)initWithPreferredUpdateInterval:(NSTimeInterval)interval {
     self = [super init];
     if (self) {
-        _identifier = [NSUUID new];
+        _token = [NSUUID new];
         _preferredUpdateInterval = interval;
     }
     return self;
@@ -89,18 +89,18 @@ static const NSTimeInterval NYT360MotionManagerPreferredMotionUpdateInterval = (
     NSAssert([NSOperationQueue currentQueue] == [NSOperationQueue mainQueue], @"NYT360MotionManager may only be used on the main queue.");
     NSUInteger previousCount = self.observerItems.count;
     NYT360MotionManagerObserverItem *item = [[NYT360MotionManagerObserverItem alloc] initWithPreferredUpdateInterval:preferredUpdateInterval];
-    self.observerItems[item.identifier] = item;
+    self.observerItems[item.token] = item;
     self.motionManager.deviceMotionUpdateInterval = self.resolvedUpdateInterval;
     if (self.observerItems.count > 0 && previousCount == 0) {
         [self.motionManager startDeviceMotionUpdates];
     }
-    return item.identifier;
+    return item.token;
 }
 
-- (void)stopUpdating:(NSUUID *)identifier {
+- (void)stopUpdating:(NSUUID *)token {
     NSAssert([NSOperationQueue currentQueue] == [NSOperationQueue mainQueue], @"NYT360MotionManager may only be used on the main queue.");
     NSUInteger previousCount = self.observerItems.count;
-    [self.observerItems removeObjectForKey:identifier];
+    [self.observerItems removeObjectForKey:token];
     self.motionManager.deviceMotionUpdateInterval = self.resolvedUpdateInterval;
     if (self.observerItems.count == 0 && previousCount > 0) {
         [self.motionManager stopDeviceMotionUpdates];

@@ -57,13 +57,13 @@ NS_ASSUME_NONNULL_BEGIN
  interval used should resolve to the shortest requested interval among the
  active requests.
  
- @return Returns a unique identifier which the caller should use to balance this
- call with a call to `stopUpdating:`.
+ @return Returns a token which the caller should use to balance this call with a 
+ call to `stopUpdating:`.
  
  @warning Callers should balance a call to `startUpdating` with a call to 
  `stopUpdating:`, otherwise device motion will continue to be updated indefinitely.
  */
-- (NSUUID *)startUpdating:(NSTimeInterval)preferredUpdateInterval;
+- (id<NSObject, NSCopying>)startUpdating:(NSTimeInterval)preferredUpdateInterval;
 
 /**
  Requests that device motion updates be stopped. If there are other active
@@ -74,12 +74,12 @@ NS_ASSUME_NONNULL_BEGIN
  `stopUpdating:`, as the interval will resolve to the shortest interval among
  the active observers.
  
- @param identifier The unique identifer received from a call to `startUpdating`.
+ @param identifier The token received from a call to `startUpdating`.
  
  @warning Callers should balance a call to `startUpdating` with a call to
  `stopUpdating:`, otherwise device motion will continue to be updated indefinitely.
  */
-- (void)stopUpdating:(NSUUID *)identifier;
+- (void)stopUpdating:(id<NSObject, NSCopying>)token;
 
 @end
 

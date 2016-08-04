@@ -20,7 +20,7 @@ static inline CGPoint subtractPoints(CGPoint a, CGPoint b) {
 @property (nonatomic) SCNView *view;
 @property (nonatomic) UIGestureRecognizer *panRecognizer;
 @property (nonatomic) id<NYT360MotionManagement> motionManager;
-@property (nonatomic, strong, nullable) NSUUID *motionUpdateIdentifier;
+@property (nonatomic, strong, nullable) id<NSObject, NSCopying> motionUpdateToken;
 @property (nonatomic) SCNNode *camera;
 
 @property (nonatomic, assign) CGPoint rotateStart;
@@ -56,13 +56,13 @@ static inline CGPoint subtractPoints(CGPoint a, CGPoint b) {
 
 - (void)startMotionUpdates {
     NSTimeInterval interval = NYT360CameraControllerPreferredMotionUpdateInterval;
-    self.motionUpdateIdentifier = [self.motionManager startUpdating:interval];
+    self.motionUpdateToken = [self.motionManager startUpdating:interval];
 }
 
 - (void)stopMotionUpdates {
-    if (self.motionUpdateIdentifier == nil) { return; }
-    [self.motionManager stopUpdating:self.motionUpdateIdentifier];
-    self.motionUpdateIdentifier = nil;
+    if (self.motionUpdateToken == nil) { return; }
+    [self.motionManager stopUpdating:self.motionUpdateToken];
+    self.motionUpdateToken = nil;
 }
 
 - (void)updateCameraAngle {
