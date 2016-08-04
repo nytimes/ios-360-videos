@@ -1,6 +1,6 @@
 //
 //  NYT360MotionManager.m
-//  ios-360-videos
+//  NYT360Video
 //
 //  Created by Jared Sinclair on 8/3/16.
 //  Copyright © 2016 The New York Times Company. All rights reserved.

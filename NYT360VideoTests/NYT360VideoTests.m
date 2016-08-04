@@ -1,6 +1,6 @@
 //
-//  Three60_PlayerTests.m
-//  Three60_PlayerTests
+//  NYT360VideoTests.m
+//  NYT360VideoTests
 //
 //  Created by Chris Dzombak on 7/25/16.
 //  Copyright © 2016 The New York Times Company. All rights reserved.
@@ -8,11 +8,11 @@
 
 @import XCTest;
 
-@interface Three60_PlayerTests : XCTestCase
+@interface NYT360VideoTests : XCTestCase
 
 @end
 
-@implementation Three60_PlayerTests
+@implementation NYT360VideoTests
 
 - (void)setUp {
     [super setUp];

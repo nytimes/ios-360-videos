@@ -1,13 +1,13 @@
 //
 //  ViewController.m
-//  Three60_PlayerExample
+//  NYT360VideoExample
 //
 //  Created by Chris Dzombak on 7/25/16.
 //  Copyright © 2016 The New York Times Company. All rights reserved.
 //
 
 @import AVFoundation;
-@import Three60_Player;
+@import NYT360Video;
 
 #import "ViewController.h"
 

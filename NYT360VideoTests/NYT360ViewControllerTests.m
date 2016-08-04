@@ -1,6 +1,6 @@
 //
 //  NYT360ViewControllerTests.m
-//  ios-360-videos
+//  NYT360VideoTests
 //
 //  Created by Jared Sinclair on 8/2/16.
 //  Copyright © 2016 The New York Times Company. All rights reserved.
