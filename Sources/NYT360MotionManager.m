@@ -99,6 +99,7 @@ static const NSTimeInterval NYT360MotionManagerPreferredMotionUpdateInterval = (
 
 - (void)stopUpdating:(NSUUID *)token {
     NSAssert([NSOperationQueue currentQueue] == [NSOperationQueue mainQueue], @"NYT360MotionManager may only be used on the main queue.");
+    NSParameterAssert(token);
     NSUInteger previousCount = self.observerItems.count;
     [self.observerItems removeObjectForKey:token];
     self.motionManager.deviceMotionUpdateInterval = self.resolvedUpdateInterval;
