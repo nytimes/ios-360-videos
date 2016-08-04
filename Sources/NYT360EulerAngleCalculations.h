@@ -10,6 +10,8 @@
 @import SceneKit;
 @import CoreMotion;
 
+extern CGFloat const NYT360EulerAngleCalculationNoiseThresholdDefault;
+
 #import "NYT360DataTypes.h"
 
 #pragma mark - Data Types
@@ -24,6 +26,6 @@ typedef struct NYT360EulerAngleCalculationResult NYT360EulerAngleCalculationResu
 
 NYT360EulerAngleCalculationResult NYT360UpdatedPositionAndAnglesForAllowedAxes(CGPoint position, NYT360PanningAxis allowedPanningAxes);
 
-NYT360EulerAngleCalculationResult NYT360DeviceMotionCalculation(CGPoint position, CMRotationRate rotationRate, UIInterfaceOrientation orientation, NYT360PanningAxis allowedPanningAxes);
+NYT360EulerAngleCalculationResult NYT360DeviceMotionCalculation(CGPoint position, CMRotationRate rotationRate, UIInterfaceOrientation orientation, NYT360PanningAxis allowedPanningAxes, CGFloat noiseThreshold);
 
 NYT360EulerAngleCalculationResult NYT360PanGestureChangeCalculation(CGPoint position, CGPoint rotateDelta, CGSize viewSize, NYT360PanningAxis allowedPanningAxes);

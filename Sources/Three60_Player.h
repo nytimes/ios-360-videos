@@ -18,3 +18,5 @@ FOUNDATION_EXPORT const unsigned char Three60_PlayerVersionString[];
 
 #import <Three60_Player/NYT360ViewController.h>
 #import <Three60_Player/NYT360DataTypes.h>
+#import <Three60_Player/NYT360MotionManagement.h>
+#import <Three60_Player/NYT360MotionManager.h>
