@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'NYT360Video'
-    s.version          = '0.3.1'
+    s.version          = '0.3.2'
     s.summary          = 'NYT360Video plays 360º video streamed from an AVPlayer.'
 
     s.description      = <<-DESC
@@ -14,10 +14,10 @@ Pod::Spec.new do |s|
     s.author           = 'The New York Times'
     s.source           = { :git => 'https://github.com/nytm/ios-360-videos.git', :tag => s.version.to_s }
 
-    s.ios.deployment_target = '9.0'
+    s.ios.deployment_target = '8.0'
 
     s.source_files = 'Sources/**/*.{h,m}'
-    s.public_header_files = 'Sources/NYT360Video.h', 'Sources/NYT360ViewController.h'
+    s.public_header_files = 'Sources/NYT360Video.h', 'Sources/NYT360ViewController.h', 'Sources/NYT360DataTypes.h', 'Sources/NYT360MotionManagement.h', 'Sources/NYT360MotionManager.h'
 
     s.frameworks = 'UIKit', 'SceneKit', 'SpriteKit', 'AVFoundation', 'CoreMotion'
 end
