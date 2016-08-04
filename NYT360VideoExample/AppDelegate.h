@@ -1,6 +1,6 @@
 //
 //  AppDelegate.h
-//  Three60_PlayerExample
+//  NYT360VideoExample
 //
 //  Created by Chris Dzombak on 7/25/16.
 //  Copyright © 2016 The New York Times Company. All rights reserved.

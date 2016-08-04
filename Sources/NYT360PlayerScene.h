@@ -1,6 +1,6 @@
 //
 //  NYT360PlayerScene.h
-//  scenekittest
+//  NYT360Video
 //
 //  Created by Chris Dzombak on 7/14/16.
 //  Copyright © 2016 The New York Times Company. All rights reserved.

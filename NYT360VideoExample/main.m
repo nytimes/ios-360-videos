@@ -1,6 +1,6 @@
 //
 //  main.m
-//  Three60_PlayerExample
+//  NYT360VideoExample
 //
 //  Created by Chris Dzombak on 7/25/16.
 //
