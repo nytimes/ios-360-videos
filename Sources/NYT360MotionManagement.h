@@ -11,6 +11,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef id<NSObject, NSCopying> NYT360MotionManagementToken;
+
 /**
  Per Apple's documentation, it is recommended that an application will have no
  more than one `CMMotionManager`, otherwise performance could degrade. The
@@ -63,7 +65,7 @@ NS_ASSUME_NONNULL_BEGIN
  @warning Callers should balance a call to `startUpdating` with a call to 
  `stopUpdating:`, otherwise device motion will continue to be updated indefinitely.
  */
-- (id<NSObject, NSCopying>)startUpdating:(NSTimeInterval)preferredUpdateInterval;
+- (NYT360MotionManagementToken)startUpdating:(NSTimeInterval)preferredUpdateInterval;
 
 /**
  Requests that device motion updates be stopped. If there are other active
@@ -79,7 +81,7 @@ NS_ASSUME_NONNULL_BEGIN
  @warning Callers should balance a call to `startUpdating` with a call to
  `stopUpdating:`, otherwise device motion will continue to be updated indefinitely.
  */
-- (void)stopUpdating:(id<NSObject, NSCopying>)token;
+- (void)stopUpdating:(NYT360MotionManagementToken)token;
 
 @end
 

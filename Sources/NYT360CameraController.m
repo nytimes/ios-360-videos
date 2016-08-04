@@ -20,7 +20,7 @@ static inline CGPoint subtractPoints(CGPoint a, CGPoint b) {
 @property (nonatomic) SCNView *view;
 @property (nonatomic) UIGestureRecognizer *panRecognizer;
 @property (nonatomic) id<NYT360MotionManagement> motionManager;
-@property (nonatomic, strong, nullable) id<NSObject, NSCopying> motionUpdateToken;
+@property (nonatomic, strong, nullable) NYT360MotionManagementToken motionUpdateToken;
 @property (nonatomic) SCNNode *camera;
 
 @property (nonatomic, assign) CGPoint rotateStart;

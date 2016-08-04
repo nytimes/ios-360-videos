@@ -26,7 +26,7 @@
     NSTimeInterval initialInterval = manager.resolvedUpdateInterval;
     XCTAssertFalse(manager.isDeviceMotionActive);
     
-    NSUUID *identifer = [manager startUpdating:30];
+    NYT360MotionManagementToken identifer = [manager startUpdating:30];
     XCTAssert(manager.resolvedUpdateInterval == 30);
     XCTAssert(manager.numberOfObservers == 1);
     
@@ -42,8 +42,8 @@
     NSTimeInterval initialInterval = manager.resolvedUpdateInterval;
     XCTAssertFalse(manager.isDeviceMotionActive);
     
-    NSUUID *identiferB = [manager startUpdating:10];
-    NSUUID *identiferA = [manager startUpdating:1000];
+    NYT360MotionManagementToken identiferB = [manager startUpdating:10];
+    NYT360MotionManagementToken identiferA = [manager startUpdating:1000];
     XCTAssert(manager.resolvedUpdateInterval == 10);
     XCTAssert(manager.numberOfObservers == 2);
     
