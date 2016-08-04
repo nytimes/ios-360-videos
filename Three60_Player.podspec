@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'Three60_Player'
-    s.version          = '0.2.0'
+    s.version          = '0.3.0'
     s.summary          = 'Three60_Player plays 360º video streamed from an AVPlayer.'
 
     s.description      = <<-DESC
