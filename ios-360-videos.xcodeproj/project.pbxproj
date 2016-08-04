@@ -131,8 +131,8 @@
 			children = (
 				934A49551D46B318001AD295 /* Metadata */,
 				934A49521D46B119001AD295 /* Sources */,
-				934A495D1D46B3B5001AD295 /* Three60_PlayerTests */,
-				934A496C1D46B3FD001AD295 /* Three60_PlayerExample */,
+				934A495D1D46B3B5001AD295 /* NYT360VideoTests */,
+				934A496C1D46B3FD001AD295 /* NYT360VideoTestsExample */,
 				934A494A1D46B0A1001AD295 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -178,7 +178,7 @@
 			name = Metadata;
 			sourceTree = "<group>";
 		};
-		934A495D1D46B3B5001AD295 /* Three60_PlayerTests */ = {
+		934A495D1D46B3B5001AD295 /* NYT360VideoTests */ = {
 			isa = PBXGroup;
 			children = (
 				4736BBF91D53949900262306 /* Info.plist */,
@@ -187,10 +187,11 @@
 				4736BBFC1D53949900262306 /* NYT360ViewControllerTests.m */,
 				4736BBFD1D53949900262306 /* NYT360VideoTests.m */,
 			);
+			name = NYT360VideoTests;
 			path = Three60_PlayerTests;
 			sourceTree = "<group>";
 		};
-		934A496C1D46B3FD001AD295 /* Three60_PlayerExample */ = {
+		934A496C1D46B3FD001AD295 /* NYT360VideoTestsExample */ = {
 			isa = PBXGroup;
 			children = (
 				4736BBE21D5393E500262306 /* AppDelegate.h */,
@@ -203,6 +204,7 @@
 				4736BBEC1D5393EB00262306 /* Info.plist */,
 				934A496D1D46B3FD001AD295 /* Supporting Files */,
 			);
+			name = NYT360VideoTestsExample;
 			path = Three60_PlayerExample;
 			sourceTree = "<group>";
 		};
