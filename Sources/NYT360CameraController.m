@@ -6,11 +6,10 @@
 //  Copyright © 2016 The New York Times Company. All rights reserved.
 //
 
-@import SceneKit;
-@import CoreMotion;
-
 #import "NYT360CameraController.h"
 #import "NYT360EulerAngleCalculations.h"
+
+static const NSTimeInterval NYT360CameraControllerPreferredMotionUpdateInterval = (1.0 / 60.0);
 
 static inline CGPoint subtractPoints(CGPoint a, CGPoint b) {
     return CGPointMake(b.x - a.x, b.y - a.y);
@@ -20,7 +19,8 @@ static inline CGPoint subtractPoints(CGPoint a, CGPoint b) {
 
 @property (nonatomic) SCNView *view;
 @property (nonatomic) UIGestureRecognizer *panRecognizer;
-@property (nonatomic) CMMotionManager *motionManager;
+@property (nonatomic) id<NYT360MotionManagement> motionManager;
+@property (nonatomic, strong, nullable) NYT360MotionManagementToken motionUpdateToken;
 @property (nonatomic) SCNNode *camera;
 
 @property (nonatomic, assign) CGPoint rotateStart;
@@ -34,7 +34,7 @@ static inline CGPoint subtractPoints(CGPoint a, CGPoint b) {
 
 #pragma mark - Initializers
 
-- (id)initWithView:(SCNView *)view {
+- (instancetype)initWithView:(SCNView *)view motionManager:(id<NYT360MotionManagement>)motionManager {
     self = [super init];
     if (self) {
         
@@ -50,8 +50,7 @@ static inline CGPoint subtractPoints(CGPoint a, CGPoint b) {
         _panRecognizer.delegate = self;
         [_view addGestureRecognizer:_panRecognizer];
         
-        _motionManager = [[CMMotionManager alloc] init];
-        _motionManager.deviceMotionUpdateInterval = (1.f / 60.f);
+        _motionManager = motionManager;
     }
     
     return self;
@@ -60,18 +59,21 @@ static inline CGPoint subtractPoints(CGPoint a, CGPoint b) {
 #pragma mark - Observing Device Motion
 
 - (void)startMotionUpdates {
-    [self.motionManager startDeviceMotionUpdates];
+    NSTimeInterval interval = NYT360CameraControllerPreferredMotionUpdateInterval;
+    self.motionUpdateToken = [self.motionManager startUpdating:interval];
 }
 
 - (void)stopMotionUpdates {
-    [self.motionManager stopDeviceMotionUpdates];
+    if (self.motionUpdateToken == nil) { return; }
+    [self.motionManager stopUpdating:self.motionUpdateToken];
+    self.motionUpdateToken = nil;
 }
 
 #pragma mark - Camera Angle Updates
 
 - (void)updateCameraAngle {
 #ifdef DEBUG
-    if (!self.motionManager.deviceMotionActive) {
+    if (!self.motionManager.isDeviceMotionActive) {
         NSLog(@"Warning: %@ called while %@ is not receiving motion updates", NSStringFromSelector(_cmd), NSStringFromClass(self.class));
     }
 #endif
