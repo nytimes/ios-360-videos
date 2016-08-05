@@ -10,6 +10,8 @@
 #import "NYT360CameraController.h"
 #import "NYT360PlayerScene.h"
 
+static const CGFloat NYT360ViewControllerWideAngleAspectRatioThreshold = 16.0 / 9.0;
+
 CGRect NYT360ViewControllerSceneFrameForContainingBounds(CGRect containingBounds, CGSize underlyingSceneSize) {
     
     if (CGSizeEqualToSize(underlyingSceneSize, CGSizeZero)) {
@@ -107,7 +109,7 @@ CGRect NYT360ViewControllerSceneBoundsForScreenBounds(CGRect screenBounds) {
         
     self.sceneView.playing = true;
     
-    [self adjustCameraFOV];
+    [self adjustCameraFOV:self.view.bounds.size];
 }
 
 - (void)viewDidLayoutSubviews {
@@ -143,7 +145,7 @@ CGRect NYT360ViewControllerSceneBoundsForScreenBounds(CGRect screenBounds) {
     
     [coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext>  _Nonnull context) {
         [SCNTransaction setAnimationDuration:coordinator.transitionDuration];
-        [self adjustCameraFOV];
+        [self adjustCameraFOV:size];
     } completion:^(id<UIViewControllerTransitionCoordinatorContext>  _Nonnull context) {
         if (!context.isCancelled) {
             // If you don't reset the duration to 0, all future camera upates
@@ -163,9 +165,16 @@ CGRect NYT360ViewControllerSceneBoundsForScreenBounds(CGRect screenBounds) {
 
 #pragma mark - Private
 
-- (void)adjustCameraFOV {
-    // TODO [DZ]: What are the correct values here?
-    if (UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation) || [UIDevice currentDevice].orientation == UIInterfaceOrientationUnknown) {
+- (void)adjustCameraFOV:(CGSize)viewSize {
+    
+    CGFloat actualRatio = viewSize.width / viewSize.height;
+    CGFloat threshold = NYT360ViewControllerWideAngleAspectRatioThreshold;
+    BOOL isPortrait = (actualRatio < threshold);
+    
+    // TODO: [jaredsinclair] Write a function that computes the optimal `yFov`
+    // for a given input size, rather than hard-coded break points.
+    
+    if (isPortrait) {
         self.playerScene.camera.yFov = 100;
     }
     else {
