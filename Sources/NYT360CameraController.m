@@ -8,6 +8,7 @@
 
 #import "NYT360CameraController.h"
 #import "NYT360EulerAngleCalculations.h"
+#import "NYT360CameraPanGestureRecognizer.h"
 
 static const NSTimeInterval NYT360CameraControllerPreferredMotionUpdateInterval = (1.0 / 60.0);
 
@@ -18,7 +19,6 @@ static inline CGPoint subtractPoints(CGPoint a, CGPoint b) {
 @interface NYT360CameraController ()
 
 @property (nonatomic) SCNView *view;
-@property (nonatomic) UIGestureRecognizer *panRecognizer;
 @property (nonatomic) id<NYT360MotionManagement> motionManager;
 @property (nonatomic, strong, nullable) NYT360MotionManagementToken motionUpdateToken;
 @property (nonatomic) SCNNode *camera;
@@ -46,7 +46,7 @@ static inline CGPoint subtractPoints(CGPoint a, CGPoint b) {
         _currentPosition = CGPointMake(0, 0);
         _allowedPanningAxes = NYT360PanningAxisHorizontal | NYT360PanningAxisVertical;
         
-        _panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)];
+        _panRecognizer = [[NYT360CameraPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)];
         _panRecognizer.delegate = self;
         [_view addGestureRecognizer:_panRecognizer];
         

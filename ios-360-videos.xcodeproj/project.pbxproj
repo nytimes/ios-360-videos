@@ -24,6 +24,8 @@
 		4736BC081D5394D200262306 /* NYT360MotionManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4736BBFB1D53949900262306 /* NYT360MotionManagerTests.m */; };
 		4736BC091D5394D200262306 /* NYT360ViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4736BBFC1D53949900262306 /* NYT360ViewControllerTests.m */; };
 		4736BC0A1D5394D200262306 /* NYT360VideoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4736BBFD1D53949900262306 /* NYT360VideoTests.m */; };
+		47ACFE341D54DFC70054F8D0 /* NYT360CameraPanGestureRecognizer.h in Headers */ = {isa = PBXBuildFile; fileRef = 47ACFE321D54DFC70054F8D0 /* NYT360CameraPanGestureRecognizer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		47ACFE351D54DFC70054F8D0 /* NYT360CameraPanGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 47ACFE331D54DFC70054F8D0 /* NYT360CameraPanGestureRecognizer.m */; };
 		47CD32371D539677000B3313 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4736BBE01D5393D800262306 /* main.m */; };
 		47DCD2A31D493E1400FBCD4B /* NYT360EulerAngleCalculations.h in Headers */ = {isa = PBXBuildFile; fileRef = 47DCD2A11D493E1400FBCD4B /* NYT360EulerAngleCalculations.h */; };
 		47DCD2A41D493E1400FBCD4B /* NYT360EulerAngleCalculations.m in Sources */ = {isa = PBXBuildFile; fileRef = 47DCD2A21D493E1400FBCD4B /* NYT360EulerAngleCalculations.m */; };
@@ -82,6 +84,8 @@
 		4736BBFB1D53949900262306 /* NYT360MotionManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NYT360MotionManagerTests.m; path = NYT360VideoTests/NYT360MotionManagerTests.m; sourceTree = SOURCE_ROOT; };
 		4736BBFC1D53949900262306 /* NYT360ViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NYT360ViewControllerTests.m; path = NYT360VideoTests/NYT360ViewControllerTests.m; sourceTree = SOURCE_ROOT; };
 		4736BBFD1D53949900262306 /* NYT360VideoTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NYT360VideoTests.m; path = NYT360VideoTests/NYT360VideoTests.m; sourceTree = SOURCE_ROOT; };
+		47ACFE321D54DFC70054F8D0 /* NYT360CameraPanGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYT360CameraPanGestureRecognizer.h; sourceTree = "<group>"; };
+		47ACFE331D54DFC70054F8D0 /* NYT360CameraPanGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYT360CameraPanGestureRecognizer.m; sourceTree = "<group>"; };
 		47DCD2A11D493E1400FBCD4B /* NYT360EulerAngleCalculations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYT360EulerAngleCalculations.h; sourceTree = "<group>"; };
 		47DCD2A21D493E1400FBCD4B /* NYT360EulerAngleCalculations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYT360EulerAngleCalculations.m; sourceTree = "<group>"; };
 		934A49491D46B0A1001AD295 /* NYT360Video.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NYT360Video.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -154,6 +158,8 @@
 				472324FC1D523F6000784F8F /* NYT360MotionManagement.h */,
 				472324FD1D5240DF00784F8F /* NYT360MotionManager.h */,
 				472324FE1D5240DF00784F8F /* NYT360MotionManager.m */,
+				47ACFE321D54DFC70054F8D0 /* NYT360CameraPanGestureRecognizer.h */,
+				47ACFE331D54DFC70054F8D0 /* NYT360CameraPanGestureRecognizer.m */,
 				934A49821D46B446001AD295 /* NYT360CameraController.h */,
 				934A49831D46B446001AD295 /* NYT360CameraController.m */,
 				47DCD2A11D493E1400FBCD4B /* NYT360EulerAngleCalculations.h */,
@@ -227,6 +233,7 @@
 				472325011D524AB600784F8F /* NYT360MotionManagement.h in Headers */,
 				470DB5DC1D4950FC001DD20C /* NYT360DataTypes.h in Headers */,
 				472324FF1D5240DF00784F8F /* NYT360MotionManager.h in Headers */,
+				47ACFE341D54DFC70054F8D0 /* NYT360CameraPanGestureRecognizer.h in Headers */,
 				934A49881D46B446001AD295 /* NYT360CameraController.h in Headers */,
 				47DCD2A31D493E1400FBCD4B /* NYT360EulerAngleCalculations.h in Headers */,
 				934A498A1D46B446001AD295 /* NYT360PlayerScene.h in Headers */,
@@ -365,6 +372,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				934A498D1D46B446001AD295 /* NYT360ViewController.m in Sources */,
+				47ACFE351D54DFC70054F8D0 /* NYT360CameraPanGestureRecognizer.m in Sources */,
 				934A49891D46B446001AD295 /* NYT360CameraController.m in Sources */,
 				934A498B1D46B446001AD295 /* NYT360PlayerScene.m in Sources */,
 				47DCD2A41D493E1400FBCD4B /* NYT360EulerAngleCalculations.m in Sources */,

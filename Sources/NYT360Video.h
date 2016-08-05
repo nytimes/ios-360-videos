@@ -20,3 +20,4 @@ FOUNDATION_EXPORT const unsigned char NYT360VideoVersionString[];
 #import <NYT360Video/NYT360DataTypes.h>
 #import <NYT360Video/NYT360MotionManagement.h>
 #import <NYT360Video/NYT360MotionManager.h>
+#import <NYT360Video/NYT360CameraPanGestureRecognizer.h>
