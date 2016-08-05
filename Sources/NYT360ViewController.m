@@ -169,12 +169,12 @@ CGRect NYT360ViewControllerSceneBoundsForScreenBounds(CGRect screenBounds) {
     
     CGFloat actualRatio = viewSize.width / viewSize.height;
     CGFloat threshold = NYT360ViewControllerWideAngleAspectRatioThreshold;
-    BOOL isWideAngle = (actualRatio >= threshold);
+    BOOL isPortrait = (actualRatio < threshold);
     
     // TODO: [jaredsinclair] Write a function that computes the optimal `yFov`
     // for a given input size, rather than hard-coded break points.
     
-    if (isWideAngle) {
+    if (isPortrait) {
         self.playerScene.camera.yFov = 100;
     }
     else {
