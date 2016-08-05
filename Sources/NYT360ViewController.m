@@ -76,6 +76,20 @@ CGRect NYT360ViewControllerSceneBoundsForScreenBounds(CGRect screenBounds) {
     [self.playerScene pause];
 }
 
+#pragma mark - Camera Movement
+
+- (NYT360CameraPanGestureRecognizer *)panRecognizer {
+    return self.cameraController.panRecognizer;
+}
+
+- (NYT360PanningAxis)allowedPanningAxes {
+    return self.cameraController.allowedPanningAxes;
+}
+
+- (void)setAllowedPanningAxes:(NYT360PanningAxis)allowedPanningAxes {
+    self.cameraController.allowedPanningAxes = allowedPanningAxes;
+}
+
 #pragma mark - UIViewController
 
 - (void)viewDidLoad {
