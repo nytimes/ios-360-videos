@@ -80,6 +80,10 @@ CGRect NYT360ViewControllerSceneBoundsForScreenBounds(CGRect screenBounds) {
 
 #pragma mark - Camera Movement
 
+- (double)cameraAngleDirection {
+    return self.cameraController.cameraAngleDirection;
+}
+
 - (NYT360CameraPanGestureRecognizer *)panRecognizer {
     return self.cameraController.panRecognizer;
 }
