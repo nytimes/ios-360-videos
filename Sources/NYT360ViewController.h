@@ -51,6 +51,11 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - Camera Movement
 
 /**
+ Returns the latest camera angle direction.
+ */
+@property (nonatomic, readonly) double cameraAngleDirection;
+
+/**
  *  An otherwise vanilla subclass of UIPanGestureRecognizer used by NYT360Video to enable manual camera panning. This class is exposed so that host applications can more easily configure interaction with other gesture recognizers without having to have references to specific instances of an NYT360Video pan recognizer.
  */
 @property (nonatomic, readonly) NYT360CameraPanGestureRecognizer *panRecognizer;
