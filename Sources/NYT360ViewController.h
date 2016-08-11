@@ -14,7 +14,7 @@
 #import "NYT360DataTypes.h"
 
 @class NYT360CameraPanGestureRecognizer;
-@class NYT360CameraController;
+@class NYT360ViewController;
 
 CGRect NYT360ViewControllerSceneFrameForContainingBounds(CGRect containingBounds, CGSize underlyingSceneSize);
 CGRect NYT360ViewControllerSceneBoundsForScreenBounds(CGRect screenBounds);
@@ -26,9 +26,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Called when the camera angle was updated.
  *
- *  @param cameraController The camera controller that updated the angle.
+ *  @param viewController The view controller that updated the angle.
  */
-- (void)cameraAngleWasUpdated:(NYT360CameraController *)cameraController;
+- (void)cameraAngleWasUpdated:(NYT360ViewController *)viewController;
 
 @end
 
