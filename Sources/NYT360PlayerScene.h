@@ -1,6 +1,6 @@
 //
 //  NYT360PlayerScene.h
-//  scenekittest
+//  NYT360Video
 //
 //  Created by Chris Dzombak on 7/14/16.
 //  Copyright © 2016 The New York Times Company. All rights reserved.
@@ -14,9 +14,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, readonly) SCNCamera *camera;
 
-- (instancetype)initWithAVPlayer:(AVPlayer *)player;
+- (instancetype)initWithAVPlayer:(AVPlayer *)player boundToView:(SCNView *)view;
 
-- (void)bindToView:(SCNView *)view;
+- (void)play;
+
+- (void)pause;
 
 @end
 

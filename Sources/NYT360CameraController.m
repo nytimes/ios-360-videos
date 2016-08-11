@@ -1,16 +1,16 @@
 //
 //  NYT360CameraController.m
-//  scenekittest
+//  NYT360Video
 //
 //  Created by Thiago on 7/13/16.
 //  Copyright © 2016 The New York Times Company. All rights reserved.
 //
 
-@import SceneKit;
-@import CoreMotion;
-
 #import "NYT360CameraController.h"
 #import "NYT360EulerAngleCalculations.h"
+#import "NYT360CameraPanGestureRecognizer.h"
+
+static const NSTimeInterval NYT360CameraControllerPreferredMotionUpdateInterval = (1.0 / 60.0);
 
 static inline CGPoint subtractPoints(CGPoint a, CGPoint b) {
     return CGPointMake(b.x - a.x, b.y - a.y);
@@ -19,8 +19,8 @@ static inline CGPoint subtractPoints(CGPoint a, CGPoint b) {
 @interface NYT360CameraController ()
 
 @property (nonatomic) SCNView *view;
-@property (nonatomic) UIGestureRecognizer *panRecognizer;
-@property (nonatomic) CMMotionManager *motionManager;
+@property (nonatomic) id<NYT360MotionManagement> motionManager;
+@property (nonatomic, strong, nullable) NYT360MotionManagementToken motionUpdateToken;
 @property (nonatomic) SCNNode *camera;
 
 @property (nonatomic, assign) CGPoint rotateStart;
@@ -32,31 +32,41 @@ static inline CGPoint subtractPoints(CGPoint a, CGPoint b) {
 
 @implementation NYT360CameraController
 
-- (id)initWithView:(SCNView *)view {
+#pragma mark - Initializers
+
+- (instancetype)initWithView:(SCNView *)view motionManager:(id<NYT360MotionManagement>)motionManager {
     self = [super init];
     if (self) {
+        
+        NSAssert(view.pointOfView != nil, @"NYT360CameraController must be initialized with a view with a non-nil pointOfView node.");
+        NSAssert(view.pointOfView.camera != nil, @"NYT360CameraController must be initialized with a view with a non-nil camera node for view.pointOfView.");
+        
         _camera = view.pointOfView;
         _view = view;
         _currentPosition = CGPointMake(0, 0);
         _allowedPanningAxes = NYT360PanningAxisHorizontal | NYT360PanningAxisVertical;
         
-        _panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)];
+        _panRecognizer = [[NYT360CameraPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)];
         _panRecognizer.delegate = self;
         [_view addGestureRecognizer:_panRecognizer];
         
-        _motionManager = [[CMMotionManager alloc] init];
-        _motionManager.deviceMotionUpdateInterval = (1.f / 60.f);
+        _motionManager = motionManager;
     }
     
     return self;
 }
 
+#pragma mark - Observing Device Motion
+
 - (void)startMotionUpdates {
-    [self.motionManager startDeviceMotionUpdates];
+    NSTimeInterval interval = NYT360CameraControllerPreferredMotionUpdateInterval;
+    self.motionUpdateToken = [self.motionManager startUpdating:interval];
 }
 
 - (void)stopMotionUpdates {
-    [self.motionManager stopDeviceMotionUpdates];
+    if (self.motionUpdateToken == nil) { return; }
+    [self.motionManager stopUpdating:self.motionUpdateToken];
+    self.motionUpdateToken = nil;
 }
 
 - (double)getCameraDirection {
@@ -69,10 +79,11 @@ static inline CGPoint subtractPoints(CGPoint a, CGPoint b) {
     return atan2(qx, qz);
 }
 
+#pragma mark - Camera Angle Updates
 
 - (void)updateCameraAngle {
 #ifdef DEBUG
-    if (!self.motionManager.deviceMotionActive) {
+    if (!self.motionManager.isDeviceMotionActive) {
         NSLog(@"Warning: %@ called while %@ is not receiving motion updates", NSStringFromSelector(_cmd), NSStringFromClass(self.class));
     }
 #endif
@@ -85,6 +96,8 @@ static inline CGPoint subtractPoints(CGPoint a, CGPoint b) {
     self.camera.eulerAngles = result.eulerAngles;
 }
 
+#pragma mark - Panning Options
+
 - (void)setAllowedPanningAxes:(NYT360PanningAxis)allowedPanningAxes {
     // TODO: [jaredsinclair] Consider adding an animated version of this method.
     if (_allowedPanningAxes != allowedPanningAxes) {
@@ -95,6 +108,8 @@ static inline CGPoint subtractPoints(CGPoint a, CGPoint b) {
 
     }
 }
+
+#pragma mark - Private
 
 - (void)handlePan:(UIPanGestureRecognizer *)recognizer {
     CGPoint point = [recognizer locationInView:self.view];
