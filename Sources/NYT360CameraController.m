@@ -69,7 +69,9 @@ static inline CGPoint subtractPoints(CGPoint a, CGPoint b) {
     self.motionUpdateToken = nil;
 }
 
-- (double)getCameraDirection {
+#pragma mark - Camera Angle Direction
+
+- (double)cameraAngleDirection {
     float x = 0, y = 0, z = -1;
     SCNMatrix4 worldMatrix = _camera.worldTransform;
 

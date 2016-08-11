@@ -19,6 +19,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NYT360CameraController : NSObject <UIGestureRecognizerDelegate>
 
+#pragma mark - Camera Angle Direction
+
+/**
+ Returns the latest camera angle direction.
+ */
+@property (nonatomic, readonly) double cameraAngleDirection;
+
 #pragma mark - Initializers
 
 /**
@@ -50,10 +57,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates the camera angle based on the current device motion. It's assumed that this method will be called many times a second during SceneKit rendering updates.
  */
 - (void)updateCameraAngle;
-
-#pragma mark - Camera Angle Direction
-
-- (double)getCameraDirection;
 
 #pragma mark - Panning Options
 
