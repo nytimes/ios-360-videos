@@ -165,6 +165,8 @@ CGRect NYT360ViewControllerSceneBoundsForScreenBounds(CGRect screenBounds) {
 
 - (void)renderer:(id <SCNSceneRenderer>)renderer updateAtTime:(NSTimeInterval)time {
     [self.cameraController updateCameraAngle];
+    
+    [self.delegate cameraAngleWasUpdated:self];
 }
 
 #pragma mark - Private
