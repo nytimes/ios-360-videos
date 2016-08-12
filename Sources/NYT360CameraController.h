@@ -19,6 +19,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NYT360CameraController : NSObject <UIGestureRecognizerDelegate>
 
+#pragma mark - Camera Angle Direction
+
+/**
+ Returns the latest camera angle direction.
+ */
+@property (nonatomic, readonly) double cameraAngleDirection;
+
 #pragma mark - Initializers
 
 /**
@@ -51,10 +58,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)updateCameraAngle;
 
+#pragma mark - Panning Options
+
 /**
  *  An otherwise vanilla subclass of UIPanGestureRecognizer used by NYT360Video to enable manual camera panning. This class is exposed so that host applications can more easily configure interaction with other gesture recognizers without having to have references to specific instances of an NYT360Video pan recognizer.
  */
 @property (nonatomic, readonly) NYT360CameraPanGestureRecognizer *panRecognizer;
+
 
 /**
  *  Changing this property will allow you to suppress undesired range of motion along either the x or y axis. For example, y axis input should be suppressed when a 360 video is playing inline in a scroll view.

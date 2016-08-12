@@ -14,13 +14,30 @@
 #import "NYT360DataTypes.h"
 
 @class NYT360CameraPanGestureRecognizer;
+@class NYT360ViewController;
 
 CGRect NYT360ViewControllerSceneFrameForContainingBounds(CGRect containingBounds, CGSize underlyingSceneSize);
 CGRect NYT360ViewControllerSceneBoundsForScreenBounds(CGRect screenBounds);
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol NYT360ViewControllerDelegate <NSObject>
+
+/**
+ *  Called when the camera angle was updated.
+ *
+ *  @param viewController The view controller that updated the angle.
+ */
+- (void)cameraAngleWasUpdated:(NYT360ViewController *)viewController;
+
+@end
+
 @interface NYT360ViewController : UIViewController <SCNSceneRendererDelegate>
+
+/**
+ *  The delegate of the view controller.
+ */
+@property (nullable, nonatomic, weak) id <NYT360ViewControllerDelegate> delegate;
 
 #pragma mark - Initializers
 
@@ -32,6 +49,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)pause;
 
 #pragma mark - Camera Movement
+
+/**
+ Returns the latest camera angle direction.
+ */
+@property (nonatomic, readonly) double cameraAngleDirection;
 
 /**
  *  An otherwise vanilla subclass of UIPanGestureRecognizer used by NYT360Video to enable manual camera panning. This class is exposed so that host applications can more easily configure interaction with other gesture recognizers without having to have references to specific instances of an NYT360Video pan recognizer.
