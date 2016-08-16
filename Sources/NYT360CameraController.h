@@ -52,6 +52,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)updateCameraAngle;
 
 /**
+ *  Updates the yFov of the camera to provide the optimal viewing angle for a given view size. Portrait videos will use a wider angle than landscape videos.
+ */
+- (void)updateCameraFOV:(CGSize)viewSize;
+
+/**
  *  An otherwise vanilla subclass of UIPanGestureRecognizer used by NYT360Video to enable manual camera panning. This class is exposed so that host applications can more easily configure interaction with other gesture recognizers without having to have references to specific instances of an NYT360Video pan recognizer.
  */
 @property (nonatomic, readonly) NYT360CameraPanGestureRecognizer *panRecognizer;

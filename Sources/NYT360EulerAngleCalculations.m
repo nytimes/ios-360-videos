@@ -115,3 +115,16 @@ NYT360EulerAngleCalculationResult NYT360PanGestureChangeCalculation(CGPoint posi
     
     return NYT360EulerAngleCalculationResultMake(position, eulerAngles);
 }
+
+CGFloat NYT360OptimalYFovForViewSize(CGSize viewSize) {
+    CGFloat yFov;
+    if (viewSize.height > 0) {
+        CGFloat ratio = viewSize.width / viewSize.height;
+        CGFloat slope = -33.01365882011044;
+        yFov = (slope * ratio) + 118.599244406;
+        yFov = MIN(MAX(yFov, 40.0), 120.0);
+    } else {
+        yFov = 60.0;
+    }
+    return yFov;
+}

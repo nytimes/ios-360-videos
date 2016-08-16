@@ -29,3 +29,5 @@ NYT360EulerAngleCalculationResult NYT360UpdatedPositionAndAnglesForAllowedAxes(C
 NYT360EulerAngleCalculationResult NYT360DeviceMotionCalculation(CGPoint position, CMRotationRate rotationRate, UIInterfaceOrientation orientation, NYT360PanningAxis allowedPanningAxes, CGFloat noiseThreshold);
 
 NYT360EulerAngleCalculationResult NYT360PanGestureChangeCalculation(CGPoint position, CGPoint rotateDelta, CGSize viewSize, NYT360PanningAxis allowedPanningAxes);
+
+CGFloat NYT360OptimalYFovForViewSize(CGSize viewSize);
