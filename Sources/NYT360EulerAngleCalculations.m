@@ -12,6 +12,11 @@
 
 CGFloat const NYT360EulerAngleCalculationNoiseThresholdDefault = 0.12;
 static CGFloat NYT360EulerAngleCalculationRotationRateDampingFactor = 0.02;
+static CGFloat NYT360EulerAngleCalculationYFovDefault = 60.0;
+static CGFloat NYT360EulerAngleCalculationYFovMin = 40.0;
+static CGFloat NYT360EulerAngleCalculationYFovMax = 120.0;
+static CGFloat NYT360EulerAngleCalculationYFovFunctionSlope = -33.01365882011044;
+static CGFloat NYT360EulerAngleCalculationYFovFunctionConstant = 118.599244406;
 
 #pragma mark - Inline Functions
 
@@ -120,11 +125,11 @@ CGFloat NYT360OptimalYFovForViewSize(CGSize viewSize) {
     CGFloat yFov;
     if (viewSize.height > 0) {
         CGFloat ratio = viewSize.width / viewSize.height;
-        CGFloat slope = -33.01365882011044;
-        yFov = (slope * ratio) + 118.599244406;
-        yFov = MIN(MAX(yFov, 40.0), 120.0);
+        CGFloat slope = NYT360EulerAngleCalculationYFovFunctionSlope;
+        yFov = (slope * ratio) + NYT360EulerAngleCalculationYFovFunctionConstant;
+        yFov = MIN(MAX(yFov, NYT360EulerAngleCalculationYFovMin), NYT360EulerAngleCalculationYFovMax);
     } else {
-        yFov = 60.0;
+        yFov = NYT360EulerAngleCalculationYFovDefault;
     }
     return yFov;
 }
