@@ -121,5 +121,15 @@
     XCTAssertNotEqual(result.position.y, 0);
 }
 
+- (void)testItCalculatesTheOptimalYFovForAVarietyOfInputs {
+    XCTAssertEqualWithAccuracy(NYT360OptimalYFovForViewSize(CGSizeMake(568, 320)),   60.0,   2.0);
+    XCTAssertEqualWithAccuracy(NYT360OptimalYFovForViewSize(CGSizeMake(1024, 768)),  74.6,   2.0);
+    XCTAssertEqualWithAccuracy(NYT360OptimalYFovForViewSize(CGSizeMake(320, 568)),  100.0,   2.0);
+    XCTAssertEqualWithAccuracy(NYT360OptimalYFovForViewSize(CGSizeMake(16000, 1)),   40.0,   2.0);
+    XCTAssertEqualWithAccuracy(NYT360OptimalYFovForViewSize(CGSizeMake(1, 16000)),  120.0,   2.0);
+    XCTAssertEqualWithAccuracy(NYT360OptimalYFovForViewSize(CGSizeMake(0, 0)),       60.0,   2.0);
+    XCTAssertEqualWithAccuracy(NYT360OptimalYFovForViewSize(CGSizeMake(1, 0)),       60.0,   2.0);
+    XCTAssertEqualWithAccuracy(NYT360OptimalYFovForViewSize(CGSizeMake(0, 1)),      120.0,   2.0);
+}
 
 @end
