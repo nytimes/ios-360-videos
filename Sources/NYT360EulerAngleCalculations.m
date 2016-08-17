@@ -11,12 +11,6 @@
 #pragma mark - Constants
 
 CGFloat const NYT360EulerAngleCalculationNoiseThresholdDefault = 0.12;
-static CGFloat NYT360EulerAngleCalculationRotationRateDampingFactor = 0.02;
-static CGFloat NYT360EulerAngleCalculationYFovDefault = 60.0;
-static CGFloat NYT360EulerAngleCalculationYFovMin = 40.0;
-static CGFloat NYT360EulerAngleCalculationYFovMax = 120.0;
-static CGFloat NYT360EulerAngleCalculationYFovFunctionSlope = -33.01365882011044;
-static CGFloat NYT360EulerAngleCalculationYFovFunctionConstant = 118.599244406;
 
 #pragma mark - Inline Functions
 
@@ -52,6 +46,8 @@ NYT360EulerAngleCalculationResult NYT360UpdatedPositionAndAnglesForAllowedAxes(C
 }
 
 NYT360EulerAngleCalculationResult NYT360DeviceMotionCalculation(CGPoint position, CMRotationRate rotationRate, UIInterfaceOrientation orientation, NYT360PanningAxis allowedPanningAxes, CGFloat noiseThreshold) {
+    
+    static CGFloat NYT360EulerAngleCalculationRotationRateDampingFactor = 0.02;
     
     // On some devices, the rotation rates exhibit a low-level drift on one or
     // more rotation axes. The symptom expressions are not identical, but they
@@ -122,6 +118,13 @@ NYT360EulerAngleCalculationResult NYT360PanGestureChangeCalculation(CGPoint posi
 }
 
 CGFloat NYT360OptimalYFovForViewSize(CGSize viewSize) {
+    
+    static CGFloat NYT360EulerAngleCalculationYFovDefault = 60.0;
+    static CGFloat NYT360EulerAngleCalculationYFovMin = 40.0;
+    static CGFloat NYT360EulerAngleCalculationYFovMax = 120.0;
+    static CGFloat NYT360EulerAngleCalculationYFovFunctionSlope = -33.01365882011044;
+    static CGFloat NYT360EulerAngleCalculationYFovFunctionConstant = 118.599244406;
+    
     CGFloat yFov;
     if (viewSize.height > 0) {
         CGFloat ratio = viewSize.width / viewSize.height;
