@@ -21,7 +21,7 @@ static inline CGPoint subtractPoints(CGPoint a, CGPoint b) {
 @property (nonatomic) SCNView *view;
 @property (nonatomic) id<NYT360MotionManagement> motionManager;
 @property (nonatomic, strong, nullable) NYT360MotionManagementToken motionUpdateToken;
-@property (nonatomic) SCNNode *camera;
+@property (nonatomic) SCNNode *pointOfView;
 
 @property (nonatomic, assign) CGPoint rotateStart;
 @property (nonatomic, assign) CGPoint rotateCurrent;
@@ -41,7 +41,7 @@ static inline CGPoint subtractPoints(CGPoint a, CGPoint b) {
         NSAssert(view.pointOfView != nil, @"NYT360CameraController must be initialized with a view with a non-nil pointOfView node.");
         NSAssert(view.pointOfView.camera != nil, @"NYT360CameraController must be initialized with a view with a non-nil camera node for view.pointOfView.");
         
-        _camera = view.pointOfView;
+        _pointOfView = view.pointOfView;
         _view = view;
         _currentPosition = CGPointMake(0, 0);
         _allowedPanningAxes = NYT360PanningAxisHorizontal | NYT360PanningAxisVertical;
@@ -95,7 +95,11 @@ static inline CGPoint subtractPoints(CGPoint a, CGPoint b) {
     NYT360EulerAngleCalculationResult result;
     result = NYT360DeviceMotionCalculation(self.currentPosition, rotationRate, orientation, self.allowedPanningAxes, NYT360EulerAngleCalculationNoiseThresholdDefault);
     self.currentPosition = result.position;
-    self.camera.eulerAngles = result.eulerAngles;
+    self.pointOfView.eulerAngles = result.eulerAngles;
+}
+
+- (void)updateCameraFOV:(CGSize)viewSize {
+    self.pointOfView.camera.yFov = NYT360OptimalYFovForViewSize(viewSize);
 }
 
 #pragma mark - Panning Options
@@ -106,7 +110,7 @@ static inline CGPoint subtractPoints(CGPoint a, CGPoint b) {
         _allowedPanningAxes = allowedPanningAxes;
         NYT360EulerAngleCalculationResult result = NYT360UpdatedPositionAndAnglesForAllowedAxes(self.currentPosition, allowedPanningAxes);
         self.currentPosition = result.position;
-        self.camera.eulerAngles = result.eulerAngles;
+        self.pointOfView.eulerAngles = result.eulerAngles;
 
     }
 }
@@ -125,7 +129,7 @@ static inline CGPoint subtractPoints(CGPoint a, CGPoint b) {
             self.rotateStart = self.rotateCurrent;
             NYT360EulerAngleCalculationResult result = NYT360PanGestureChangeCalculation(self.currentPosition, self.rotateDelta, self.view.bounds.size, self.allowedPanningAxes);
             self.currentPosition = result.position;
-            self.camera.eulerAngles = result.eulerAngles;
+            self.pointOfView.eulerAngles = result.eulerAngles;
             break;
         default:
             break;
