@@ -39,16 +39,19 @@ static inline CGPoint NYT360AdjustPositionForAllowedAxes(CGPoint position, NYT36
 }
 
 static inline float NYT360UnitRotationForCameraRotation(float cameraRotation) {
+    
+    // Use a modulus so that we don't pass the host application a compass angle
+    // value that is greater than one rotation, which wouldn't make sense in the
+    // context of a compass animation.
     float oneRotation = 2.0 * M_PI;
     float rawResult = fmodf(cameraRotation, oneRotation);
-    // `rawResult` will be less than `oneRotation`, but if it's equal (or very
-    // close to equal) to `oneRotation` than wrap the result back around to
-    // zero radians. This is so that we don't pass the host application a radian
-    // value that is greater than one rotation, which wouldn't make sense in
-    // the context of a compass animation.
+    
+    // `rawResult` will be less than `oneRotation`, but if it's very very close
+    // to `oneRotation` than wrap the result back around to zero radians.
     float accuracy = 0.0001;
     float difference = oneRotation - fabsf(rawResult);
     float wrappedAround = (difference < accuracy) ? 0 : rawResult;
+    
     return wrappedAround;
 }
 
