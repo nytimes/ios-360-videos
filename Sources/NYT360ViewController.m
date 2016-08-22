@@ -102,6 +102,10 @@ CGRect NYT360ViewControllerSceneBoundsForScreenBounds(CGRect screenBounds) {
     self.view.backgroundColor = [UIColor blackColor];
     self.view.opaque = YES;
     
+    // Prevent the edges of the "aspect-fill" resized player scene from being
+    // visible beyond the bounds of `self.view`.
+    self.view.clipsToBounds = YES;
+    
     // self.sceneView.showsStatistics = YES;
     self.sceneView.autoresizingMask = UIViewAutoresizingNone;
     self.sceneView.backgroundColor = [UIColor blackColor];
