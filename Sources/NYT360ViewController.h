@@ -24,11 +24,12 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol NYT360ViewControllerDelegate <NSObject>
 
 /**
- *  Called when the camera angle was updated.
+ *  Called when the compass angle is updated.
  *
  *  @param viewController The view controller that updated the angle.
+ *  @param compassAngle The current compass angle.
  */
-- (void)cameraAngleWasUpdated:(NYT360ViewController *)viewController;
+- (void)nyt360ViewController:(NYT360ViewController *)viewController didUpdateCompassAngle:(float)compassAngle;
 
 @end
 
@@ -51,9 +52,9 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - Camera Movement
 
 /**
- Returns the latest camera angle direction.
+ Returns the current compass angle.
  */
-@property (nonatomic, readonly) double cameraAngleDirection;
+@property (nonatomic, readonly) float compassAngle;
 
 /**
  *  An otherwise vanilla subclass of UIPanGestureRecognizer used by NYT360Video to enable manual camera panning. This class is exposed so that host applications can more easily configure interaction with other gesture recognizers without having to have references to specific instances of an NYT360Video pan recognizer.

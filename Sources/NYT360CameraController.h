@@ -15,6 +15,13 @@
 
 @class NYT360CameraPanGestureRecognizer;
 
+/**
+ * The block type used for compass angle updates.
+ *
+ *  @param compassAngle The compass angle in radians.
+ */
+typedef void(^NYT360CompassAngleUpdateBlock)(float compassAngle);
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NYT360CameraController : NSObject <UIGestureRecognizerDelegate>
@@ -22,9 +29,14 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - Camera Angle Direction
 
 /**
- Returns the latest camera angle direction.
+ *  Returns the current compass angle in radians
  */
-@property (nonatomic, readonly) double cameraAngleDirection;
+@property (nonatomic, readonly) float compassAngle;
+
+/**
+ A block invoked whenever the compass angle has been updated.
+ */
+@property (nonatomic, copy) NYT360CompassAngleUpdateBlock compassAngleUpdateBlock;
 
 #pragma mark - Initializers
 

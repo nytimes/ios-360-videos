@@ -69,16 +69,10 @@ static inline CGPoint subtractPoints(CGPoint a, CGPoint b) {
     self.motionUpdateToken = nil;
 }
 
-#pragma mark - Camera Angle Direction
+#pragma mark - Compass Angle
 
-- (double)cameraAngleDirection {
-    float x = 0, y = 0, z = -1;
-    SCNMatrix4 worldMatrix = self.pointOfView.worldTransform;
-
-    float qx = worldMatrix.m11 * x + worldMatrix.m12 * y + worldMatrix.m13 * z + worldMatrix.m14;
-    float qz = worldMatrix.m31 * x + worldMatrix.m32 * y + worldMatrix.m33 * z + worldMatrix.m34;
-
-    return atan2(qx, qz);
+- (float)compassAngle {
+    return NYT360CompassAngleForEulerAngles(self.pointOfView.eulerAngles, NYT360EulerAngleCalculationDefaultReferenceCompassAngle);
 }
 
 #pragma mark - Camera Angle Updates
@@ -96,6 +90,9 @@ static inline CGPoint subtractPoints(CGPoint a, CGPoint b) {
     result = NYT360DeviceMotionCalculation(self.currentPosition, rotationRate, orientation, self.allowedPanningAxes, NYT360EulerAngleCalculationNoiseThresholdDefault);
     self.currentPosition = result.position;
     self.pointOfView.eulerAngles = result.eulerAngles;
+    if (self.compassAngleUpdateBlock) {
+        self.compassAngleUpdateBlock(self.compassAngle);
+    }
 }
 
 - (void)updateCameraFOV:(CGSize)viewSize {
@@ -130,6 +127,9 @@ static inline CGPoint subtractPoints(CGPoint a, CGPoint b) {
             NYT360EulerAngleCalculationResult result = NYT360PanGestureChangeCalculation(self.currentPosition, self.rotateDelta, self.view.bounds.size, self.allowedPanningAxes);
             self.currentPosition = result.position;
             self.pointOfView.eulerAngles = result.eulerAngles;
+            if (self.compassAngleUpdateBlock) {
+                self.compassAngleUpdateBlock(self.compassAngle);
+            }
             break;
         default:
             break;
