@@ -11,6 +11,8 @@
 #import "NYT360CameraPanGestureRecognizer.h"
 
 static const NSTimeInterval NYT360CameraControllerPreferredMotionUpdateInterval = (1.0 / 60.0);
+static const NSString * const NYT360CameraControllerMethodTouch = @"touch";
+static const NSString * const NYT360CameraControllerMethodGyroscope = @"gyroscope";
 
 static inline CGPoint subtractPoints(CGPoint a, CGPoint b) {
     return CGPointMake(b.x - a.x, b.y - a.y);
@@ -27,6 +29,8 @@ static inline CGPoint subtractPoints(CGPoint a, CGPoint b) {
 @property (nonatomic, assign) CGPoint rotateCurrent;
 @property (nonatomic, assign) CGPoint rotateDelta;
 @property (nonatomic, assign) CGPoint currentPosition;
+
+@property (nonatomic, assign) BOOL cameraMoved;
 
 @end
 
@@ -94,6 +98,11 @@ static inline CGPoint subtractPoints(CGPoint a, CGPoint b) {
     UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
     NYT360EulerAngleCalculationResult result;
     result = NYT360DeviceMotionCalculation(self.currentPosition, rotationRate, orientation, self.allowedPanningAxes, NYT360EulerAngleCalculationNoiseThresholdDefault);
+    
+    if (CGPointEqualToPoint(self.currentPosition, result.position) == NO ) {
+        [self cameraMovedWithMethod:NYT360CameraControllerMethodGyroscope];
+    }
+    
     self.currentPosition = result.position;
     self.pointOfView.eulerAngles = result.eulerAngles;
 }
@@ -130,9 +139,18 @@ static inline CGPoint subtractPoints(CGPoint a, CGPoint b) {
             NYT360EulerAngleCalculationResult result = NYT360PanGestureChangeCalculation(self.currentPosition, self.rotateDelta, self.view.bounds.size, self.allowedPanningAxes);
             self.currentPosition = result.position;
             self.pointOfView.eulerAngles = result.eulerAngles;
+            
+            [self cameraMovedWithMethod:NYT360CameraControllerMethodTouch];
             break;
         default:
             break;
+    }
+}
+
+- (void)cameraMovedWithMethod:(NSString *)method {
+    if (!self.cameraMoved) {
+        self.cameraMoved = YES;
+        [self.delegate cameraController:self didMoveWithMethod:method];
     }
 }
 

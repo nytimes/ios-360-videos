@@ -14,10 +14,28 @@
 #import "NYT360MotionManagement.h"
 
 @class NYT360CameraPanGestureRecognizer;
+@class NYT360CameraController;
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol NYT360CameraControllerDelegate <NSObject>
+
+/**
+ *  Called when the camera moved.
+ *
+ *  @param controller   The controller that start movement.
+ *  @param method       The method name that start movement 'touch' or 'gyroscope'.
+ */
+- (void)cameraController:(NYT360CameraController *)controller didMoveWithMethod:(NSString *)method;
+
+@end
+
 @interface NYT360CameraController : NSObject <UIGestureRecognizerDelegate>
+
+/**
+ *  The delegate of the controller.
+ */
+@property (nullable, nonatomic, weak) id <NYT360CameraControllerDelegate> delegate;
 
 #pragma mark - Camera Angle Direction
 

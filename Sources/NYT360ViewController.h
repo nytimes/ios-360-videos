@@ -30,6 +30,14 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)cameraAngleWasUpdated:(NYT360ViewController *)viewController;
 
+/**
+ *  Called when the camera moved.
+ *
+ *  @param viewController   The view Controller that start movement.
+ *  @param method           The method name that start movement 'touch' or 'gyroscope'.
+ */
+- (void)videoViewController:(NYT360ViewController *)viewController didMoveWithMethod:(NSString *)method;
+
 @end
 
 @interface NYT360ViewController : UIViewController <SCNSceneRendererDelegate>
