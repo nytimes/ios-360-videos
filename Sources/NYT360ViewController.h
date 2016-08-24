@@ -34,9 +34,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Called when the camera moved.
  *
  *  @param viewController   The view Controller that start movement.
- *  @param method           The method name that start movement 'touch' or 'gyroscope'.
+ *  @param method           The method enum that start movement 'touch' or 'gyroscope'.
  */
-- (void)videoViewController:(NYT360ViewController *)viewController didMoveWithMethod:(NSString *)method;
+- (void)videoViewController:(NYT360ViewController *)viewController cameraDidMoveWithMethod:(NYT360VideoMovedMethod)method;
 
 @end
 

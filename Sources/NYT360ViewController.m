@@ -174,7 +174,7 @@ CGRect NYT360ViewControllerSceneBoundsForScreenBounds(CGRect screenBounds) {
 
 #pragma mark - NYT360CameraControllerDelegate
 
-- (void)cameraController:(NYT360CameraController *)controller didMoveWithMethod:(NSString *)method {
+- (void)cameraController:(NYT360CameraController *)controller didMoveWithMethod:(NYT360VideoMovedMethod)method {
    [self.delegate videoViewController:self didMoveWithMethod:method];
 }
 

@@ -11,8 +11,6 @@
 #import "NYT360CameraPanGestureRecognizer.h"
 
 static const NSTimeInterval NYT360CameraControllerPreferredMotionUpdateInterval = (1.0 / 60.0);
-static const NSString * const NYT360CameraControllerMethodTouch = @"touch";
-static const NSString * const NYT360CameraControllerMethodGyroscope = @"gyroscope";
 
 static inline CGPoint subtractPoints(CGPoint a, CGPoint b) {
     return CGPointMake(b.x - a.x, b.y - a.y);
@@ -30,7 +28,7 @@ static inline CGPoint subtractPoints(CGPoint a, CGPoint b) {
 @property (nonatomic, assign) CGPoint rotateDelta;
 @property (nonatomic, assign) CGPoint currentPosition;
 
-@property (nonatomic, assign) BOOL cameraMoved;
+@property (nonatomic, assign) BOOL hasCameraAlreadyMoved;
 
 @end
 
@@ -55,6 +53,8 @@ static inline CGPoint subtractPoints(CGPoint a, CGPoint b) {
         [_view addGestureRecognizer:_panRecognizer];
         
         _motionManager = motionManager;
+        
+        _hasCameraAlreadyMoved = NO;
     }
     
     return self;
@@ -100,7 +100,7 @@ static inline CGPoint subtractPoints(CGPoint a, CGPoint b) {
     result = NYT360DeviceMotionCalculation(self.currentPosition, rotationRate, orientation, self.allowedPanningAxes, NYT360EulerAngleCalculationNoiseThresholdDefault);
     
     if (CGPointEqualToPoint(self.currentPosition, result.position) == NO ) {
-        [self cameraMovedWithMethod:NYT360CameraControllerMethodGyroscope];
+        [self cameraMovedWithMethod:NYT360VideoMovedMethodGyroscope];
     }
     
     self.currentPosition = result.position;
@@ -140,16 +140,18 @@ static inline CGPoint subtractPoints(CGPoint a, CGPoint b) {
             self.currentPosition = result.position;
             self.pointOfView.eulerAngles = result.eulerAngles;
             
-            [self cameraMovedWithMethod:NYT360CameraControllerMethodTouch];
+            [self cameraMovedWithMethod:NYT360VideoMovedMethodTouch];
             break;
         default:
             break;
     }
 }
 
-- (void)cameraMovedWithMethod:(NSString *)method {
-    if (!self.cameraMoved) {
-        self.cameraMoved = YES;
+
+- (void)cameraMovedWithMethod:(NYT360VideoMovedMethod)method {
+    //only fire once per video
+    if (self.hasCameraAlreadyMoved == NO) {
+        self.hasCameraAlreadyMoved = YES;
         [self.delegate cameraController:self didMoveWithMethod:method];
     }
 }

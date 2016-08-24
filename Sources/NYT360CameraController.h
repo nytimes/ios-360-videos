@@ -26,7 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param controller   The controller that start movement.
  *  @param method       The method name that start movement 'touch' or 'gyroscope'.
  */
-- (void)cameraController:(NYT360CameraController *)controller didMoveWithMethod:(NSString *)method;
+- (void)cameraController:(NYT360CameraController *)controller didMoveWithMethod:(NYT360VideoMovedMethod)method;
 
 @end
 
