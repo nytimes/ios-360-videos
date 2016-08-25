@@ -10,7 +10,9 @@
 #import "NYT360EulerAngleCalculations.h"
 #import "NYT360CameraPanGestureRecognizer.h"
 
-static const NSTimeInterval NYT360CameraControllerPreferredMotionUpdateInterval = (1.0 / 60.0);
+static inline CGFloat distance(CGPoint a, CGPoint b) {
+    return sqrt(pow(a.x - b.x, 2) + pow(a.y - b.y, 2));
+}
 
 static inline CGPoint subtractPoints(CGPoint a, CGPoint b) {
     return CGPointMake(b.x - a.x, b.y - a.y);
@@ -27,6 +29,8 @@ static inline CGPoint subtractPoints(CGPoint a, CGPoint b) {
 @property (nonatomic, assign) CGPoint rotateCurrent;
 @property (nonatomic, assign) CGPoint rotateDelta;
 @property (nonatomic, assign) CGPoint currentPosition;
+
+@property (nonatomic, assign) BOOL hasReportedInitialCameraMovement;
 
 @end
 
@@ -51,6 +55,8 @@ static inline CGPoint subtractPoints(CGPoint a, CGPoint b) {
         [_view addGestureRecognizer:_panRecognizer];
         
         _motionManager = motionManager;
+
+        _hasReportedInitialCameraMovement = NO;
     }
     
     return self;
@@ -59,7 +65,9 @@ static inline CGPoint subtractPoints(CGPoint a, CGPoint b) {
 #pragma mark - Observing Device Motion
 
 - (void)startMotionUpdates {
-    NSTimeInterval interval = NYT360CameraControllerPreferredMotionUpdateInterval;
+    static const NSTimeInterval preferredMotionUpdateInterval = (1.0 / 60.0);
+
+    NSTimeInterval interval = preferredMotionUpdateInterval;
     self.motionUpdateToken = [self.motionManager startUpdating:interval];
 }
 
@@ -83,15 +91,23 @@ static inline CGPoint subtractPoints(CGPoint a, CGPoint b) {
         NSLog(@"Warning: %@ called while %@ is not receiving motion updates", NSStringFromSelector(_cmd), NSStringFromClass(self.class));
     }
 #endif
-    
+
     CMRotationRate rotationRate = self.motionManager.deviceMotion.rotationRate;
     UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
+
     NYT360EulerAngleCalculationResult result;
     result = NYT360DeviceMotionCalculation(self.currentPosition, rotationRate, orientation, self.allowedPanningAxes, NYT360EulerAngleCalculationNoiseThresholdDefault);
+
     self.currentPosition = result.position;
     self.pointOfView.eulerAngles = result.eulerAngles;
+
     if (self.compassAngleUpdateBlock) {
         self.compassAngleUpdateBlock(self.compassAngle);
+    }
+    
+    static const CGFloat minimalRotationDistanceToReport = 0.75;
+    if (distance(CGPointZero, self.currentPosition) > minimalRotationDistanceToReport) {
+        [self reportInitialCameraMovementIfNeededViaMethod:NYT360UserInteractionMethodGyroscope];
     }
 }
 
@@ -107,8 +123,7 @@ static inline CGPoint subtractPoints(CGPoint a, CGPoint b) {
         _allowedPanningAxes = allowedPanningAxes;
         NYT360EulerAngleCalculationResult result = NYT360UpdatedPositionAndAnglesForAllowedAxes(self.currentPosition, allowedPanningAxes);
         self.currentPosition = result.position;
-        self.pointOfView.eulerAngles = result.eulerAngles;
-
+        self.pointOfView.eulerAngles = result.eulerAngles; 
     }
 }
 
@@ -130,9 +145,18 @@ static inline CGPoint subtractPoints(CGPoint a, CGPoint b) {
             if (self.compassAngleUpdateBlock) {
                 self.compassAngleUpdateBlock(self.compassAngle);
             }
+            [self reportInitialCameraMovementIfNeededViaMethod:NYT360UserInteractionMethodTouch];
             break;
         default:
             break;
+    }
+}
+
+- (void)reportInitialCameraMovementIfNeededViaMethod:(NYT360UserInteractionMethod)method {
+    // only fire once per video:
+    if (!self.hasReportedInitialCameraMovement) {
+        self.hasReportedInitialCameraMovement = YES;
+        [self.delegate cameraController:self userInitallyMovedCameraViaMethod:method];
     }
 }
 

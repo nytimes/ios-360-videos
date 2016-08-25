@@ -10,5 +10,10 @@
 
 typedef NS_OPTIONS(NSInteger, NYT360PanningAxis) {
     NYT360PanningAxisHorizontal = 1 << 0,
-    NYT360PanningAxisVertical   = 1 << 1
+    NYT360PanningAxisVertical   = 1 << 1,
+};
+
+typedef NS_ENUM(NSInteger, NYT360UserInteractionMethod) {
+    NYT360UserInteractionMethodGyroscope = 0,
+    NYT360UserInteractionMethodTouch,
 };

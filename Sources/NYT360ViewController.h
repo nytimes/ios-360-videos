@@ -28,8 +28,18 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param viewController The view controller that updated the angle.
  *  @param compassAngle The current compass angle.
+ *
+ *  @note This method is called synchronously from SCNSceneRendererDelegate; its implementation should return quickly to avoid performance implications.
  */
 - (void)nyt360ViewController:(NYT360ViewController *)viewController didUpdateCompassAngle:(float)compassAngle;
+
+/**
+ *  Called when the user first moves the camera.
+ *
+ *  @param viewController   The view controller with which the user interacted.
+ *  @param method           The method by which the user moved the camera.
+ */
+- (void)videoViewController:(NYT360ViewController *)viewController userInitallyMovedCameraViaMethod:(NYT360UserInteractionMethod)method;
 
 @end
 
