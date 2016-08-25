@@ -58,7 +58,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @note This method is called synchronously from SCNSceneRendererDelegate. Its implementation should return quickly to avoid performance implications.
  */
-@property (nonatomic, copy) NYT360CompassAngleUpdateBlock compassAngleUpdateBlock;
+@property (nonatomic, copy, nullable) NYT360CompassAngleUpdateBlock compassAngleUpdateBlock;
 
 #pragma mark - Initializers
 
