@@ -11,6 +11,7 @@
 #pragma mark - Constants
 
 CGFloat const NYT360EulerAngleCalculationNoiseThresholdDefault = 0.12;
+float const NYT360EulerAngleCalculationDefaultReferenceCompassAngle = M_PI;
 
 #pragma mark - Inline Functions
 
@@ -35,6 +36,23 @@ static inline CGPoint NYT360AdjustPositionForAllowedAxes(CGPoint position, NYT36
         position.y = 0;
     }
     return position;
+}
+
+static inline float NYT360UnitRotationForCameraRotation(float cameraRotation) {
+    
+    // Use a modulus so that we don't pass the host application a compass angle
+    // value that is greater than one rotation, which wouldn't make sense in the
+    // context of a compass animation.
+    float oneRotation = 2.0 * M_PI;
+    float rawResult = fmodf(cameraRotation, oneRotation);
+    
+    // `rawResult` will be less than `oneRotation`, but if it's very very close
+    // to `oneRotation` than wrap the result back around to zero radians.
+    float accuracy = 0.0001;
+    float difference = oneRotation - fabsf(rawResult);
+    float wrappedAround = (difference < accuracy) ? 0 : rawResult;
+    
+    return wrappedAround;
 }
 
 #pragma mark - Calculations
@@ -135,4 +153,8 @@ CGFloat NYT360OptimalYFovForViewSize(CGSize viewSize) {
         yFov = NYT360EulerAngleCalculationYFovDefault;
     }
     return yFov;
+}
+
+float NYT360CompassAngleForEulerAngles(SCNVector3 eulerAngles, float referenceAngle) {
+    return NYT360UnitRotationForCameraRotation(eulerAngles.y + referenceAngle);
 }

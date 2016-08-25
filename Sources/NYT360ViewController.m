@@ -40,7 +40,7 @@ CGRect NYT360ViewControllerSceneBoundsForScreenBounds(CGRect screenBounds) {
     return CGRectMake(0, 0, max, min);
 }
 
-@interface NYT360ViewController ()
+@interface NYT360ViewController () <NYT360CameraControllerDelegate>
 
 @property (nonatomic, readonly) CGSize underlyingSceneSize;
 @property (nonatomic, readonly) SCNView *sceneView;
@@ -62,6 +62,14 @@ CGRect NYT360ViewControllerSceneBoundsForScreenBounds(CGRect screenBounds) {
         _sceneView = [[SCNView alloc] initWithFrame:initialSceneFrame];
         _playerScene = [[NYT360PlayerScene alloc] initWithAVPlayer:player boundToView:_sceneView];
         _cameraController = [[NYT360CameraController alloc] initWithView:_sceneView motionManager:motionManager];
+        _cameraController.delegate = self;
+
+        typeof(self) __weak weakSelf = self;
+        _cameraController.compassAngleUpdateBlock = ^(float compassAngle) {
+            typeof(self) strongSelf = weakSelf;
+            [strongSelf.delegate nyt360ViewController:strongSelf didUpdateCompassAngle:strongSelf.compassAngle];
+        };
+
     }
     return self;
 }
@@ -78,20 +86,32 @@ CGRect NYT360ViewControllerSceneBoundsForScreenBounds(CGRect screenBounds) {
 
 #pragma mark - Camera Movement
 
-- (double)cameraAngleDirection {
-    return self.cameraController.cameraAngleDirection;
+- (float)compassAngle {
+    return self.cameraController.compassAngle;
 }
 
 - (NYT360CameraPanGestureRecognizer *)panRecognizer {
     return self.cameraController.panRecognizer;
 }
 
-- (NYT360PanningAxis)allowedPanningAxes {
-    return self.cameraController.allowedPanningAxes;
+- (NYT360PanningAxis)allowedDeviceMotionPanningAxes {
+    return self.cameraController.allowedDeviceMotionPanningAxes;
 }
 
-- (void)setAllowedPanningAxes:(NYT360PanningAxis)allowedPanningAxes {
-    self.cameraController.allowedPanningAxes = allowedPanningAxes;
+- (void)setAllowedDeviceMotionPanningAxes:(NYT360PanningAxis)allowedDeviceMotionPanningAxes {
+    self.cameraController.allowedDeviceMotionPanningAxes = allowedDeviceMotionPanningAxes;
+}
+
+- (NYT360PanningAxis)allowedPanGesturePanningAxes {
+    return self.cameraController.allowedPanGesturePanningAxes;
+}
+
+- (void)setAllowedPanGesturePanningAxes:(NYT360PanningAxis)allowedPanGesturePanningAxes {
+    self.cameraController.allowedPanGesturePanningAxes = allowedPanGesturePanningAxes;
+}
+
+- (void)reorientVerticalCameraAngleToHorizon:(BOOL)animated {
+    [self.cameraController reorientVerticalCameraAngleToHorizon:animated];
 }
 
 #pragma mark - UIViewController
@@ -166,9 +186,13 @@ CGRect NYT360ViewControllerSceneBoundsForScreenBounds(CGRect screenBounds) {
 #pragma mark - SCNSceneRendererDelegate
 
 - (void)renderer:(id <SCNSceneRenderer>)renderer updateAtTime:(NSTimeInterval)time {
-    [self.cameraController updateCameraAngle];
-    
-    [self.delegate cameraAngleWasUpdated:self];
+    [self.cameraController updateCameraAngleForCurrentDeviceMotion];
+}
+
+#pragma mark - NYT360CameraControllerDelegate
+
+- (void)cameraController:(NYT360CameraController *)controller userInitallyMovedCameraViaMethod:(NYT360UserInteractionMethod)method {
+    [self.delegate videoViewController:self userInitallyMovedCameraViaMethod:method];
 }
 
 @end

@@ -7,6 +7,7 @@
 //
 
 @import XCTest;
+@import SceneKit;
 
 #import "NYT360DataTypes.h"
 #import "NYT360EulerAngleCalculations.h"
@@ -130,6 +131,76 @@
     XCTAssertEqualWithAccuracy(NYT360OptimalYFovForViewSize(CGSizeMake(0, 0)),       60.0,   2.0);
     XCTAssertEqualWithAccuracy(NYT360OptimalYFovForViewSize(CGSizeMake(1, 0)),       60.0,   2.0);
     XCTAssertEqualWithAccuracy(NYT360OptimalYFovForViewSize(CGSizeMake(0, 1)),      120.0,   2.0);
+}
+
+- (void)testItCalculatesTheCorrectCompassAngleForAVarietyOfInputs {
+    
+    SCNVector3 eulerAngles;
+    float pi = M_PI;
+    float compassAngle;
+    float referenceAngle;
+    
+    referenceAngle = NYT360EulerAngleCalculationDefaultReferenceCompassAngle;
+    
+    eulerAngles.y = 0;
+    compassAngle = NYT360CompassAngleForEulerAngles(eulerAngles, referenceAngle);
+    XCTAssertEqualWithAccuracy(compassAngle, pi, 0.001);
+    
+    eulerAngles.y = pi;
+    compassAngle = NYT360CompassAngleForEulerAngles(eulerAngles, referenceAngle);
+    XCTAssertEqualWithAccuracy(compassAngle, 0, 0.001);
+    
+    eulerAngles.y = -pi;
+    compassAngle = NYT360CompassAngleForEulerAngles(eulerAngles, referenceAngle);
+    XCTAssertEqualWithAccuracy(compassAngle, 0, 0.001);
+    
+    eulerAngles.y = pi * 0.5;
+    compassAngle = NYT360CompassAngleForEulerAngles(eulerAngles, referenceAngle);
+    XCTAssertEqualWithAccuracy(compassAngle, pi * 1.5, 0.001);
+    
+    eulerAngles.y = pi * -0.5;
+    compassAngle = NYT360CompassAngleForEulerAngles(eulerAngles, referenceAngle);
+    XCTAssertEqualWithAccuracy(compassAngle, pi * 0.5, 0.001);
+    
+    eulerAngles.y = pi * 1.5;
+    compassAngle = NYT360CompassAngleForEulerAngles(eulerAngles, referenceAngle);
+    XCTAssertEqualWithAccuracy(compassAngle, pi * 0.5, 0.001);
+    
+    eulerAngles.y = pi * -1.5;
+    compassAngle = NYT360CompassAngleForEulerAngles(eulerAngles, referenceAngle);
+    XCTAssertEqualWithAccuracy(compassAngle, pi * -0.5, 0.001);
+    
+    eulerAngles.y = pi * 2.0;
+    compassAngle = NYT360CompassAngleForEulerAngles(eulerAngles, referenceAngle);
+    XCTAssertEqualWithAccuracy(compassAngle, pi, 0.001);
+    
+    eulerAngles.y = pi * -2.0;
+    compassAngle = NYT360CompassAngleForEulerAngles(eulerAngles, referenceAngle);
+    XCTAssertEqualWithAccuracy(compassAngle, -pi, 0.001);
+    
+    eulerAngles.y = pi * 2.5;
+    compassAngle = NYT360CompassAngleForEulerAngles(eulerAngles, referenceAngle);
+    XCTAssertEqualWithAccuracy(compassAngle, pi * 1.5, 0.001);
+    
+    eulerAngles.y = pi * -2.5;
+    compassAngle = NYT360CompassAngleForEulerAngles(eulerAngles, referenceAngle);
+    XCTAssertEqualWithAccuracy(compassAngle, pi * -1.5, 0.001);
+    
+    eulerAngles.y = pi * 3.0;
+    compassAngle = NYT360CompassAngleForEulerAngles(eulerAngles, referenceAngle);
+    XCTAssertEqualWithAccuracy(compassAngle, 0, 0.001);
+    
+    eulerAngles.y = pi * -3.0;
+    compassAngle = NYT360CompassAngleForEulerAngles(eulerAngles, referenceAngle);
+    XCTAssertEqualWithAccuracy(compassAngle, 0, 0.001);
+    
+    eulerAngles.y = pi * 4.0;
+    compassAngle = NYT360CompassAngleForEulerAngles(eulerAngles, referenceAngle);
+    XCTAssertEqualWithAccuracy(compassAngle, pi, 0.001);
+    
+    eulerAngles.y = pi * -4.0;
+    compassAngle = NYT360CompassAngleForEulerAngles(eulerAngles, referenceAngle);
+    XCTAssertEqualWithAccuracy(compassAngle, -pi, 0.001);
 }
 
 @end
