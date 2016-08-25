@@ -35,6 +35,13 @@
     [self.nyt360VC didMoveToParentViewController:self];
 
     [self.player play];
+    
+    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(reorientVerticalCameraAngle:)];
+    [self.view addGestureRecognizer:tapRecognizer];
+}
+
+- (void)reorientVerticalCameraAngle:(id)sender {
+    [self.nyt360VC reorientVerticalCameraAngleToHorizon:YES];
 }
 
 @end

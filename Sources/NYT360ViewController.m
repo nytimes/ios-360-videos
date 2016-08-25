@@ -87,12 +87,24 @@ CGRect NYT360ViewControllerSceneBoundsForScreenBounds(CGRect screenBounds) {
     return self.cameraController.panRecognizer;
 }
 
-- (NYT360PanningAxis)allowedPanningAxes {
-    return self.cameraController.allowedPanningAxes;
+- (NYT360PanningAxis)allowedDeviceMotionPanningAxes {
+    return self.cameraController.allowedDeviceMotionPanningAxes;
 }
 
-- (void)setAllowedPanningAxes:(NYT360PanningAxis)allowedPanningAxes {
-    self.cameraController.allowedPanningAxes = allowedPanningAxes;
+- (void)setAllowedDeviceMotionPanningAxes:(NYT360PanningAxis)allowedDeviceMotionPanningAxes {
+    self.cameraController.allowedDeviceMotionPanningAxes = allowedDeviceMotionPanningAxes;
+}
+
+- (NYT360PanningAxis)allowedPanGesturePanningAxes {
+    return self.cameraController.allowedPanGesturePanningAxes;
+}
+
+- (void)setAllowedPanGesturePanningAxes:(NYT360PanningAxis)allowedPanGesturePanningAxes {
+    self.cameraController.allowedPanGesturePanningAxes = allowedPanGesturePanningAxes;
+}
+
+- (void)reorientVerticalCameraAngleToHorizon:(BOOL)animated {
+    [self.cameraController reorientVerticalCameraAngleToHorizon:animated];
 }
 
 #pragma mark - UIViewController
@@ -167,7 +179,7 @@ CGRect NYT360ViewControllerSceneBoundsForScreenBounds(CGRect screenBounds) {
 #pragma mark - SCNSceneRendererDelegate
 
 - (void)renderer:(id <SCNSceneRenderer>)renderer updateAtTime:(NSTimeInterval)time {
-    [self.cameraController updateCameraAngle];
+    [self.cameraController updateCameraAngleForCurrentDeviceMotion];
     
     [self.delegate cameraAngleWasUpdated:self];
 }

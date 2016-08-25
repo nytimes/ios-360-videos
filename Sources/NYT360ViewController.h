@@ -71,13 +71,29 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) NYT360CameraPanGestureRecognizer *panRecognizer;
 
 /**
- *  Changing this property will allow you to suppress undesired range of motion along either the x or y axis. For example, y axis input should be suppressed when a 360 video is playing inline in a scroll view.
+ *  Changing this property will allow you to suppress undesired range of motion along either the x or y axis for device motion input. For example, y axis input might be suppressed when a 360 video is playing inline in a scroll view.
  
  *  When this property is set, any disallowed axis will cause the current camera angles to be clamped to zero for that axis. Existing angles for the any allowed axes will not be affected.
  
  *  Defaults to NYT360PanningAxisHorizontal | NYT360PanningAxisVertical.
  */
-@property (nonatomic, assign) NYT360PanningAxis allowedPanningAxes;
+@property (nonatomic, assign) NYT360PanningAxis allowedDeviceMotionPanningAxes;
+
+/**
+ *  Changing this property will allow you to suppress undesired range of motion along either the x or y axis for pan gesture recognizer input. For example, y axis input should probably be suppressed when a 360 video is playing inline in a scroll view.
+ 
+ *  When this property is set, any disallowed axis will cause the current camera angles to be clamped to zero for that axis. Existing angles for the any allowed axes will not be affected.
+ 
+ *  Defaults to NYT360PanningAxisHorizontal | NYT360PanningAxisVertical.
+ */
+@property (nonatomic, assign) NYT360PanningAxis allowedPanGesturePanningAxes;
+
+/**
+ *  Reorients the camera's vertical angle component so it's pointing directly at the horizon.
+ *
+ *  @param animated Passing `YES` will animate the change with a standard duration.
+ */
+- (void)reorientVerticalCameraAngleToHorizon:(BOOL)animated;
 
 @end
 
