@@ -11,6 +11,11 @@
 #import "NYT360CameraPanGestureRecognizer.h"
 
 static const NSTimeInterval NYT360CameraControllerPreferredMotionUpdateInterval = (1.0 / 60.0);
+static const CGFloat NYT360CameraControllerMinimalRotationDistance = 0.70;
+
+static inline CGFloat distance(CGPoint a, CGPoint b) {
+    return sqrt(pow(a.x-b.x,2)+pow(a.y-b.y,2));
+}
 
 static inline CGPoint subtractPoints(CGPoint a, CGPoint b) {
     return CGPointMake(b.x - a.x, b.y - a.y);
@@ -98,13 +103,12 @@ static inline CGPoint subtractPoints(CGPoint a, CGPoint b) {
     UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
     NYT360EulerAngleCalculationResult result;
     result = NYT360DeviceMotionCalculation(self.currentPosition, rotationRate, orientation, self.allowedPanningAxes, NYT360EulerAngleCalculationNoiseThresholdDefault);
-    
-    if (CGPointEqualToPoint(self.currentPosition, result.position) == NO ) {
-        [self cameraMovedWithMethod:NYT360VideoMovedMethodGyroscope];
-    }
-    
     self.currentPosition = result.position;
     self.pointOfView.eulerAngles = result.eulerAngles;
+    
+    if (distance(CGPointZero, self.currentPosition) > NYT360CameraControllerMinimalRotationDistance) {
+        [self cameraMovedWithMethod:NYT360VideoMovedMethodGyroscope];
+    }
 }
 
 - (void)updateCameraFOV:(CGSize)viewSize {
@@ -119,8 +123,7 @@ static inline CGPoint subtractPoints(CGPoint a, CGPoint b) {
         _allowedPanningAxes = allowedPanningAxes;
         NYT360EulerAngleCalculationResult result = NYT360UpdatedPositionAndAnglesForAllowedAxes(self.currentPosition, allowedPanningAxes);
         self.currentPosition = result.position;
-        self.pointOfView.eulerAngles = result.eulerAngles;
-
+        self.pointOfView.eulerAngles = result.eulerAngles; 
     }
 }
 
