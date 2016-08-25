@@ -14,10 +14,30 @@
 #import "NYT360MotionManagement.h"
 
 @class NYT360CameraPanGestureRecognizer;
+@class NYT360CameraController;
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol NYT360CameraControllerDelegate <NSObject>
+
+/**
+ *  Called the first time the user moves the camera.
+ *
+ *  @note This method is called synchronously when the camera angle is updated; an implementation should return quickly to avoid performance implications. 
+ *
+ *  @param controller   The camera controller with which the user interacted.
+ *  @param method       The method by which the user moved the camera.
+ */
+- (void)cameraController:(NYT360CameraController *)controller userInitallyMovedCameraViaMethod:(NYT360UserInteractionMethod)method;
+
+@end
+
 @interface NYT360CameraController : NSObject <UIGestureRecognizerDelegate>
+
+/**
+ *  The delegate of the controller.
+ */
+@property (nullable, nonatomic, weak) id <NYT360CameraControllerDelegate> delegate;
 
 #pragma mark - Camera Angle Direction
 
