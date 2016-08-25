@@ -10,9 +10,6 @@
 #import "NYT360EulerAngleCalculations.h"
 #import "NYT360CameraPanGestureRecognizer.h"
 
-static const NSTimeInterval NYT360CameraControllerPreferredMotionUpdateInterval = (1.0 / 60.0);
-static const CGFloat NYT360CameraControllerMinimalRotationDistance = 0.70;
-
 static inline CGFloat distance(CGPoint a, CGPoint b) {
     return sqrt(pow(a.x-b.x,2)+pow(a.y-b.y,2));
 }
@@ -68,7 +65,9 @@ static inline CGPoint subtractPoints(CGPoint a, CGPoint b) {
 #pragma mark - Observing Device Motion
 
 - (void)startMotionUpdates {
-    NSTimeInterval interval = NYT360CameraControllerPreferredMotionUpdateInterval;
+    static const NSTimeInterval preferredMotionUpdateInterval = (1.0 / 60.0);
+
+    NSTimeInterval interval = preferredMotionUpdateInterval;
     self.motionUpdateToken = [self.motionManager startUpdating:interval];
 }
 
@@ -105,8 +104,9 @@ static inline CGPoint subtractPoints(CGPoint a, CGPoint b) {
     result = NYT360DeviceMotionCalculation(self.currentPosition, rotationRate, orientation, self.allowedPanningAxes, NYT360EulerAngleCalculationNoiseThresholdDefault);
     self.currentPosition = result.position;
     self.pointOfView.eulerAngles = result.eulerAngles;
-    
-    if (distance(CGPointZero, self.currentPosition) > NYT360CameraControllerMinimalRotationDistance) {
+
+    static const CGFloat minimalRotationDistanceToReport = 0.75;
+    if (distance(CGPointZero, self.currentPosition) > minimalRotationDistanceToReport) {
         [self reportInitialCameraMovementIfNeededViaMethod:NYT360UserInteractionMethodGyroscope];
     }
 }
