@@ -11,7 +11,7 @@
 #import "NYT360CameraPanGestureRecognizer.h"
 
 static inline CGFloat distance(CGPoint a, CGPoint b) {
-    return sqrt(pow(a.x-b.x,2)+pow(a.y-b.y,2));
+    return sqrt(pow(a.x - b.x, 2) + pow(a.y - b.y, 2));
 }
 
 static inline CGPoint subtractPoints(CGPoint a, CGPoint b) {
@@ -97,11 +97,13 @@ static inline CGPoint subtractPoints(CGPoint a, CGPoint b) {
         NSLog(@"Warning: %@ called while %@ is not receiving motion updates", NSStringFromSelector(_cmd), NSStringFromClass(self.class));
     }
 #endif
-    
+
     CMRotationRate rotationRate = self.motionManager.deviceMotion.rotationRate;
     UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
+
     NYT360EulerAngleCalculationResult result;
     result = NYT360DeviceMotionCalculation(self.currentPosition, rotationRate, orientation, self.allowedPanningAxes, NYT360EulerAngleCalculationNoiseThresholdDefault);
+
     self.currentPosition = result.position;
     self.pointOfView.eulerAngles = result.eulerAngles;
 
