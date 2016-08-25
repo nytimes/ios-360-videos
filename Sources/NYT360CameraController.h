@@ -16,6 +16,13 @@
 @class NYT360CameraPanGestureRecognizer;
 @class NYT360CameraController;
 
+/**
+ * The block type used for compass angle updates.
+ *
+ *  @param compassAngle The compass angle in radians.
+ */
+typedef void(^NYT360CompassAngleUpdateBlock)(float compassAngle);
+
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol NYT360CameraControllerDelegate <NSObject>
@@ -39,12 +46,19 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nullable, nonatomic, weak) id <NYT360CameraControllerDelegate> delegate;
 
-#pragma mark - Camera Angle Direction
+#pragma mark - Compass Angle
 
 /**
- Returns the latest camera angle direction.
+ *  Returns the current compass angle in radians
  */
-@property (nonatomic, readonly) double cameraAngleDirection;
+@property (nonatomic, readonly) float compassAngle;
+
+/**
+ *  A block invoked whenever the compass angle has been updated.
+ *
+ *  @note This method is called synchronously from SCNSceneRendererDelegate. Its implementation should return quickly to avoid performance implications.
+ */
+@property (nonatomic, copy, nullable) NYT360CompassAngleUpdateBlock compassAngleUpdateBlock;
 
 #pragma mark - Initializers
 

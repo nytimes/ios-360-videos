@@ -63,6 +63,13 @@ CGRect NYT360ViewControllerSceneBoundsForScreenBounds(CGRect screenBounds) {
         _playerScene = [[NYT360PlayerScene alloc] initWithAVPlayer:player boundToView:_sceneView];
         _cameraController = [[NYT360CameraController alloc] initWithView:_sceneView motionManager:motionManager];
         _cameraController.delegate = self;
+
+        typeof(self) __weak weakSelf = self;
+        _cameraController.compassAngleUpdateBlock = ^(float compassAngle) {
+            typeof(self) strongSelf = weakSelf;
+            [strongSelf.delegate nyt360ViewController:strongSelf didUpdateCompassAngle:strongSelf.compassAngle];
+        };
+
     }
     return self;
 }
@@ -79,8 +86,8 @@ CGRect NYT360ViewControllerSceneBoundsForScreenBounds(CGRect screenBounds) {
 
 #pragma mark - Camera Movement
 
-- (double)cameraAngleDirection {
-    return self.cameraController.cameraAngleDirection;
+- (float)compassAngle {
+    return self.cameraController.compassAngle;
 }
 
 - (NYT360CameraPanGestureRecognizer *)panRecognizer {
@@ -180,8 +187,6 @@ CGRect NYT360ViewControllerSceneBoundsForScreenBounds(CGRect screenBounds) {
 
 - (void)renderer:(id <SCNSceneRenderer>)renderer updateAtTime:(NSTimeInterval)time {
     [self.cameraController updateCameraAngleForCurrentDeviceMotion];
-    
-    [self.delegate cameraAngleWasUpdated:self];
 }
 
 #pragma mark - NYT360CameraControllerDelegate

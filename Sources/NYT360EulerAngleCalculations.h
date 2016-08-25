@@ -11,6 +11,7 @@
 @import CoreMotion;
 
 extern CGFloat const NYT360EulerAngleCalculationNoiseThresholdDefault;
+extern float const NYT360EulerAngleCalculationDefaultReferenceCompassAngle;
 
 #import "NYT360DataTypes.h"
 
@@ -31,3 +32,5 @@ NYT360EulerAngleCalculationResult NYT360DeviceMotionCalculation(CGPoint position
 NYT360EulerAngleCalculationResult NYT360PanGestureChangeCalculation(CGPoint position, CGPoint rotateDelta, CGSize viewSize, NYT360PanningAxis allowedPanningAxes);
 
 CGFloat NYT360OptimalYFovForViewSize(CGSize viewSize);
+
+float NYT360CompassAngleForEulerAngles(SCNVector3 eulerAngles, float referenceAngle);
