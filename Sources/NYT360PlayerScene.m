@@ -7,6 +7,7 @@
 //
 
 @import SpriteKit;
+@import AVFoundation;
 
 #import "NYT360PlayerScene.h"
 
@@ -28,6 +29,8 @@
 
 /**
  *  There is a bug in SceneKit wherein a paused video node will begin playing again when the application becomes active. This is caused by cascading calls to `[fooNode setPaused:NO]` across all nodes in a scene. To prevent the video node from unpausing along with the rest of the nodes, we must subclass SKVideoNode and override `setPaused:`, only unpausing the node if `nytDelegate` allows it.
+ *
+ *  This SceneKit bug is present on iOS 9 as well as iOS 10 (at least up to beta 7, the latest at the time of this writing).
  */
 @interface NYTSKVideoNode: SKVideoNode
 
@@ -60,6 +63,7 @@
 @property (nonatomic, assign) BOOL videoPlaybackIsPaused;
 @property (nonatomic, readonly) SCNNode *cameraNode;
 @property (nonatomic, readonly) NYTSKVideoNode *videoNode;
+@property (nonatomic, readonly) AVPlayer *player;
 
 @end
 
@@ -69,6 +73,8 @@
     if ((self = [super init])) {
         
         _videoPlaybackIsPaused = YES;
+        
+        _player = player;
         
         _camera = [SCNCamera new];
         
@@ -123,10 +129,34 @@
     // See note in NYTSKVideoNode above.
     self.videoPlaybackIsPaused = NO;
     
-    // Internally, SceneKit prefers to use `setPaused:` to toggle playback on a
-    // video node. Mimic this usage here to ensure consistency and avoid putting
-    // the player into an out-of-sync state.
-    self.videoNode.paused = NO;
+    if ([self isIOS10OrLater]) {
+        // On iOS 10, AVPlayer playback on a video node seems to work most
+        // reliably by directly invoking `play` and `pause` on the player,
+        // rather than the alternatives: calling the `play` and `pause` methods
+        // or the `setPaused:` setter on the video node. Those alternatives
+        // either do not work at all in certain cases, or they lead to spurious
+        // rate changes on the AVPlayer, which fire KVO notifications that
+        // NYTVideoViewController is not designed to handle. In an ideal world,
+        // we could refactor NYTVideoViewController to handle such edge cases.
+        // In practice, it is preferable to use the following technique so that
+        // 360 AVPlayer behavior on iOS 10 is the same as on iOS 9, and the same
+        // as standard AVPlayer behavior on both operating systems.
+        [self.player play];
+        // On iOS 10, you must also update the `paused` property of the video
+        // node to match the playback state of its AVPlayer if you have invoked
+        // play/pause directly on the AVPlayer, otherwise the video node's
+        // internal state and the AVPlayer's timeControlStatus can get out of
+        // sync. One symptom of this problem is where the video can look like
+        // it's paused even though the audio is still playing in the background.
+        // The steps to reproduce this particular bug are finicky but reliable.
+        self.videoNode.paused = NO;
+    }
+    else {
+        // Prior to iOS 10, SceneKit prefers to use `setPaused:` alone to toggle
+        // playback on a video node. Mimic this usage here to ensure consistency
+        // and avoid putting the player into an out-of-sync state.
+        self.videoNode.paused = NO;
+    }
     
 }
 
@@ -135,16 +165,52 @@
     // See note in NYTSKVideoNode above.
     self.videoPlaybackIsPaused = YES;
     
-    // Internally, SceneKit prefers to use `setPaused:` to toggle playback on a
-    // video node. Mimic this usage here to ensure consistency and avoid putting
-    // the player into an out-of-sync state.
-    self.videoNode.paused = YES;
+    if ([self isIOS10OrLater]) {
+        // On iOS 10, AVPlayer playback on a video node seems to work most
+        // reliably by directly invoking `play` and `pause` on the player,
+        // rather than the alternatives: calling the `play` and `pause` methods
+        // or the `setPaused:` setter on the video node. Those alternatives
+        // either do not work at all in certain cases, or they lead to spurious
+        // rate changes on the AVPlayer, which fire KVO notifications that
+        // NYTVideoViewController is not designed to handle. In an ideal world,
+        // we could refactor NYTVideoViewController to handle such edge cases.
+        // In practice, it is preferable to use the following technique so that
+        // 360 AVPlayer behavior on iOS 10 is the same as on iOS 9, and the same
+        // as standard AVPlayer behavior on both operating systems.
+        [self.player pause];
+        // On iOS 10, you must also update the `paused` property of the video
+        // node to match the playback state of its AVPlayer if you have invoked
+        // play/pause directly on the AVPlayer, otherwise the video node's
+        // internal state and the AVPlayer's timeControlStatus can get out of
+        // sync. One symptom of this problem is where the video can look like
+        // it's paused even though the audio is still playing in the background.
+        // The steps to reproduce this particular bug are finicky but reliable.
+        self.videoNode.paused = YES;
+    }
+    else {
+        // Prior to iOS 10, SceneKit prefers to use `setPaused:` alone to toggle
+        // playback on a video node. Mimic this usage here to ensure consistency
+        // and avoid putting the player into an out-of-sync state.
+        self.videoNode.paused = YES;
+    }
     
 }
+
+#pragma mark - NYTSKVideoNodeDelegate
 
 - (BOOL)videoNodeShouldAllowPlaybackToBegin:(NYTSKVideoNode *)videoNode {
     // See note in NYTSKVideoNode above.
     return !self.videoPlaybackIsPaused;
+}
+
+#pragma mark - Convenience
+
+- (BOOL)isIOS10OrLater {
+    NSOperatingSystemVersion ios10;
+    ios10.majorVersion = 10;
+    ios10.minorVersion = 0;
+    ios10.patchVersion = 0;
+    return [[NSProcessInfo processInfo] isOperatingSystemAtLeastVersion:ios10];
 }
 
 @end
