@@ -26,17 +26,19 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Called when the camera angle was updated.
  *
- *  @param viewController The view controller that updated the angle.
+ *  @note This method is called synchronously from SCNSceneRendererDelegate; its implementation should return quickly to avoid performance implications.
+ *
+ *  @param viewController The view controller whose camera angle was updated.
  */
 - (void)cameraAngleWasUpdated:(NYT360ViewController *)viewController;
 
 /**
- *  Called when the camera moved.
+ *  Called when the user first moves the camera.
  *
- *  @param viewController   The view Controller that start movement.
- *  @param method           The method enum that start movement 'touch' or 'gyroscope'.
+ *  @param viewController   The view controller with which the user interacted.
+ *  @param method           The method by which the user moved the camera.
  */
-- (void)videoViewController:(NYT360ViewController *)viewController cameraDidMoveWithMethod:(NYT360VideoMovedMethod)method;
+- (void)videoViewController:(NYT360ViewController *)viewController userInitallyMovedCameraViaMethod:(NYT360UserInteractionMethod)method;
 
 @end
 

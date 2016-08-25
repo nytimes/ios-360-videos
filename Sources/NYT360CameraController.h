@@ -21,12 +21,14 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol NYT360CameraControllerDelegate <NSObject>
 
 /**
- *  Called when the camera moved.
+ *  Called the first time the user moves the camera.
  *
- *  @param controller   The controller that start movement.
- *  @param method       The method name that start movement 'touch' or 'gyroscope'.
+ *  @note This method is called synchronously when the camera angle is updated; an implementation should return quickly to avoid performance implications. 
+ *
+ *  @param controller   The camera controller with which the user interacted.
+ *  @param method       The method by which the user moved the camera.
  */
-- (void)cameraController:(NYT360CameraController *)controller didMoveWithMethod:(NYT360VideoMovedMethod)method;
+- (void)cameraController:(NYT360CameraController *)controller userInitallyMovedCameraViaMethod:(NYT360UserInteractionMethod)method;
 
 @end
 

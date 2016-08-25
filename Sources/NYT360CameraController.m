@@ -33,7 +33,7 @@ static inline CGPoint subtractPoints(CGPoint a, CGPoint b) {
 @property (nonatomic, assign) CGPoint rotateDelta;
 @property (nonatomic, assign) CGPoint currentPosition;
 
-@property (nonatomic, assign) BOOL hasCameraAlreadyMoved;
+@property (nonatomic, assign) BOOL hasReportedInitialCameraMovement;
 
 @end
 
@@ -58,8 +58,8 @@ static inline CGPoint subtractPoints(CGPoint a, CGPoint b) {
         [_view addGestureRecognizer:_panRecognizer];
         
         _motionManager = motionManager;
-        
-        _hasCameraAlreadyMoved = NO;
+
+        _hasReportedInitialCameraMovement = NO;
     }
     
     return self;
@@ -107,7 +107,7 @@ static inline CGPoint subtractPoints(CGPoint a, CGPoint b) {
     self.pointOfView.eulerAngles = result.eulerAngles;
     
     if (distance(CGPointZero, self.currentPosition) > NYT360CameraControllerMinimalRotationDistance) {
-        [self cameraMovedWithMethod:NYT360VideoMovedMethodGyroscope];
+        [self reportInitialCameraMovementIfNeededViaMethod:NYT360UserInteractionMethodGyroscope];
     }
 }
 
@@ -143,19 +143,18 @@ static inline CGPoint subtractPoints(CGPoint a, CGPoint b) {
             self.currentPosition = result.position;
             self.pointOfView.eulerAngles = result.eulerAngles;
             
-            [self cameraMovedWithMethod:NYT360VideoMovedMethodTouch];
+            [self reportInitialCameraMovementIfNeededViaMethod:NYT360UserInteractionMethodTouch];
             break;
         default:
             break;
     }
 }
 
-
-- (void)cameraMovedWithMethod:(NYT360VideoMovedMethod)method {
-    //only fire once per video
-    if (self.hasCameraAlreadyMoved == NO) {
-        self.hasCameraAlreadyMoved = YES;
-        [self.delegate cameraController:self didMoveWithMethod:method];
+- (void)reportInitialCameraMovementIfNeededViaMethod:(NYT360UserInteractionMethod)method {
+    // only fire once per video:
+    if (!self.hasReportedInitialCameraMovement) {
+        self.hasReportedInitialCameraMovement = YES;
+        [self.delegate cameraController:self userInitallyMovedCameraViaMethod:method];
     }
 }
 

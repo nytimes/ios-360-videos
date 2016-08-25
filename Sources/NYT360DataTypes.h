@@ -13,7 +13,7 @@ typedef NS_OPTIONS(NSInteger, NYT360PanningAxis) {
     NYT360PanningAxisVertical   = 1 << 1
 };
 
-typedef NS_ENUM(NSInteger, NYT360VideoMovedMethod) {
-    NYT360VideoMovedMethodGyroscope = 0,
-    NYT360VideoMovedMethodTouch
+typedef NS_ENUM(NSInteger, NYT360UserInteractionMethod) {
+    NYT360UserInteractionMethodGyroscope = 0,
+    NYT360UserInteractionMethodTouch,
 };
