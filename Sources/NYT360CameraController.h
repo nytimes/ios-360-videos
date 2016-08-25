@@ -46,7 +46,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nullable, nonatomic, weak) id <NYT360CameraControllerDelegate> delegate;
 
-#pragma mark - Camera Angle Direction
+#pragma mark - Compass Angle
 
 /**
  *  Returns the current compass angle in radians
