@@ -93,7 +93,7 @@ static inline CGPoint subtractPoints(CGPoint a, CGPoint b) {
     // be jarring otherwise.
     if (self.isAnimatingReorientation) { return; }
 
-    
+
 #ifdef DEBUG
     if (!self.motionManager.isDeviceMotionActive) {
         NSLog(@"Warning: %@ called while %@ is not receiving motion updates", NSStringFromSelector(_cmd), NSStringFromClass(self.class));
