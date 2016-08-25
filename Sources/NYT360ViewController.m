@@ -40,7 +40,7 @@ CGRect NYT360ViewControllerSceneBoundsForScreenBounds(CGRect screenBounds) {
     return CGRectMake(0, 0, max, min);
 }
 
-@interface NYT360ViewController ()
+@interface NYT360ViewController () <NYT360CameraControllerDelegate>
 
 @property (nonatomic, readonly) CGSize underlyingSceneSize;
 @property (nonatomic, readonly) SCNView *sceneView;
@@ -62,6 +62,7 @@ CGRect NYT360ViewControllerSceneBoundsForScreenBounds(CGRect screenBounds) {
         _sceneView = [[SCNView alloc] initWithFrame:initialSceneFrame];
         _playerScene = [[NYT360PlayerScene alloc] initWithAVPlayer:player boundToView:_sceneView];
         _cameraController = [[NYT360CameraController alloc] initWithView:_sceneView motionManager:motionManager];
+        _cameraController.delegate = self;
     }
     return self;
 }
@@ -169,6 +170,12 @@ CGRect NYT360ViewControllerSceneBoundsForScreenBounds(CGRect screenBounds) {
     [self.cameraController updateCameraAngle];
     
     [self.delegate cameraAngleWasUpdated:self];
+}
+
+#pragma mark - NYT360CameraControllerDelegate
+
+- (void)cameraController:(NYT360CameraController *)controller userInitallyMovedCameraViaMethod:(NYT360UserInteractionMethod)method {
+    [self.delegate videoViewController:self userInitallyMovedCameraViaMethod:method];
 }
 
 @end
