@@ -67,6 +67,10 @@ CGRect NYT360ViewControllerSceneBoundsForScreenBounds(CGRect screenBounds) {
         typeof(self) __weak weakSelf = self;
         _cameraController.compassAngleUpdateBlock = ^(float compassAngle) {
             typeof(self) strongSelf = weakSelf;
+            if (!strongSelf) {
+                return;
+            }
+
             [strongSelf.delegate nyt360ViewController:strongSelf didUpdateCompassAngle:strongSelf.compassAngle];
         };
 
