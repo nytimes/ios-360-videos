@@ -190,7 +190,20 @@
     else {
         // Prior to iOS 10, SceneKit prefers to use `setPaused:` alone to toggle
         // playback on a video node. Mimic this usage here to ensure consistency
-        // and avoid putting the player into an out-of-sync state.
+        // and avoid putting the player into an out-of-sync state. There is one
+        // caveat, however: when the host application is pausing playback as the
+        // app is entering the background (and if background audio is enabled in
+        // the host application), then if you do not also call `pause` directly
+        // on the AVPlayer, then the player's audio will continue playing in the
+        // background. Even though this bug workaround means that our `pause`
+        // implementation is identical between iOS 8/9 and iOS 10, it's worth
+        // keeping the above check for the OS version since the edge cases
+        // before and after iOS 10 are different enough that it's worth keeping
+        // the implementations separated, if only for clarity that can be added
+        // via OS specific documentation (and also the fact that iOS 10's
+        // behavior may change between the current beta and a future production
+        // release).
+        [self.player pause];
         self.videoNode.paused = YES;
     }
     
