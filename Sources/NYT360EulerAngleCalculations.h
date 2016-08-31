@@ -33,4 +33,19 @@ NYT360EulerAngleCalculationResult NYT360PanGestureChangeCalculation(CGPoint posi
 
 CGFloat NYT360OptimalYFovForViewSize(CGSize viewSize);
 
+/** 
+ *  Unless the host application needs a non-zero reference angle (zero is the default), we want an input camera rotation of 0 to yield a compass angle of 0 where 0 is pointing "due north".
+ *
+ *  The y component of the SCNVector3 is positive in the counter-clockwise direction, whereas as UIKit rotation transforms are positive in the clockwise direction. Thus we want to map camera rotation values to compass angle values by mapping them to the equivalent rotation transform in the opposite direction.
+ *
+ *  For example, a positive quarter turn of the camera is equivalent to a negative quarter turn of a rotation transform, or:
+ *
+ *      0.25 cam rotations -> -0.25 rotation transform rotations
+ *
+ *  or in their raw radian values:
+ *
+ *      1.571 camera radians -> -1.571 rotation transform radians
+ *
+ *  Input values in excess of one rotation will be mapped to an equivalent value within the range of plus or minus one radian, such that output values will exceed one rotation. Input values equal (or very very close to equal) to a multiple of one radian (positive or negative) will be mapped to 0.
+ */
 float NYT360CompassAngleForEulerAngles(SCNVector3 eulerAngles, float referenceAngle);
