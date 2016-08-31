@@ -27,7 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Called when the compass angle is updated.
  *
  *  @param viewController The view controller that updated the angle.
- *  @param compassAngle The current compass angle.
+ *  @param compassAngle The current compass angle. The value will be within the range of plus or minus one radian, non-inclusive, where a positive value is equivalent to a clockwise rotation.
  *
  *  @note This method is called synchronously from SCNSceneRendererDelegate; its implementation should return quickly to avoid performance implications.
  */
@@ -62,7 +62,9 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - Camera Movement
 
 /**
- Returns the current compass angle.
+ *  Returns the current compass angle.
+ *
+ *  The value will be within the range of plus or minus one radian, non-inclusive, where a positive value is equivalent to a clockwise rotation.
  */
 @property (nonatomic, readonly) float compassAngle;
 
