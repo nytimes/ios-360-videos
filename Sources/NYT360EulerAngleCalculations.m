@@ -156,5 +156,5 @@ CGFloat NYT360OptimalYFovForViewSize(CGSize viewSize) {
 }
 
 float NYT360CompassAngleForEulerAngles(SCNVector3 eulerAngles, float referenceAngle) {
-    return NYT360UnitRotationForCameraRotation(eulerAngles.y + referenceAngle);
+    return NYT360UnitRotationForCameraRotation((-1 * eulerAngles.y) + referenceAngle);
 }
