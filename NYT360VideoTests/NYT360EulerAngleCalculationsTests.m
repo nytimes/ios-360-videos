@@ -140,7 +140,7 @@
     // of 0 where 0 is pointing "due north".
     //
     // The y component of the SCNVector3 is positive in the counter-clockwise
-    // direction, whereas as UIKit rotation transforms are positive in the
+    // direction, whereas UIKit rotation transforms are positive in the
     // clockwise direction. Thus we want to map camera rotation values to
     // compass angle values by mapping them to the equivalent rotation transform
     // in the opposite direction.

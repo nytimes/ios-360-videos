@@ -36,7 +36,7 @@ CGFloat NYT360OptimalYFovForViewSize(CGSize viewSize);
 /** 
  *  Unless the host application needs a non-zero reference angle (zero is the default), we want an input camera rotation of 0 to yield a compass angle of 0 where 0 is pointing "due north".
  *
- *  The y component of the SCNVector3 is positive in the counter-clockwise direction, whereas as UIKit rotation transforms are positive in the clockwise direction. Thus we want to map camera rotation values to compass angle values by mapping them to the equivalent rotation transform in the opposite direction.
+ *  The y component of the SCNVector3 is positive in the counter-clockwise direction, whereas UIKit rotation transforms are positive in the clockwise direction. Thus we want to map camera rotation values to compass angle values by mapping them to the equivalent rotation transform in the opposite direction.
  *
  *  For example, a positive quarter turn of the camera is equivalent to a negative quarter turn of a rotation transform, or:
  *
