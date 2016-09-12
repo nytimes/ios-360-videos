@@ -96,9 +96,11 @@ static inline CGPoint subtractPoints(CGPoint a, CGPoint b) {
 
 
 #ifdef DEBUG
+#if !TARGET_IPHONE_SIMULATOR
     if (!self.motionManager.isDeviceMotionActive) {
         NSLog(@"Warning: %@ called while %@ is not receiving motion updates", NSStringFromSelector(_cmd), NSStringFromClass(self.class));
     }
+#endif
 #endif
 
     CMRotationRate rotationRate = self.motionManager.deviceMotion.rotationRate;
