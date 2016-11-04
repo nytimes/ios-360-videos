@@ -43,20 +43,39 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+/**
+ *  NYT360ViewController plays 360º video from an AVPlayer and handles user interaction to move the camera around the video.
+ *
+ *  NYT360ViewController should be initialized and then embedded in your application UI via view controller containment.
+ *
+ *  This class is the entry point for the NYT360Video library.
+ */
 @interface NYT360ViewController : UIViewController <SCNSceneRendererDelegate>
 
 /**
  *  The delegate of the view controller.
+ *
+ *  @seealso NYT360ViewControllerDelegate
  */
 @property (nullable, nonatomic, weak) id <NYT360ViewControllerDelegate> delegate;
 
 #pragma mark - Initializers
 
+/**
+ *  Initialize a new 360 playback view controller, with the given AVPlayer instance and device motion manager.
+ */
 - (id)initWithAVPlayer:(AVPlayer *)player motionManager:(id<NYT360MotionManagement>)motionManager;
 
 #pragma mark - Playback
 
+/**
+ *  Play the view controller's video.
+ */
 - (void)play;
+
+/**
+ *  Pause the view controller's video.
+ */
 - (void)pause;
 
 #pragma mark - Camera Movement

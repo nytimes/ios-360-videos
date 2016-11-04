@@ -9,8 +9,9 @@
 @import UIKit;
 
 /**
- *  An otherwise vanilla subclass of UIPanGestureRecognizer used by NYT360Video to enable manual camera panning. This class is exposed so that host applications can more easily configure interaction with other gesture recognizers without having to have references to specific instances of an NYT360Video pan recognizer.
+ *  An otherwise vanilla subclass of UIPanGestureRecognizer used by NYT360Video to enable manual camera panning.
+ 
+   This class is exposed so that host applications can more easily configure interaction with other gesture recognizers, without having to refer to specific instances of an NYT360Video gesture recognizer.
  */
 @interface NYT360CameraPanGestureRecognizer : UIPanGestureRecognizer
-
 @end

@@ -14,25 +14,28 @@ NS_ASSUME_NONNULL_BEGIN
 typedef id<NSObject, NSCopying> NYT360MotionManagementToken;
 
 /**
+ Expectations that must be fulfilled by an appliation-wide "wrapper" around
+ CMMotionManager for NYT360Video's use.
+
  Per Apple's documentation, it is recommended that an application will have no
  more than one `CMMotionManager`, otherwise performance could degrade. The
- challenge for the host application using NYT360Videos is that there may be
- entities outside of NYT360Videos that also require device motion updates. It is
+ challenge for the host application using NYT360Video is that there may be
+ entities outside of NYT360Video that also require device motion updates. It is
  undesirable that all these entities would have direct access to the same shared
  manager, leading to misconfigurations or a premature call to 
  `stopDeviceMotionUpdates`. To facilitate the use of a shared motion manager 
  without exposing a surface area for misuse, the `NYT360MotionManagement` protocol
  defines a set of expectations for a shared "wrapper" around a shared 
- `CMMotionManager`. The conforming class will ensure that a shared 
+ `CMMotionManager`. The conforming class must ensure that a shared
  `CMMotionManager` is kept private, properly configured, and activated or
  deactivated at the appropriate times.
- 
+
  A host application is free to provide a custom class conforming to
  `NYT360MotionManagement`. If your application does not use a CMMotionManager 
  outside of NYT360Videos, we recommend that you use the shared instance of 
  `NYT360MotionManager`, a ready-made class that already conforms to 
  `NYT360MotionManagement`.
- 
+
  @seealso `NYT360MotionManager.h`
  */
 @protocol NYT360MotionManagement <NSObject>

@@ -9,5 +9,4 @@
 #import "NYT360CameraPanGestureRecognizer.h"
 
 @implementation NYT360CameraPanGestureRecognizer
-
 @end
