@@ -35,13 +35,15 @@ pod 'NYT360Video'
 
 - **iOS 10 CoreAudio Crash** - On devices running iOS 10 (at least as of Beta 7), host applications will crash if the device is locked while an NYT360ViewController is visible (whether paused or not). The crash is caused by a CoreAudio exception. [An extended discussion of the issue can be found here](https://github.com/nytm/ios-360-videos/issues/37). A workaround that appears to work for some, though not all, apps is to enable the background audio capability in the host application's plist.
 
-## Authors
+## Contributing
 
-- Maxwell Dayvson Da Silva: <maxwell.dasilva@nytimes.com>
-- Thiago Pontes de Oliveira: <thiago.pontes@nytimes.com>
-- Chris Dzombak: <dzombak@nytimes.com>
-- Danny Zlobinsky <danny.zlobinsky@nytimes.com>
+1. Fork it
+2. Create your feature branch: `git checkout -b my-awesome-new-feature`
+3. Commit your changes: `git commit -m 'Add some awesome feature'`
+4. Push to the branch: `git push origin my-awesome-new-feature`
+5. Submit a pull request
 
 ## License
 
-NYT360Video is licensed under the Apache License version 2.0; see [`LICENSE`](LICENSE) for detail.
+- This code is under [Apache 2.0
+  license](https://github.com/NYTimes/ios-360-videos/blob/master/LICENSE.md).
