@@ -92,7 +92,7 @@
 		934A49491D46B0A1001AD295 /* NYT360Video.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NYT360Video.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		934A494C1D46B0A1001AD295 /* NYT360Video.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYT360Video.h; sourceTree = "<group>"; };
 		934A49531D46B119001AD295 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		934A49561D46B32D001AD295 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		934A49561D46B32D001AD295 /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
 		934A49571D46B32D001AD295 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		934A495C1D46B3B5001AD295 /* NYT360VideoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NYT360VideoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		934A496B1D46B3FD001AD295 /* NYT360VideoExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NYT360VideoExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -180,7 +180,7 @@
 			children = (
 				934A49961D46BBB6001AD295 /* NYT360Video.podspec */,
 				934A49571D46B32D001AD295 /* README.md */,
-				934A49561D46B32D001AD295 /* LICENSE */,
+				934A49561D46B32D001AD295 /* LICENSE.md */,
 			);
 			name = Metadata;
 			sourceTree = "<group>";
