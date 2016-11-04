@@ -203,11 +203,11 @@
 			children = (
 				4736BBE21D5393E500262306 /* AppDelegate.h */,
 				4736BBE31D5393E500262306 /* AppDelegate.m */,
+				4736BBE51D5393E500262306 /* ViewController.h */,
+				4736BBE61D5393E500262306 /* ViewController.m */,
 				4736BBEE1D5393F600262306 /* LaunchScreen.storyboard */,
 				4736BBF01D5393F600262306 /* Main.storyboard */,
 				4736BBE41D5393E500262306 /* Assets.xcassets */,
-				4736BBE51D5393E500262306 /* ViewController.h */,
-				4736BBE61D5393E500262306 /* ViewController.m */,
 				4736BBEC1D5393EB00262306 /* Info.plist */,
 				934A496D1D46B3FD001AD295 /* Supporting Files */,
 			);
