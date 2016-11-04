@@ -46,4 +46,4 @@ pod 'NYT360Video'
 ## License
 
 - This code is under [Apache 2.0
-  license](https://github.com/nytm/ios-360-videos/blob/master/LICENSE.md).
+  license](https://github.com/NYTimes/ios-360-videos/blob/master/LICENSE.md).
