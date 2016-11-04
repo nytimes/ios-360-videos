@@ -10,6 +10,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @import SceneKit;
 
+/**
+ A 3D video playback scene.
+ */
 @interface NYT360PlayerScene : SCNScene
 
 @property (nonatomic, readonly) SCNCamera *camera;

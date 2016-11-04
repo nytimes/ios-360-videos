@@ -22,20 +22,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor blackColor];
 
-    NSURL *videoURL = [[NSURL alloc] initWithString:@"https://vp.nyt.com/video/360/hls/video.m3u8"];
+    // Create an AVPlayer for a 360º video:
+    NSURL * const videoURL = [[NSURL alloc] initWithString:@"https://vp.nyt.com/video/360/hls/video.m3u8"];
     self.player = [[AVPlayer alloc] initWithURL:videoURL];
 
-    self.view.backgroundColor = [UIColor blackColor];
-    id<NYT360MotionManagement> manager = [NYT360MotionManager sharedManager];
+    // Create a NYT360ViewController with the AVPlayer and our app's motion manager:
+    id<NYT360MotionManagement> const manager = [NYT360MotionManager sharedManager];
     self.nyt360VC = [[NYT360ViewController alloc] initWithAVPlayer:self.player motionManager:manager];
 
+    // Embed the player view controller in our UI, via view controller containment:
     [self addChildViewController:self.nyt360VC];
     [self.view addSubview:self.nyt360VC.view];
     [self.nyt360VC didMoveToParentViewController:self];
 
+    // Begin playing the 360º video:
     [self.player play];
-    
+
+    // In this example, tapping the video will place the horizon in the middle of the screen:
     UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(reorientVerticalCameraAngle:)];
     [self.view addGestureRecognizer:tapRecognizer];
 }
