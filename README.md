@@ -43,6 +43,10 @@ pod 'NYT360Video'
 4. Push to the branch: `git push origin my-awesome-new-feature`
 5. Submit a pull request
 
+## Version History
+
+See [CHANGELOG.md](CHANGELOG.md).
+
 ## License
 
 - This code is under [Apache 2.0
