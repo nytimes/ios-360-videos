@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
     DESC
 
     s.homepage         = 'https://github.com/nytm/ios-360-videos/'
-    s.license          = { :type => 'Apache', :file => 'LICENSE' }
+    s.license          = { :type => 'Apache', :file => 'LICENSE.md' }
     s.author           = 'The New York Times'
     s.source           = { :git => 'git@github.com:nytm/ios-360-videos.git', :tag => s.version.to_s }
 
