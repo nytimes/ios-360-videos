@@ -129,7 +129,7 @@
     // See note in NYTSKVideoNode above.
     self.videoPlaybackIsPaused = NO;
     
-    if ([self isIOS10OrLater]) {
+    if ([self.class isIOS10OrLater]) {
         // On iOS 10, AVPlayer playback on a video node seems to work most
         // reliably by directly invoking `play` and `pause` on the player,
         // rather than the alternatives: calling the `play` and `pause` methods
@@ -165,7 +165,7 @@
     // See note in NYTSKVideoNode above.
     self.videoPlaybackIsPaused = YES;
     
-    if ([self isIOS10OrLater]) {
+    if ([self.class isIOS10OrLater]) {
         // On iOS 10, AVPlayer playback on a video node seems to work most
         // reliably by directly invoking `play` and `pause` on the player,
         // rather than the alternatives: calling the `play` and `pause` methods
@@ -218,12 +218,20 @@
 
 #pragma mark - Convenience
 
-- (BOOL)isIOS10OrLater {
-    NSOperatingSystemVersion ios10;
-    ios10.majorVersion = 10;
-    ios10.minorVersion = 0;
-    ios10.patchVersion = 0;
-    return [[NSProcessInfo processInfo] isOperatingSystemAtLeastVersion:ios10];
++ (BOOL)isIOS10OrLater {
+    static BOOL isIOS10OrLater;
+
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        NSOperatingSystemVersion ios10;
+        ios10.majorVersion = 10;
+        ios10.minorVersion = 0;
+        ios10.patchVersion = 0;
+
+        isIOS10OrLater = [[NSProcessInfo processInfo] isOperatingSystemAtLeastVersion:ios10];
+    });
+
+    return isIOS10OrLater;
 }
 
 @end
