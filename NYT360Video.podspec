@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
     s.homepage         = 'https://github.com/nytm/ios-360-videos/'
     s.license          = { :type => 'Apache', :file => 'LICENSE.md' }
     s.author           = 'The New York Times'
-    s.source           = { :git => 'git@github.com:nytm/ios-360-videos.git', :tag => s.version.to_s }
+    s.source           = { :git => 'https://github.com/NYTimes/ios-360-videos.git', :tag => s.version.to_s }
 
     s.ios.deployment_target = '8.0'
 
