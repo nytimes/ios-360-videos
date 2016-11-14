@@ -6,9 +6,13 @@
 
 ## 360º video playback from The New York Times
 
-NYT360Video is a framework allowing playback of a 360º video stream from an `AVPlayer`.
+NYT360Video plays [spherical 360º video](https://en.wikipedia.org/wiki/360-degree_video), allowing the user to explore the video via pan gestures and the iOS device’s gyroscope. The video can be played from a file or network stream, via a standard `AVPlayer` instance.
 
-It provides no control user interface; it is intended to be embedded in your own video player implementation.
+It provides no user interface for playback controls (like a play/pause button); it is intended to be embedded in your own video player implementation.
+
+At the Times we use NYT360Video to support playback of our own content:
+
+![Animation of 360º video playback in the Times’ iPhone app](Documentation/360.gif)
 
 ## Usage
 
