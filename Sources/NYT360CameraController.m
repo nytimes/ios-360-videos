@@ -48,7 +48,7 @@ static inline CGPoint subtractPoints(CGPoint a, CGPoint b) {
         
         _pointOfView = view.pointOfView;
         _view = view;
-        _currentPosition = CGPointMake(0, 0);
+        _currentPosition = CGPointMake(3.14, 0);
         _allowedDeviceMotionPanningAxes = NYT360PanningAxisHorizontal | NYT360PanningAxisVertical;
         _allowedPanGesturePanningAxes = NYT360PanningAxisHorizontal | NYT360PanningAxisVertical;
         

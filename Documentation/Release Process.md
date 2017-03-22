@@ -3,7 +3,7 @@ _While tagging a new version of a library and pushing it to CocoaPods is concept
 # NYT360Video Release Process
 
 - Review [the diff between `master` and `develop`](https://github.com/NYTimes/ios-360-videos/compare/master...develop) to determine which part of the version number to increment, in accordance with [semantic versioning](http://semver.org/).
-- Update [the Podspec](https://github.com/NYTimes/ios-360-videos/blob/develop/NYT360Video.podspec) and the framework targets in [the Xcode project](https://github.com/NYTimes/ios-360-videos/tree/develop/ios-360-videos.xcodeproj) to the new version number.
+- Update [the Podspec](https://github.com/NYTimes/ios-360-videos/blob/develop/NYT360Video.podspec) and the framework target in [the Xcode project](https://github.com/NYTimes/ios-360-videos/tree/develop/ios-360-videos.xcodeproj) to the new version number.
 	- Make this change via a pull request to trigger notifications for those who watch the repository.
 - Using [the diff](https://github.com/NYTimes/ios-360-videos/compare/master...develop), [the commit history](https://github.com/NYTimes/ios-360-videos/commits/develop), and any notes about `develop` which may have been written in the `CHANGELOG`, update [`CHANGELOG.md`](https://github.com/NYTimes/ios-360-videos/blob/develop/CHANGELOG.md) with changes in the new version which may affect library users.
 	- When reviewing the commit history, searching for “Merge pull request” helps find changes which should appear in [the `CHANGELOG`](https://github.com/NYTimes/ios-360-videos/blob/develop/CHANGELOG.md).
