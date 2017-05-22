@@ -78,6 +78,10 @@ CGRect NYT360ViewControllerSceneBoundsForScreenBounds(CGRect screenBounds) {
     return self;
 }
 
+- (void)dealloc {
+    _sceneView.delegate = nil;
+}
+
 #pragma mark - Playback
 
 - (void)play {
