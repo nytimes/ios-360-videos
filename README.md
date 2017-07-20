@@ -42,7 +42,7 @@ You may want to restrict the gesture-based interactions with `NYT360ViewControll
 
 First, [`NYT360ViewController` provides properties](https://github.com/NYTimes/ios-360-videos/blob/68c522d51d6c88ddd705e4febbb480de825cdc5d/Sources/NYT360ViewController.h#L111) to configure which axes of movement are allowed. (This would be the simplest way to solve the example problem set out above.)
 
-The library exposes its pan gesture recognizer as a property on `NYT360ViewController` for more advanced ingegration with other gesture recognizers. And finally, the type `NYT360CameraPanGestureRecognizer` is introduced so that host applications can more easily configure interaction with other gesture recognizers, without having to refer to specific instances of an NYT360Video gesture recognizer.
+The library exposes its pan gesture recognizer as a property on `NYT360ViewController` for more advanced integration with other gesture recognizers. And finally, the type `NYT360CameraPanGestureRecognizer` is introduced so that host applications can more easily configure interaction with other gesture recognizers, without having to refer to specific instances of an NYT360Video gesture recognizer.
 
 ## Requirements
 

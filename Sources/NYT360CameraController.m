@@ -82,7 +82,7 @@ static inline CGPoint subtractPoints(CGPoint a, CGPoint b) {
 #pragma mark - Compass Angle
 
 - (float)compassAngle {
-    return NYT360CompassAngleForEulerAngles(self.pointOfView.eulerAngles, NYT360EulerAngleCalculationDefaultReferenceCompassAngle);
+    return NYT360CompassAngleForEulerAngles(self.pointOfView.eulerAngles);
 }
 
 #pragma mark - Camera Control
