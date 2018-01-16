@@ -10,6 +10,8 @@
 #import "NYT360EulerAngleCalculations.h"
 #import "NYT360CameraPanGestureRecognizer.h"
 
+static const CGPoint startingPosition = { 3.14, 0 };
+
 static inline CGFloat distance(CGPoint a, CGPoint b) {
     return sqrt(pow(a.x - b.x, 2) + pow(a.y - b.y, 2));
 }
@@ -48,7 +50,7 @@ static inline CGPoint subtractPoints(CGPoint a, CGPoint b) {
         
         _pointOfView = view.pointOfView;
         _view = view;
-        _currentPosition = CGPointMake(3.14, 0);
+        _currentPosition = startingPosition;
         _allowedDeviceMotionPanningAxes = NYT360PanningAxisHorizontal | NYT360PanningAxisVertical;
         _allowedPanGesturePanningAxes = NYT360PanningAxisHorizontal | NYT360PanningAxisVertical;
         
@@ -116,7 +118,7 @@ static inline CGPoint subtractPoints(CGPoint a, CGPoint b) {
     }
     
     static const CGFloat minimalRotationDistanceToReport = 0.75;
-    if (distance(CGPointZero, self.currentPosition) > minimalRotationDistanceToReport) {
+    if (distance(startingPosition, self.currentPosition) > minimalRotationDistanceToReport) {
         [self reportInitialCameraMovementIfNeededViaMethod:NYT360UserInteractionMethodGyroscope];
     }
 }
