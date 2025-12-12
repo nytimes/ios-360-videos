@@ -11,7 +11,7 @@
 #pragma mark - Constants
 
 CGFloat const NYT360EulerAngleCalculationNoiseThresholdDefault = 0.12;
-float const NYT360EulerAngleCalculationDefaultReferenceCompassAngle = 3.14;
+float const NYT360EulerAngleCalculationDefaultReferenceCompassAngle = 0.0f;
 
 #pragma mark - Inline Functions
 
@@ -156,5 +156,5 @@ CGFloat NYT360OptimalYFovForViewSize(CGSize viewSize) {
 }
 
 float NYT360CompassAngleForEulerAngles(SCNVector3 eulerAngles) {
-    return NYT360UnitRotationForCameraRotation((-1.0 * eulerAngles.y) + NYT360EulerAngleCalculationDefaultReferenceCompassAngle);
+    return NYT360UnitRotationForCameraRotation((-1.0f * eulerAngles.y) + NYT360EulerAngleCalculationDefaultReferenceCompassAngle);
 }

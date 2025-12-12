@@ -50,6 +50,16 @@ NYT360Video works on iOS 8+.
 
 ## Installation
 
+### Swift Package Manager
+
+NYT360Video can be added to your project with Swift Package Manager. In Xcode, choose “Add Package Dependency…” and use:
+
+```
+https://github.com/NYTimes/ios-360-videos.git
+```
+
+The package exposes the `NYT360Video` library target.
+
 ### Carthage
 
 NYT360Video may be fetched and built via [Carthage](https://github.com/Carthage/Carthage). To install it, simply add the following line to your `Cartfile`:

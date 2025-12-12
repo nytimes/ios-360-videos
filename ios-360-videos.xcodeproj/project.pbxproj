@@ -3,19 +3,16 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		470DB5DC1D4950FC001DD20C /* NYT360DataTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 470DB5D91D494F90001DD20C /* NYT360DataTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		470DB5DD1D49A058001DD20C /* NYT360CameraController.m in Sources */ = {isa = PBXBuildFile; fileRef = 934A49831D46B446001AD295 /* NYT360CameraController.m */; };
 		470DB5DE1D49A058001DD20C /* NYT360EulerAngleCalculations.m in Sources */ = {isa = PBXBuildFile; fileRef = 47DCD2A21D493E1400FBCD4B /* NYT360EulerAngleCalculations.m */; };
 		470DB5DF1D49A058001DD20C /* NYT360PlayerScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 934A49851D46B446001AD295 /* NYT360PlayerScene.m */; };
 		470DB5E01D49A058001DD20C /* NYT360ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 934A49871D46B446001AD295 /* NYT360ViewController.m */; };
 		471705571D639FB1003D542B /* NYT360CameraPanGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 47ACFE331D54DFC70054F8D0 /* NYT360CameraPanGestureRecognizer.m */; };
-		472324FF1D5240DF00784F8F /* NYT360MotionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 472324FD1D5240DF00784F8F /* NYT360MotionManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		472325001D5240DF00784F8F /* NYT360MotionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 472324FE1D5240DF00784F8F /* NYT360MotionManager.m */; };
-		472325011D524AB600784F8F /* NYT360MotionManagement.h in Headers */ = {isa = PBXBuildFile; fileRef = 472324FC1D523F6000784F8F /* NYT360MotionManagement.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4736BBF41D53941700262306 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4736BBE31D5393E500262306 /* AppDelegate.m */; };
 		4736BBF51D53941A00262306 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4736BBE61D5393E500262306 /* ViewController.m */; };
 		4736BBF61D53941E00262306 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4736BBE41D5393E500262306 /* Assets.xcassets */; };
@@ -25,18 +22,15 @@
 		4736BC081D5394D200262306 /* NYT360MotionManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4736BBFB1D53949900262306 /* NYT360MotionManagerTests.m */; };
 		4736BC091D5394D200262306 /* NYT360ViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4736BBFC1D53949900262306 /* NYT360ViewControllerTests.m */; };
 		4736BC0A1D5394D200262306 /* NYT360VideoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4736BBFD1D53949900262306 /* NYT360VideoTests.m */; };
-		47ACFE341D54DFC70054F8D0 /* NYT360CameraPanGestureRecognizer.h in Headers */ = {isa = PBXBuildFile; fileRef = 47ACFE321D54DFC70054F8D0 /* NYT360CameraPanGestureRecognizer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		47ACFE351D54DFC70054F8D0 /* NYT360CameraPanGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 47ACFE331D54DFC70054F8D0 /* NYT360CameraPanGestureRecognizer.m */; };
 		47CD32371D539677000B3313 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4736BBE01D5393D800262306 /* main.m */; };
-		47DCD2A31D493E1400FBCD4B /* NYT360EulerAngleCalculations.h in Headers */ = {isa = PBXBuildFile; fileRef = 47DCD2A11D493E1400FBCD4B /* NYT360EulerAngleCalculations.h */; };
+		47DCD2A31D493E1400FBCD4B /* NYT360EulerAngleCalculations.h in Headers */ = {isa = PBXBuildFile; fileRef = 47DCD2A11D493E1400FBCD4B /* NYT360EulerAngleCalculations.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		47DCD2A41D493E1400FBCD4B /* NYT360EulerAngleCalculations.m in Sources */ = {isa = PBXBuildFile; fileRef = 47DCD2A21D493E1400FBCD4B /* NYT360EulerAngleCalculations.m */; };
 		47FD3DBE1D52508100BC0248 /* NYT360MotionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 472324FE1D5240DF00784F8F /* NYT360MotionManager.m */; };
-		934A494D1D46B0A1001AD295 /* NYT360Video.h in Headers */ = {isa = PBXBuildFile; fileRef = 934A494C1D46B0A1001AD295 /* NYT360Video.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		934A49881D46B446001AD295 /* NYT360CameraController.h in Headers */ = {isa = PBXBuildFile; fileRef = 934A49821D46B446001AD295 /* NYT360CameraController.h */; };
+		934A49881D46B446001AD295 /* NYT360CameraController.h in Headers */ = {isa = PBXBuildFile; fileRef = 934A49821D46B446001AD295 /* NYT360CameraController.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		934A49891D46B446001AD295 /* NYT360CameraController.m in Sources */ = {isa = PBXBuildFile; fileRef = 934A49831D46B446001AD295 /* NYT360CameraController.m */; };
-		934A498A1D46B446001AD295 /* NYT360PlayerScene.h in Headers */ = {isa = PBXBuildFile; fileRef = 934A49841D46B446001AD295 /* NYT360PlayerScene.h */; };
+		934A498A1D46B446001AD295 /* NYT360PlayerScene.h in Headers */ = {isa = PBXBuildFile; fileRef = 934A49841D46B446001AD295 /* NYT360PlayerScene.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		934A498B1D46B446001AD295 /* NYT360PlayerScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 934A49851D46B446001AD295 /* NYT360PlayerScene.m */; };
-		934A498C1D46B446001AD295 /* NYT360ViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 934A49861D46B446001AD295 /* NYT360ViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		934A498D1D46B446001AD295 /* NYT360ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 934A49871D46B446001AD295 /* NYT360ViewController.m */; };
 		934A498E1D46B525001AD295 /* NYT360Video.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 934A49491D46B0A1001AD295 /* NYT360Video.framework */; };
 		934A49941D46B9E9001AD295 /* NYT360Video.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 934A49491D46B0A1001AD295 /* NYT360Video.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -49,6 +43,27 @@
 			proxyType = 1;
 			remoteGlobalIDString = 934A49481D46B0A1001AD295;
 			remoteInfo = "360 Player iOS";
+		};
+		BD048E2B2EEC724500CFDC0A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BD048E192EEC724500CFDC0A /* ios-360-videos.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 934A49491D46B0A1001AD295;
+			remoteInfo = NYT360Video;
+		};
+		BD048E2D2EEC724500CFDC0A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BD048E192EEC724500CFDC0A /* ios-360-videos.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 934A495C1D46B3B5001AD295;
+			remoteInfo = NYT360VideoTests;
+		};
+		BD048E2F2EEC724500CFDC0A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BD048E192EEC724500CFDC0A /* ios-360-videos.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 934A496B1D46B3FD001AD295;
+			remoteInfo = NYT360VideoExample;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -67,9 +82,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		470DB5D91D494F90001DD20C /* NYT360DataTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYT360DataTypes.h; sourceTree = "<group>"; };
-		472324FC1D523F6000784F8F /* NYT360MotionManagement.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYT360MotionManagement.h; sourceTree = "<group>"; };
-		472324FD1D5240DF00784F8F /* NYT360MotionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYT360MotionManager.h; sourceTree = "<group>"; };
 		472324FE1D5240DF00784F8F /* NYT360MotionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYT360MotionManager.m; sourceTree = "<group>"; };
 		4736BBE01D5393D800262306 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = NYT360VideoExample/main.m; sourceTree = SOURCE_ROOT; };
 		4736BBE21D5393E500262306 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = NYT360VideoExample/AppDelegate.h; sourceTree = SOURCE_ROOT; };
@@ -85,12 +97,10 @@
 		4736BBFB1D53949900262306 /* NYT360MotionManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NYT360MotionManagerTests.m; path = NYT360VideoTests/NYT360MotionManagerTests.m; sourceTree = SOURCE_ROOT; };
 		4736BBFC1D53949900262306 /* NYT360ViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NYT360ViewControllerTests.m; path = NYT360VideoTests/NYT360ViewControllerTests.m; sourceTree = SOURCE_ROOT; };
 		4736BBFD1D53949900262306 /* NYT360VideoTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NYT360VideoTests.m; path = NYT360VideoTests/NYT360VideoTests.m; sourceTree = SOURCE_ROOT; };
-		47ACFE321D54DFC70054F8D0 /* NYT360CameraPanGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYT360CameraPanGestureRecognizer.h; sourceTree = "<group>"; };
 		47ACFE331D54DFC70054F8D0 /* NYT360CameraPanGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYT360CameraPanGestureRecognizer.m; sourceTree = "<group>"; };
 		47DCD2A11D493E1400FBCD4B /* NYT360EulerAngleCalculations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYT360EulerAngleCalculations.h; sourceTree = "<group>"; };
 		47DCD2A21D493E1400FBCD4B /* NYT360EulerAngleCalculations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYT360EulerAngleCalculations.m; sourceTree = "<group>"; };
 		934A49491D46B0A1001AD295 /* NYT360Video.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NYT360Video.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		934A494C1D46B0A1001AD295 /* NYT360Video.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYT360Video.h; sourceTree = "<group>"; };
 		934A49531D46B119001AD295 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		934A49561D46B32D001AD295 /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
 		934A49571D46B32D001AD295 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -100,10 +110,29 @@
 		934A49831D46B446001AD295 /* NYT360CameraController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYT360CameraController.m; sourceTree = "<group>"; };
 		934A49841D46B446001AD295 /* NYT360PlayerScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYT360PlayerScene.h; sourceTree = "<group>"; };
 		934A49851D46B446001AD295 /* NYT360PlayerScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYT360PlayerScene.m; sourceTree = "<group>"; };
-		934A49861D46B446001AD295 /* NYT360ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYT360ViewController.h; sourceTree = "<group>"; };
 		934A49871D46B446001AD295 /* NYT360ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYT360ViewController.m; sourceTree = "<group>"; };
 		934A49961D46BBB6001AD295 /* NYT360Video.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = NYT360Video.podspec; sourceTree = "<group>"; };
+		BD048E192EEC724500CFDC0A /* ios-360-videos.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "ios-360-videos.xcodeproj"; path = "Sources/include/ios-360-videos.xcodeproj"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		BD048E182EEC723100CFDC0A /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			publicHeaders = (
+				NYT360CameraPanGestureRecognizer.h,
+				NYT360DataTypes.h,
+				NYT360MotionManagement.h,
+				NYT360MotionManager.h,
+				NYT360Video.h,
+				NYT360ViewController.h,
+			);
+			target = 934A49481D46B0A1001AD295 /* NYT360Video */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		BD048E172EEC722C00CFDC0A /* include */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (BD048E182EEC723100CFDC0A /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = include; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		934A49451D46B0A1001AD295 /* Frameworks */ = {
@@ -155,11 +184,8 @@
 		934A49521D46B119001AD295 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				470DB5D91D494F90001DD20C /* NYT360DataTypes.h */,
-				472324FC1D523F6000784F8F /* NYT360MotionManagement.h */,
-				472324FD1D5240DF00784F8F /* NYT360MotionManager.h */,
+				BD048E172EEC722C00CFDC0A /* include */,
 				472324FE1D5240DF00784F8F /* NYT360MotionManager.m */,
-				47ACFE321D54DFC70054F8D0 /* NYT360CameraPanGestureRecognizer.h */,
 				47ACFE331D54DFC70054F8D0 /* NYT360CameraPanGestureRecognizer.m */,
 				934A49821D46B446001AD295 /* NYT360CameraController.h */,
 				934A49831D46B446001AD295 /* NYT360CameraController.m */,
@@ -167,9 +193,7 @@
 				47DCD2A21D493E1400FBCD4B /* NYT360EulerAngleCalculations.m */,
 				934A49841D46B446001AD295 /* NYT360PlayerScene.h */,
 				934A49851D46B446001AD295 /* NYT360PlayerScene.m */,
-				934A49861D46B446001AD295 /* NYT360ViewController.h */,
 				934A49871D46B446001AD295 /* NYT360ViewController.m */,
-				934A494C1D46B0A1001AD295 /* NYT360Video.h */,
 				934A49531D46B119001AD295 /* Info.plist */,
 			);
 			path = Sources;
@@ -194,8 +218,7 @@
 				4736BBFC1D53949900262306 /* NYT360ViewControllerTests.m */,
 				4736BBFD1D53949900262306 /* NYT360VideoTests.m */,
 			);
-			name = NYT360VideoTests;
-			path = Three60_PlayerTests;
+			path = NYT360VideoTests;
 			sourceTree = "<group>";
 		};
 		934A496C1D46B3FD001AD295 /* NYT360VideoTestsExample */ = {
@@ -212,7 +235,7 @@
 				934A496D1D46B3FD001AD295 /* Supporting Files */,
 			);
 			name = NYT360VideoTestsExample;
-			path = Three60_PlayerExample;
+			path = NYT360VideoExample;
 			sourceTree = "<group>";
 		};
 		934A496D1D46B3FD001AD295 /* Supporting Files */ = {
@@ -223,6 +246,16 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		BD048E262EEC724500CFDC0A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BD048E2C2EEC724500CFDC0A /* NYT360Video.framework */,
+				BD048E2E2EEC724500CFDC0A /* NYT360VideoTests.xctest */,
+				BD048E302EEC724500CFDC0A /* NYT360VideoExample.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -230,15 +263,9 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				934A494D1D46B0A1001AD295 /* NYT360Video.h in Headers */,
-				472325011D524AB600784F8F /* NYT360MotionManagement.h in Headers */,
-				470DB5DC1D4950FC001DD20C /* NYT360DataTypes.h in Headers */,
-				472324FF1D5240DF00784F8F /* NYT360MotionManager.h in Headers */,
-				47ACFE341D54DFC70054F8D0 /* NYT360CameraPanGestureRecognizer.h in Headers */,
 				934A49881D46B446001AD295 /* NYT360CameraController.h in Headers */,
 				47DCD2A31D493E1400FBCD4B /* NYT360EulerAngleCalculations.h in Headers */,
 				934A498A1D46B446001AD295 /* NYT360PlayerScene.h in Headers */,
-				934A498C1D46B446001AD295 /* NYT360ViewController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,6 +285,9 @@
 			);
 			dependencies = (
 			);
+			fileSystemSynchronizedGroups = (
+				BD048E172EEC722C00CFDC0A /* include */,
+			);
 			name = NYT360Video;
 			productName = "360 Player iOS";
 			productReference = 934A49491D46B0A1001AD295 /* NYT360Video.framework */;
@@ -274,6 +304,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				BD048E172EEC722C00CFDC0A /* include */,
 			);
 			name = NYT360VideoTests;
 			productName = Three60_PlayerTests;
@@ -325,12 +358,19 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
 			mainGroup = 934A493D1D46AFBB001AD295;
 			productRefGroup = 934A494A1D46B0A1001AD295 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = BD048E262EEC724500CFDC0A /* Products */;
+					ProjectRef = BD048E192EEC724500CFDC0A /* ios-360-videos.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				934A49481D46B0A1001AD295 /* NYT360Video */,
@@ -339,6 +379,30 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		BD048E2C2EEC724500CFDC0A /* NYT360Video.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = NYT360Video.framework;
+			remoteRef = BD048E2B2EEC724500CFDC0A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		BD048E2E2EEC724500CFDC0A /* NYT360VideoTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = NYT360VideoTests.xctest;
+			remoteRef = BD048E2D2EEC724500CFDC0A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		BD048E302EEC724500CFDC0A /* NYT360VideoExample.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = NYT360VideoExample.app;
+			remoteRef = BD048E2F2EEC724500CFDC0A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		934A49471D46B0A1001AD295 /* Resources */ = {
@@ -506,7 +570,11 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = nyt.NYT360Video;
@@ -558,7 +626,11 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = nyt.NYT360Video;
 				PRODUCT_NAME = NYT360Video;
@@ -610,7 +682,11 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = NYT360VideoTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = nyt.NYT360VideoTests;
@@ -652,7 +728,11 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = NYT360VideoTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = nyt.NYT360VideoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -702,7 +782,10 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = NYT360VideoExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = nyt.NYT360VideoExample;
@@ -747,7 +830,10 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = NYT360VideoExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = nyt.NYT360VideoExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";

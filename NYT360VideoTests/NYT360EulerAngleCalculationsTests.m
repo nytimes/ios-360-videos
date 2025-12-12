@@ -158,68 +158,65 @@
     float pi = M_PI;
     float oneRotation = pi * 2.0;
     float compassAngle;
-    float referenceAngle;
-    
-    referenceAngle = NYT360EulerAngleCalculationDefaultReferenceCompassAngle;
     
     eulerAngles.y = 0;
-    compassAngle = NYT360CompassAngleForEulerAngles(eulerAngles, referenceAngle);
+    compassAngle = NYT360CompassAngleForEulerAngles(eulerAngles);
     XCTAssertEqualWithAccuracy(compassAngle, 0, 0.001);
     
     eulerAngles.y = oneRotation;
-    compassAngle = NYT360CompassAngleForEulerAngles(eulerAngles, referenceAngle);
+    compassAngle = NYT360CompassAngleForEulerAngles(eulerAngles);
     XCTAssertEqualWithAccuracy(compassAngle, 0, 0.001);
     
     eulerAngles.y = -oneRotation;
-    compassAngle = NYT360CompassAngleForEulerAngles(eulerAngles, referenceAngle);
+    compassAngle = NYT360CompassAngleForEulerAngles(eulerAngles);
     XCTAssertEqualWithAccuracy(compassAngle, 0, 0.001);
     
     eulerAngles.y = oneRotation * -0.5;
-    compassAngle = NYT360CompassAngleForEulerAngles(eulerAngles, referenceAngle);
+    compassAngle = NYT360CompassAngleForEulerAngles(eulerAngles);
     XCTAssertEqualWithAccuracy(compassAngle, oneRotation * 0.5, 0.001);
     
     eulerAngles.y = oneRotation * 0.5;
-    compassAngle = NYT360CompassAngleForEulerAngles(eulerAngles, referenceAngle);
+    compassAngle = NYT360CompassAngleForEulerAngles(eulerAngles);
     XCTAssertEqualWithAccuracy(compassAngle, oneRotation * -0.5, 0.001);
     
     eulerAngles.y = oneRotation * -1.5;
-    compassAngle = NYT360CompassAngleForEulerAngles(eulerAngles, referenceAngle);
+    compassAngle = NYT360CompassAngleForEulerAngles(eulerAngles);
     XCTAssertEqualWithAccuracy(compassAngle, oneRotation * 0.5, 0.001);
     
     eulerAngles.y = oneRotation * 1.5;
-    compassAngle = NYT360CompassAngleForEulerAngles(eulerAngles, referenceAngle);
+    compassAngle = NYT360CompassAngleForEulerAngles(eulerAngles);
     XCTAssertEqualWithAccuracy(compassAngle, oneRotation * -0.5, 0.001);
     
     eulerAngles.y = oneRotation * -2.0;
-    compassAngle = NYT360CompassAngleForEulerAngles(eulerAngles, referenceAngle);
+    compassAngle = NYT360CompassAngleForEulerAngles(eulerAngles);
     XCTAssertEqualWithAccuracy(compassAngle, 0, 0.001);
     
     eulerAngles.y = oneRotation * 2.0;
-    compassAngle = NYT360CompassAngleForEulerAngles(eulerAngles, referenceAngle);
+    compassAngle = NYT360CompassAngleForEulerAngles(eulerAngles);
     XCTAssertEqualWithAccuracy(compassAngle, 0, 0.001);
     
     eulerAngles.y = oneRotation * -2.5;
-    compassAngle = NYT360CompassAngleForEulerAngles(eulerAngles, referenceAngle);
+    compassAngle = NYT360CompassAngleForEulerAngles(eulerAngles);
     XCTAssertEqualWithAccuracy(compassAngle, oneRotation * 0.5, 0.001);
     
     eulerAngles.y = oneRotation * 2.5;
-    compassAngle = NYT360CompassAngleForEulerAngles(eulerAngles, referenceAngle);
+    compassAngle = NYT360CompassAngleForEulerAngles(eulerAngles);
     XCTAssertEqualWithAccuracy(compassAngle, oneRotation * -0.5, 0.001);
     
     eulerAngles.y = oneRotation * 3.0;
-    compassAngle = NYT360CompassAngleForEulerAngles(eulerAngles, referenceAngle);
+    compassAngle = NYT360CompassAngleForEulerAngles(eulerAngles);
     XCTAssertEqualWithAccuracy(compassAngle, 0, 0.001);
     
     eulerAngles.y = oneRotation * -3.0;
-    compassAngle = NYT360CompassAngleForEulerAngles(eulerAngles, referenceAngle);
+    compassAngle = NYT360CompassAngleForEulerAngles(eulerAngles);
     XCTAssertEqualWithAccuracy(compassAngle, 0, 0.001);
     
     eulerAngles.y = oneRotation * -3.5;
-    compassAngle = NYT360CompassAngleForEulerAngles(eulerAngles, referenceAngle);
+    compassAngle = NYT360CompassAngleForEulerAngles(eulerAngles);
     XCTAssertEqualWithAccuracy(compassAngle, oneRotation * 0.5, 0.001);
     
     eulerAngles.y = oneRotation * 3.5;
-    compassAngle = NYT360CompassAngleForEulerAngles(eulerAngles, referenceAngle);
+    compassAngle = NYT360CompassAngleForEulerAngles(eulerAngles);
     XCTAssertEqualWithAccuracy(compassAngle, oneRotation * -0.5, 0.001);
 }
 

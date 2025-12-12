@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
     s.ios.deployment_target = '8.0'
 
     s.source_files = 'Sources/**/*.{h,m}'
-    s.public_header_files = 'Sources/NYT360Video.h', 'Sources/NYT360ViewController.h', 'Sources/NYT360DataTypes.h', 'Sources/NYT360MotionManagement.h', 'Sources/NYT360MotionManager.h', 'Sources/NYT360CameraPanGestureRecognizer.h'
+    s.public_header_files = 'Sources/include/NYT360Video.h', 'Sources/include/NYT360ViewController.h', 'Sources/include/NYT360DataTypes.h', 'Sources/include/NYT360MotionManagement.h', 'Sources/include/NYT360MotionManager.h', 'Sources/include/NYT360CameraPanGestureRecognizer.h'
 
     s.frameworks = 'UIKit', 'SceneKit', 'SpriteKit', 'AVFoundation', 'CoreMotion'
 end

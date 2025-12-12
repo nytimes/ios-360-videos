@@ -20,7 +20,7 @@ ObjectiveC.gc*
 \#*#
 .#*
 
-# automated build files
+# Automated build files
 *.app
 tmp
 xcodebuild.log
@@ -34,3 +34,13 @@ ocunit.xml
 *.xcbkptlist
 *.xcsettings
 *.xcscmblueprint
+
+# Swift Package Manager
+# The build directory for SPM
+.build/
+
+# Xcode support files for SPM (usually user-specific configuration)
+.swiftpm/
+
+# Packages directory (rare in modern SPM, but good for legacy support)
+Packages/
