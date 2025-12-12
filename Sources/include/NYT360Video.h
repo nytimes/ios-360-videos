@@ -16,8 +16,9 @@ FOUNDATION_EXPORT const unsigned char NYT360VideoVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <NYT360Video/PublicHeader.h>
 
-#import <NYT360Video/NYT360ViewController.h>
-#import <NYT360Video/NYT360DataTypes.h>
-#import <NYT360Video/NYT360MotionManagement.h>
-#import <NYT360Video/NYT360MotionManager.h>
-#import <NYT360Video/NYT360CameraPanGestureRecognizer.h>
+
+#import "NYT360ViewController.h"
+#import "NYT360DataTypes.h"
+#import "NYT360MotionManagement.h"
+#import "NYT360MotionManager.h"
+#import "NYT360CameraPanGestureRecognizer.h"
