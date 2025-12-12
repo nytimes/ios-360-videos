@@ -17,7 +17,7 @@ let package = Package(
         .target(
             name: "NYT360Video",
             path: "Sources",
-            publicHeadersPath: ".",
+            publicHeadersPath: "include",
             linkerSettings: [
                 .linkedFramework("UIKit"),
                 .linkedFramework("SceneKit"),
